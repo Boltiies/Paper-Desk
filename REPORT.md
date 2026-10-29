@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-29 23:22:00 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-29 23:32:30 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 735 calls this run
+Dev wallet watch (Helius): **on**, 786 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.55 | $74.91 |
+| Value now | $74.55 | $74.98 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,22 +24,22 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 9,598 · young coins waiting for a second look: 2,982
+Coins found: 10,010 · young coins waiting for a second look: 3,000
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 6,181 | 960 | 0 (0%) |
+| Volume too low | 6,569 | 1,202 | 0 (0%) |
 | No market yet | 214 | 0 | — |
-| Too many open trades | 47 | 14 | 0 (0%) |
-| Liquidity too low | 37 | 6 | 0 (0%) |
-| Already pumped this hour | 33 | 20 | 1 (5%) |
+| Too many open trades | 50 | 18 | 0 (0%) |
+| Liquidity too low | 38 | 9 | 0 (0%) |
+| Already pumped this hour | 33 | 21 | 1 (5%) |
 | Council score too low | 33 | 10 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Top 10 holders own too much | 16 | 12 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 10 | 4 | 0 (0%) |
 | Dev holds too much | 9 | 6 | 1 (17%) |
-| Danger flag: Creator history of rugged tokens | 9 | 4 | 0 (0%) |
-| No security report | 4 | 2 | 0 (0%) |
-| Liquidity not locked or burned | 3 | 0 | — |
+| No security report | 5 | 2 | 0 (0%) |
+| Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
 | Dev wallet already selling | 1 | 0 | — |
 
@@ -55,6 +55,6 @@ Coins found: 9,598 · young coins waiting for a second look: 2,982
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 28
-- mainnet.helius-rpc.com (rpc error): 101
-- api.rugcheck.xyz (ConnectionError): 4
+- lite-api.jup.ag (400): 30
+- mainnet.helius-rpc.com (rpc error): 121
+- api.rugcheck.xyz (ConnectionError): 5
