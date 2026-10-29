@@ -49,9 +49,10 @@ CFG = dict(
     followup_minutes=60, pumped_x=2.0, followup_cap=400,
 )
 SOL = "So11111111111111111111111111111111111111112"
-USDC = "EPjFWdd5AufqSSqLM2bmQ9wXDG7Bpq1yYZ9KTDj2PzTx"
+USDC = "EPjFWdd5AufqSSqLM2bmQ9wXDG7Bpq1yYZ9KTDj2Dt1v"
 DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 REPORT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "REPORT.md")
+RETRY_MIN = (3, 10, 30)   # minutes after first sight to look at a young coin again
 QUIET = {"No market yet", "Volume too low"}   # counted, not logged one by one
 UA = {"User-Agent": "kill-first-desk-paper/1.0", "Accept": "application/json"}
 
@@ -259,6 +260,7 @@ class Desk:
         self.w = {"council": Wallet("council", st.get("council")), "control": Wallet("control", st.get("control"))}
         self.seen = dict.fromkeys(st.get("seen", []))
         self.follow = st.get("follow", [])
+        self.retry = st.get("retry", [])   # young coins rechecked later: no market yet / volume still low
         self.stats = st.get("stats", {"found": 0, "kills": {}, "kills_pumped": {}, "kills_checked": {}, "scores": []})
         self.sol = None; self.sol_t = 0
         os.makedirs(DATA, exist_ok=True)
@@ -288,20 +290,35 @@ class Desk:
             for name, mint, meta in src:
                 if mint not in self.seen:
                     self.seen[mint] = None; cands.append((name, mint, meta))
-        if not cands: return
         self.stats["found"] += len(cands)
-        pairs = self.api.pairs([c[1] for c in cands])
-        for name, mint, meta in cands:
-            self.judge(name, mint, meta, pairs.get(mint))
+        jobs = [(n, m, meta, 0) for n, m, meta in cands]
+        due = [r for r in self.retry if r["due"] <= now()][:40]
+        if due:
+            ids = {id(r) for r in due}; self.retry = [r for r in self.retry if id(r) not in ids]
+            jobs += [(r["src"], r["mint"], r["meta"], r["n"]) for r in due]
+        if not jobs: return
+        pairs = self.api.pairs([j[1] for j in jobs])
+        for name, mint, meta, n in jobs:
+            self.attempt = n
+            r = self.judge(name, mint, meta, pairs.get(mint))
+            if r == "RETRY":
+                if n < len(RETRY_MIN) and len(self.retry) < 3000:
+                    small = {k: meta.get(k) for k in ("symbol", "twitter", "telegram", "website")} if isinstance(meta, dict) else {}
+                    self.retry.append(dict(src=name, mint=mint, meta=small, n=n + 1, due=now() + RETRY_MIN[n] * 60))
+                else:
+                    self.kill(mint, self.last_sym, self.last_reason, self.last_price)
 
     def judge(self, src, mint, meta, pair):
         sym = ((pair or {}).get("baseToken") or {}).get("symbol") or (meta.get("symbol") if isinstance(meta, dict) else None) or mint[:6]
         price = fnum((pair or {}).get("priceUsd"))
+        self.last_sym, self.last_price = sym, price
         if not pair:
-            return self.kill(mint, sym, "No market yet")
+            self.last_reason = "No market yet"; return "RETRY"
         vol = fnum((pair.get("volume") or {}).get("h24"), 0) or 0
         if vol < self.cfg["min_vol_usd"] * 0.25:    # cheap pre-filter before the slow security calls
-            return self.kill(mint, sym, "Volume too low", price, vol=round(vol))
+            self.last_reason = "Volume too low"; return "RETRY"
+        if vol < self.cfg["min_vol_usd"] and getattr(self, "attempt", 0) < len(RETRY_MIN):
+            self.last_reason = "Volume too low"; return "RETRY"   # young coin: look again before running security
         rep = self.api.rugcheck(mint)
         ok, why, facts = security(rep, pair, self.cfg)
         if not ok:
@@ -428,7 +445,7 @@ class Desk:
 
     def state(self):
         return dict(council=self.w["council"].dump(), control=self.w["control"].dump(),
-                    seen=list(self.seen)[-20000:], follow=self.follow, stats=self.stats, saved=iso())
+                    seen=list(self.seen)[-20000:], follow=self.follow, retry=self.retry, stats=self.stats, saved=iso())
 
 
 # ------------------------------------------------------------------ report
@@ -469,7 +486,7 @@ def write_report(desk, net):
     else:
         L += [f"Not enough trades yet. Need at least 30 closed trades in each wallet (now {sc.get('n',0)} and {sk.get('n',0)})."]
     st = desk.stats
-    L += ["", "## Funnel", "", f"Coins found: {st['found']:,}", "", "| Stopped because | Count | Checked 1h later | Pumped 2x+ |", "|---|---|---|---|"]
+    L += ["", "## Funnel", "", f"Coins found: {st['found']:,} · young coins waiting for a second look: {len(desk.retry):,}", "", "| Stopped because | Count | Checked 1h later | Pumped 2x+ |", "|---|---|---|---|"]
     for r, n in sorted(st["kills"].items(), key=lambda x: -x[1]):
         ch = st["kills_checked"].get(r, 0); pm = st["kills_pumped"].get(r, 0)
         L.append(f"| {r} | {n:,} | {ch:,} | {pm} ({100*pm/ch:.0f}%) |" if ch else f"| {r} | {n:,} | 0 | — |")

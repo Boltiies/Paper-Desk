@@ -35,6 +35,13 @@ there's nothing secret in here.
 - RugCheck: mint/freeze authority, holders, insiders, LP lock, risk flags
 - Jupiter: buy and sell quotes, used for the sell test and for realistic fills
   (includes exchange fees and price impact). Priority fee and Jito tip are added on top.
+  The free endpoint is used by default. If it ever stops working, add a free key from
+  Jupiter as a repository secret named `JUP_API_KEY`. Until then the bot falls back to
+  estimated fills and says so at the top of the report.
+
+Young coins with no market yet, or too little volume, get a second look after
+3, 10 and 30 minutes. `data/api-debug.txt` shows the first answer from each data
+source in the latest run.
 
 ## Rules
 
