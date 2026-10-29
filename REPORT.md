@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-29 20:58:34 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-29 21:09:01 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 113 calls this run
+Dev wallet watch (Helius): **on**, 157 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.78 | $75.73 |
+| Value now | $74.57 | $75.82 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 2 | 2 |
+| Open trades | 3 | 3 |
 | Closed trades | 3 | 3 |
 | Win rate | 33% | 33% |
 | Avg win | $0.82 | $0.80 |
@@ -24,21 +24,21 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 3 and 
 
 ## Funnel
 
-Coins found: 3,889 · young coins waiting for a second look: 2,283
+Coins found: 4,366 · young coins waiting for a second look: 2,525
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 1,309 | 81 | 0 (0%) |
+| Volume too low | 1,537 | 81 | 0 (0%) |
 | No market yet | 192 | 0 | — |
-| Already pumped this hour | 20 | 14 | 0 (0%) |
+| Already pumped this hour | 21 | 15 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
-| Council score too low | 15 | 2 | 0 (0%) |
-| Too many open trades | 14 | 4 | 0 (0%) |
-| Top 10 holders own too much | 13 | 8 | 0 (0%) |
+| Too many open trades | 16 | 6 | 0 (0%) |
+| Council score too low | 15 | 5 | 0 (0%) |
+| Top 10 holders own too much | 14 | 8 | 0 (0%) |
 | Liquidity too low | 7 | 2 | 0 (0%) |
-| Dev holds too much | 5 | 3 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 4 | 2 | 0 (0%) |
-| Sell test: tax or fees too high | 1 | 0 | — |
+| Dev holds too much | 6 | 4 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 5 | 2 | 0 (0%) |
+| Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
 | Dev wallet already selling | 1 | 0 | — |
 
 ## Recent council trades
@@ -51,5 +51,5 @@ Coins found: 3,889 · young coins waiting for a second look: 2,283
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 7
+- lite-api.jup.ag (400): 8
 - mainnet.helius-rpc.com (rpc error): 17
