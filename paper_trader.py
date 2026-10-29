@@ -63,6 +63,26 @@ def debug(msg):
     except Exception: pass
 def iso(ts=None): return datetime.fromtimestamp(ts or now(), timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 def day(ts=None): return datetime.fromtimestamp(ts or now(), timezone.utc).strftime("%Y-%m-%d")
+def live(kind, d):
+    """One readable line per event, for the live log on GitHub."""
+    t = d.get("t", iso())[11:19]; sym = str(d.get("sym") or "")[:12]
+    if kind == "buy":
+        line = f"{t}  BUY   {sym:<12} ${d.get('usd', 0):.2f}  [{d.get('wallet')}]  score {d.get('score')}  round trip {d.get('roundtrip_loss')}%"
+    elif kind == "exit":
+        line = f"{t}  SELL  {sym:<12} {'+' if d.get('pnl', 0) > 0 else ''}${d.get('pnl', 0):.2f}  [{d.get('wallet')}]  {d.get('why')}  after {d.get('held_min')} min"
+    elif kind == "partial":
+        line = f"{t}  PART  {sym:<12} ${d.get('usd', 0):.2f}  [{d.get('wallet')}]  {d.get('why')}"
+    elif kind == "kill":
+        extra = f"  score {d['score']}" if "score" in d else ""
+        line = f"{t}  skip  {sym:<12} {d.get('reason')}{extra}"
+    elif kind == "missed":
+        line = f"{t}  MISS  {str(d.get('mint',''))[:8]:<12} killed for '{d.get('reason')}' but went {d.get('x')}x"
+    else:
+        return
+    if d.get("reason") == "Too many open trades": return   # too noisy to show live
+    try: print(line, flush=True)
+    except Exception: pass
+
 def clip(x, a=0.0, b=1.0): return max(a, min(b, x))
 def fnum(x, d=None):
     try:
@@ -268,6 +288,7 @@ class Desk:
     # logging
     def log(self, kind, **kw):
         kw.update(t=iso(), kind=kind)
+        live(kind, kw)
         with open(os.path.join(DATA, f"log-{day()}.jsonl"), "a") as fh:
             fh.write(json.dumps(kw, separators=(",", ":")) + "\n")
 
@@ -540,12 +561,29 @@ class MockAPI:
     def jup_down(self): return False
 
 
+def push_results():
+    """Save the report and logs to the repo mid-run so REPORT.md stays fresh."""
+    import subprocess
+    sh = lambda *c: subprocess.run(c, cwd=os.path.dirname(os.path.abspath(__file__)), capture_output=True, text=True, timeout=120)
+    try:
+        sh("git", "add", "data", "REPORT.md")
+        if sh("git", "diff", "--cached", "--quiet").returncode == 0: return
+        sh("git", "commit", "-m", "Paper desk live update " + iso()[:16])
+        for _ in range(3):
+            if sh("git", "pull", "--rebase", "-X", "theirs").returncode == 0 and sh("git", "push").returncode == 0:
+                print(f"{iso()} report saved to GitHub", flush=True); return
+            sh("git", "rebase", "--abort"); time.sleep(5)
+        print(f"{iso()} could not save report mid-run (will retry)", flush=True)
+    except Exception as e:
+        print(f"{iso()} push error {e!r}", flush=True)
+
 # ------------------------------------------------------------------ main
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--minutes", type=float, default=345)
     ap.add_argument("--poll", type=float, default=30, help="seconds between passes")
     ap.add_argument("--mock", action="store_true")
+    ap.add_argument("--push-every", type=float, default=10, help="minutes between saving results to GitHub mid-run")
     a = ap.parse_args()
     global DATA, REPORT
     if a.mock:
@@ -559,7 +597,8 @@ def main():
     net = None if a.mock else Net()
     api = MockAPI() if a.mock else API(net)
     desk = Desk(api, CFG, state)
-    end = now() + a.minutes * 60; last_save = 0; passes = 0
+    end = now() + a.minutes * 60; last_save = 0; passes = 0; last_push = now()
+    on_gh = os.environ.get("GITHUB_ACTIONS") == "true" and not a.mock
     print(f"{iso()} paper desk starting, council ${desk.w['council'].equity():.2f}, control ${desk.w['control'].equity():.2f}", flush=True)
     while now() < end:
         t0 = now()
@@ -570,6 +609,8 @@ def main():
         passes += 1
         if now() - last_save > (5 if a.mock else 300):
             json.dump(desk.state(), open(sp, "w")); write_report(desk, net); last_save = now()
+            if on_gh and now() - last_push > a.push_every * 60:
+                push_results(); last_push = now()
             print(f"{iso()} pass {passes} found {desk.stats['found']} kills {json.dumps(desk.stats['kills'])} errors {json.dumps(net.errors if net else {})}", flush=True)
             print(f"{iso()} pass {passes} found {desk.stats['found']} council ${desk.w['council'].equity():.2f} "
                   f"({len(desk.w['council'].open)} open) control ${desk.w['control'].equity():.2f}", flush=True)
