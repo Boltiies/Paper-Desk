@@ -40,7 +40,7 @@ CFG = dict(
     min_score=70,
     # exits
     stop_pct=40.0, target_pct=150.0, sell_part=0.25, trail_pct=50.0,
-    dead_minutes=10,
+    dead_minutes=10, dev_watch_sec=60,
     # costs not in the Jupiter quote
     priority_fee_usd=0.05, jito_tip_usd=0.02,
     # control group
@@ -56,6 +56,8 @@ RETRY_MIN = (3, 10, 30)   # minutes after first sight to look at a young coin ag
 QUIET = {"No market yet", "Volume too low"}   # counted, not logged one by one
 UA = {"User-Agent": "kill-first-desk-paper/1.0", "Accept": "application/json"}
 
+import re
+def safe(url): return re.sub(r"(api-key=)[^&]+", r"\1***", url)
 def now(): return time.time()
 def debug(msg):
     try:
@@ -107,7 +109,7 @@ class Net:
             r = self.s.get(url, timeout=timeout, headers=headers)
             if (key, r.status_code) not in self.shown:   # show each endpoint's first answer once, for debugging
                 self.shown.add((key, r.status_code))
-                msg = f"[api] {r.status_code} {url[:90]} :: {r.text[:220]!r}"; print(msg, flush=True); debug(msg)
+                msg = f"[api] {r.status_code} {safe(url)[:90]} :: {r.text[:220]!r}"; print(msg, flush=True); debug(msg)
             if r.status_code == 429:
                 self.errors[host + " (rate limited)"] = self.errors.get(host + " (rate limited)", 0) + 1
                 time.sleep(5); return None
@@ -117,8 +119,56 @@ class Net:
         except Exception as e:
             k = f"{host} ({type(e).__name__})"
             if k not in self.shown:
-                self.shown.add(k); msg = f"[api] error {url[:90]} :: {e!r}"[:300]; print(msg, flush=True); debug(msg)
+                self.shown.add(k); msg = f"[api] error {safe(url)[:90]} :: {safe(repr(e))}"[:300]; print(msg, flush=True); debug(msg)
             self.errors[k] = self.errors.get(k, 0) + 1; return None
+
+
+    def post(self, url, body, gap=0.15, timeout=15):
+        host = url.split("/")[2]
+        wait = self.last.get(host, 0) + gap - now()
+        if wait > 0: time.sleep(wait)
+        self.last[host] = now()
+        tag = f"{host} {body.get('method')}"
+        try:
+            r = self.s.post(url, json=body, timeout=timeout)
+            if (tag, r.status_code) not in self.shown:
+                self.shown.add((tag, r.status_code))
+                msg = f"[api] {r.status_code} {tag} :: {r.text[:200]!r}"; print(msg, flush=True); debug(msg)
+            if not r.ok:
+                self.errors[f"{host} ({r.status_code})"] = self.errors.get(f"{host} ({r.status_code})", 0) + 1; return None
+            d = r.json()
+            if d.get("error"):
+                self.errors[f"{host} (rpc error)"] = self.errors.get(f"{host} (rpc error)", 0) + 1; return None
+            return d.get("result")
+        except Exception as e:
+            self.errors[f"{host} ({type(e).__name__})"] = self.errors.get(f"{host} ({type(e).__name__})", 0) + 1; return None
+
+
+class Helius:
+    """Watches the coin creator's wallet. Needs a free HELIUS_API_KEY."""
+    def __init__(self, net, key):
+        self.n = net; self.url = f"https://mainnet.helius-rpc.com/?api-key={key}"; self.calls = 0
+    def rpc(self, method, params):
+        self.calls += 1
+        return self.n.post(self.url, {"jsonrpc": "2.0", "id": 1, "method": method, "params": params})
+    def recent(self, wallet, limit=10):
+        return self.rpc("getSignaturesForAddress", [wallet, {"limit": limit}]) or []
+    def sold(self, wallet, mint, sig):
+        """True if this transaction lowered the wallet's balance of the coin."""
+        tx = self.rpc("getTransaction", [sig, {"maxSupportedTransactionVersion": 0, "encoding": "jsonParsed", "commitment": "confirmed"}])
+        meta = (tx or {}).get("meta") or {}
+        def bal(lst):
+            return sum(fnum(((b.get("uiTokenAmount") or {}).get("uiAmount")), 0) or 0
+                       for b in lst or [] if b.get("mint") == mint and b.get("owner") == wallet)
+        return bal(meta.get("postTokenBalances")) < bal(meta.get("preTokenBalances")) - 1e-9
+    def dev_sold_since(self, wallet, mint, since=0, max_tx=8):
+        """Look at the creator's latest transactions. Returns (sold?, newest blockTime seen)."""
+        sigs = self.recent(wallet, limit=max_tx)
+        newest = max([x.get("blockTime") or 0 for x in sigs] or [since])
+        for x in sigs:
+            if (x.get("blockTime") or 0) <= since or x.get("err"): continue
+            if self.sold(wallet, mint, x["signature"]): return True, newest
+        return False, newest
 
 
 class API:
@@ -240,9 +290,15 @@ def council(pair, rep, src):
     n_soc = len(socials) + len(sites) + sum(1 for k in ("twitter", "telegram", "website") if meta.get(k))
     so = [30, 55, 75, 90][min(3, n_soc)]
     holders = fnum((rep or {}).get("totalHolders"), 0) or 0
-    cm = 100 * clip(math.log10(max(holders, 1)) / 3)
+    born = fnum(pair.get("pairCreatedAt"))
+    age_min = max(1.0, (now() - born / 1000) / 60) if born else None
+    per_min = holders / age_min if age_min else None
+    size_score = clip(math.log10(max(holders, 1)) / 3)
+    growth_score = clip(math.log10(max(per_min * 10, 1)) / 2) if per_min is not None else size_score
+    cm = 100 * (0.5 * size_score + 0.5 * growth_score)
     score = round(0.5 * mo + 0.2 * so + 0.3 * cm)
-    return score, dict(momentum=round(mo), social=so, community=round(cm), holders=int(holders), buy_ratio=round(ratio, 2))
+    return score, dict(momentum=round(mo), social=so, community=round(cm), holders=int(holders), buy_ratio=round(ratio, 2),
+                       holders_per_min=round(per_min, 2) if per_min is not None else None)
 
 
 # ------------------------------------------------------------------ wallets
@@ -283,6 +339,7 @@ class Desk:
         self.retry = st.get("retry", [])   # young coins rechecked later: no market yet / volume still low
         self.stats = st.get("stats", {"found": 0, "kills": {}, "kills_pumped": {}, "kills_checked": {}, "scores": []})
         self.sol = None; self.sol_t = 0
+        self.helius = None
         os.makedirs(DATA, exist_ok=True)
 
     # logging
@@ -371,11 +428,19 @@ class Desk:
         facts.update(score=score, **parts)
         self.stats["scores"].append(score); self.stats["scores"] = self.stats["scores"][-5000:]
         took = False
+        ctrl = random.random() < self.cfg["control_prob"]
+        creator = (rep or {}).get("creator")
+        facts["creator"] = creator
+        if (score >= self.cfg["min_score"] or ctrl) and self.helius and creator:
+            sold, last = self.helius.dev_sold_since(creator, mint)
+            facts["dev_checked"] = last
+            if sold:
+                return self.kill(mint, sym, "Dev wallet already selling", price, **facts)
         if score >= self.cfg["min_score"]:
             took = self.buy("council", mint, sym, pair, facts, sol)
         else:
             self.kill(mint, sym, "Council score too low", price, **facts)
-        if random.random() < self.cfg["control_prob"]:
+        if ctrl:
             self.buy("control", mint, sym, pair, facts, sol)
         return took
 
@@ -399,6 +464,7 @@ class Desk:
         fees = self.cfg["priority_fee_usd"] + self.cfg["jito_tip_usd"]
         w.cash -= usd + fees
         w.open[mint] = dict(sym=sym, cost=usd, fees=fees, tokens=tokens, left=tokens, entry=price, peak=price, mode=mode,
+                            creator=facts.get("creator"), dev_checked=facts.get("dev_checked") or int(now()), dev_t=now(),
                             got=0.0, half=False, t=now(), last_seen=now(), score=facts.get("score"), facts=facts)
         self.log("buy", wallet=wname, mint=mint, sym=sym, usd=round(usd, 2), price=price, **facts)
         return True
@@ -433,6 +499,12 @@ class Desk:
         for wname, w in self.w.items():
             for mint in list(w.open):
                 p = w.open[mint]; pair = pairs.get(mint)
+                if self.helius and p.get("creator") and now() - p.get("dev_t", 0) >= self.cfg["dev_watch_sec"]:
+                    p["dev_t"] = now()
+                    sold, last = self.helius.dev_sold_since(p["creator"], mint, since=p.get("dev_checked") or 0, max_tx=5)
+                    p["dev_checked"] = max(p.get("dev_checked") or 0, last)
+                    if sold:
+                        self.sell(wname, mint, 1, "Dev wallet sold, got out", pair); continue
                 price = fnum((pair or {}).get("priceUsd"))
                 liq = fnum(((pair or {}).get("liquidity") or {}).get("usd"), 0) or 0
                 if price and (liq > 500 or (pair or {}).get("dexId") == "pumpfun"):
@@ -484,6 +556,7 @@ def write_report(desk, net):
     c, k = desk.w["council"], desk.w["control"]
     sc, sk = summarize(c.closed), summarize(k.closed)
     L = [f"# Kill-First Desk · paper trading", "", f"Updated {iso()} UTC. Paper only: no wallet, no real trades.", ""]
+    L += [f"Dev wallet watch (Helius): **{'on' if desk.helius else 'off'}**" + (f", {desk.helius.calls:,} calls this run" if desk.helius else ""), ""]
     if desk.api.jup_down():
         L += ["> Jupiter quotes are unavailable, so fills are **estimated** from pool depth plus the 1.25% exchange fee, "
               "and the honeypot sell test falls back to RugCheck's tax and transfer flags.", ""]
@@ -587,7 +660,7 @@ def main():
     a = ap.parse_args()
     global DATA, REPORT
     if a.mock:
-        CFG.update(followup_minutes=0.3, dead_minutes=0.1)
+        CFG.update(followup_minutes=0.3, dead_minutes=0.1, dev_watch_sec=0)
         DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mock-data")
         REPORT = os.path.join(DATA, "REPORT.md")
     os.makedirs(DATA, exist_ok=True)
@@ -597,6 +670,11 @@ def main():
     net = None if a.mock else Net()
     api = MockAPI() if a.mock else API(net)
     desk = Desk(api, CFG, state)
+    hk = os.environ.get("HELIUS_API_KEY")
+    if hk and not a.mock:
+        desk.helius = Helius(net, hk); print(f"{iso()} Helius on: dev wallet checks and dev-sell exits", flush=True)
+    else:
+        print(f"{iso()} Helius off: no HELIUS_API_KEY", flush=True)
     end = now() + a.minutes * 60; last_save = 0; passes = 0; last_push = now()
     on_gh = os.environ.get("GITHUB_ACTIONS") == "true" and not a.mock
     print(f"{iso()} paper desk starting, council ${desk.w['council'].equity():.2f}, control ${desk.w['control'].equity():.2f}", flush=True)

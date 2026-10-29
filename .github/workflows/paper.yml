@@ -34,6 +34,7 @@ jobs:
         timeout-minutes: 345
         env:
           JUP_API_KEY: ${{ secrets.JUP_API_KEY }}
+          HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
         run: python paper_trader.py --minutes ${{ github.event.inputs.minutes || '340' }}
       - name: Save results
         if: always()

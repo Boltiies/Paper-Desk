@@ -39,6 +39,10 @@ there's nothing secret in here.
   Jupiter as a repository secret named `JUP_API_KEY`. Until then the bot falls back to
   estimated fills and says so at the top of the report.
 
+- Helius (optional, free key as repository secret `HELIUS_API_KEY`): watches the coin
+  creator's wallet. Skips coins whose dev is already selling and sells a position
+  as soon as the dev sells. The key never appears in logs.
+
 Young coins with no market yet, or too little volume, get a second look after
 3, 10 and 30 minutes. `data/api-debug.txt` shows the first answer from each data
 source in the latest run.
