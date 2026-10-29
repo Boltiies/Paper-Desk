@@ -56,6 +56,10 @@ QUIET = {"No market yet", "Volume too low"}   # counted, not logged one by one
 UA = {"User-Agent": "kill-first-desk-paper/1.0", "Accept": "application/json"}
 
 def now(): return time.time()
+def debug(msg):
+    try:
+        with open(os.path.join(DATA, "api-debug.txt"), "a") as fh: fh.write(iso() + " " + msg + "\n")
+    except Exception: pass
 def iso(ts=None): return datetime.fromtimestamp(ts or now(), timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 def day(ts=None): return datetime.fromtimestamp(ts or now(), timezone.utc).strftime("%Y-%m-%d")
 def clip(x, a=0.0, b=1.0): return max(a, min(b, x))
@@ -72,17 +76,17 @@ class Net:
         import requests
         self.s = requests.Session(); self.s.headers.update(UA)
         self.last = {}; self.errors = {}; self.shown = set()
-    def get(self, url, gap=0.25, timeout=12):
+    def get(self, url, gap=0.25, timeout=12, headers=None):
         host = url.split("/")[2]
         wait = self.last.get(host, 0) + gap - now()
         if wait > 0: time.sleep(wait)
         self.last[host] = now()
         key = url.split("?")[0].rsplit("/", 1)[0]
         try:
-            r = self.s.get(url, timeout=timeout)
+            r = self.s.get(url, timeout=timeout, headers=headers)
             if (key, r.status_code) not in self.shown:   # show each endpoint's first answer once, for debugging
                 self.shown.add((key, r.status_code))
-                print(f"[api] {r.status_code} {url[:90]} :: {r.text[:220]!r}", flush=True)
+                msg = f"[api] {r.status_code} {url[:90]} :: {r.text[:220]!r}"; print(msg, flush=True); debug(msg)
             if r.status_code == 429:
                 self.errors[host + " (rate limited)"] = self.errors.get(host + " (rate limited)", 0) + 1
                 time.sleep(5); return None
@@ -92,7 +96,7 @@ class Net:
         except Exception as e:
             k = f"{host} ({type(e).__name__})"
             if k not in self.shown:
-                self.shown.add(k); print(f"[api] error {url[:90]} :: {e!r}"[:300], flush=True)
+                self.shown.add(k); msg = f"[api] error {url[:90]} :: {e!r}"[:300]; print(msg, flush=True); debug(msg)
             self.errors[k] = self.errors.get(k, 0) + 1; return None
 
 
@@ -125,15 +129,27 @@ class API:
         return res
     def rugcheck(self, mint):
         return self.n.get(f"https://api.rugcheck.xyz/v1/tokens/{mint}/report", gap=1.2, timeout=20)
+    jup_fails = 0
     def quote(self, in_mint, out_mint, amount):
         if amount <= 0: return None
-        d = self.n.get(f"https://lite-api.jup.ag/swap/v1/quote?inputMint={in_mint}&outputMint={out_mint}"
-                       f"&amount={int(amount)}&slippageBps=1500&restrictIntermediateTokens=true", gap=1.1)
-        if not d or "outAmount" not in d: return None
+        q = (f"/swap/v1/quote?inputMint={in_mint}&outputMint={out_mint}"
+             f"&amount={int(amount)}&slippageBps=1500&restrictIntermediateTokens=true")
+        key = os.environ.get("JUP_API_KEY")
+        d = self.n.get("https://api.jup.ag" + q, gap=1.1, headers={"x-api-key": key}) if key else None
+        if not d or "outAmount" not in d:
+            d = self.n.get("https://lite-api.jup.ag" + q, gap=1.1)
+        if not d or "outAmount" not in d:
+            self.jup_fails += 1; return None
+        self.jup_fails = 0
         return int(d["outAmount"])
+    def jup_down(self): return self.jup_fails >= 5
     def sol_usd(self):
-        out = self.quote(SOL, USDC, 10**9)
-        return out / 1e6 if out else None
+        out = None if self.jup_down() else self.quote(SOL, USDC, 10**9)
+        if out: return out / 1e6
+        d = self.n.get("https://api.dexscreener.com/tokens/v1/solana/" + SOL, gap=0.25) or []
+        best = max((p for p in d if (p.get("baseToken") or {}).get("address") == SOL), default=None,
+                   key=lambda p: fnum((p.get("liquidity") or {}).get("usd"), 0) or 0)
+        return fnum(best.get("priceUsd")) if best else None
 
 
 # ------------------------------------------------------------------ the workers
@@ -182,6 +198,14 @@ def security(rep, pair, cfg):
     if n_tx and vol_h1 / n_tx > cfg["max_avg_trade_usd"] and n_tx < 50: return False, "Few huge trades (fake volume?)", f
     return True, "", f
 
+
+def est_impact(usd, pair):
+    """Price impact estimate when no live quote: bet size against pool depth."""
+    liq = fnum((pair.get("liquidity") or {}).get("usd"), 0) or 0
+    if liq <= 0: liq = 0.25 * (fnum(pair.get("marketCap"), 0) or fnum(pair.get("fdv"), 0) or 0)
+    return 0.5 if liq <= 0 else min(0.5, usd / liq)
+
+EXCHANGE_FEE = 0.0125
 
 def council(pair, rep, src):
     """Deterministic score. Same coin, same data -> same score."""
@@ -286,12 +310,22 @@ class Desk:
         if not sol:
             return self.kill(mint, sym, "No SOL price")
         bet_usd = max(1.0, self.w["council"].equity() * self.cfg["bet_pct"] / 100)
-        lamports = int(bet_usd / sol * 1e9)
-        got = self.api.quote(SOL, mint, lamports)
-        back = self.api.quote(mint, SOL, got) if got else None
-        if not got or not back:
-            return self.kill(mint, sym, "Sell test failed (honeypot or no route)", price, **facts)
-        rt = 100 * (1 - back / lamports)
+        if self.api.jup_down():
+            # no live quotes: lean on RugCheck flags for taxes / honeypots and estimate the round trip
+            for r in rep.get("risks") or []:
+                nm = (str(r.get("name", "")) + " " + str(r.get("description", ""))).lower()
+                if any(w in nm for w in ("transfer fee", "tax", "honeypot", "non-transferable", "permanent delegate")):
+                    return self.kill(mint, sym, "Tax or transfer restriction flag", price, **facts)
+            rt = 100 * (2 * EXCHANGE_FEE + 2 * est_impact(bet_usd, pair))
+            facts["fills"] = "estimated"
+        else:
+            lamports = int(bet_usd / sol * 1e9)
+            got = self.api.quote(SOL, mint, lamports)
+            back = self.api.quote(mint, SOL, got) if got else None
+            if not got or not back:
+                return self.kill(mint, sym, "Sell test failed (honeypot or no route)", price, **facts)
+            rt = 100 * (1 - back / lamports)
+            facts["fills"] = "jupiter"
         facts["roundtrip_loss"] = round(rt, 1)
         if rt > self.cfg["max_roundtrip_loss"]:
             return self.kill(mint, sym, "Sell test: tax or fees too high", price, **facts)
@@ -315,22 +349,32 @@ class Desk:
             if wname == "council": self.kill(mint, sym, b, fnum(pair.get("priceUsd")), **facts)
             return False
         usd = min(w.cash, max(1.0, w.equity() * self.cfg["bet_pct"] / 100))
-        lamports = int(usd / sol * 1e9)
-        tokens = self.api.quote(SOL, mint, lamports)
-        if not tokens: return False
-        fees = self.cfg["priority_fee_usd"] + self.cfg["jito_tip_usd"]
         price = fnum(pair.get("priceUsd"), 0)
+        if facts.get("fills") == "estimated":
+            if not price: return False
+            tokens = usd * (1 - EXCHANGE_FEE - est_impact(usd, pair)) / price * 1e6   # paper units, 6 decimals
+            mode = "est"
+        else:
+            tokens = self.api.quote(SOL, mint, int(usd / sol * 1e9))
+            if not tokens: return False
+            mode = "jup"
+        fees = self.cfg["priority_fee_usd"] + self.cfg["jito_tip_usd"]
         w.cash -= usd + fees
-        w.open[mint] = dict(sym=sym, cost=usd, fees=fees, tokens=tokens, left=tokens, entry=price, peak=price,
+        w.open[mint] = dict(sym=sym, cost=usd, fees=fees, tokens=tokens, left=tokens, entry=price, peak=price, mode=mode,
                             got=0.0, half=False, t=now(), last_seen=now(), score=facts.get("score"), facts=facts)
         self.log("buy", wallet=wname, mint=mint, sym=sym, usd=round(usd, 2), price=price, **facts)
         return True
 
-    def sell(self, wname, mint, part, why):
+    def sell(self, wname, mint, part, why, pair=None):
         w = self.w[wname]; p = w.open[mint]; sol = self.sol_price() or 0
         amt = int(p["left"] * part) if part < 1 else p["left"]
-        out = self.api.quote(mint, SOL, amt)
-        usd = (out / 1e9 * sol) if out else 0.0
+        if p.get("mode") == "est" or self.api.jup_down():
+            price = fnum((pair or {}).get("priceUsd"), 0) or 0
+            gross = amt / 1e6 * price if p.get("mode") == "est" else amt / p["tokens"] * p["cost"] * (price / p["entry"] if p["entry"] else 0)
+            usd = gross * (1 - EXCHANGE_FEE - est_impact(gross, pair)) if pair and price else 0.0
+        else:
+            out = self.api.quote(mint, SOL, amt)
+            usd = (out / 1e9 * sol) if out else 0.0
         fees = self.cfg["priority_fee_usd"] + self.cfg["jito_tip_usd"]
         p["got"] += usd - fees; p["fees"] += fees; p["left"] -= amt; w.cash += usd - fees
         if p["left"] <= 0 or part >= 1:
@@ -356,18 +400,18 @@ class Desk:
                 if price and (liq > 500 or (pair or {}).get("dexId") == "pumpfun"):
                     p["last_seen"] = now()
                 elif now() - p["last_seen"] > c["dead_minutes"] * 60:
-                    self.sell(wname, mint, 1, "Coin died: no buyers"); continue
+                    self.sell(wname, mint, 1, "Coin died: no buyers", pair); continue
                 else:
                     continue
                 if not p["entry"]: p["entry"] = price
                 p["mark"] = price
                 x = price / p["entry"]; p["peak"] = max(p["peak"], price)
                 if not p["half"] and x <= 1 - c["stop_pct"] / 100:
-                    self.sell(wname, mint, 1, "Hard stop")
+                    self.sell(wname, mint, 1, "Hard stop", pair)
                 elif not p["half"] and x >= 1 + c["target_pct"] / 100:
-                    p["half"] = True; self.sell(wname, mint, c["sell_part"], f"Sold {int(c['sell_part']*100)}% at target")
+                    p["half"] = True; self.sell(wname, mint, c["sell_part"], f"Sold {int(c['sell_part']*100)}% at target", pair)
                 elif p["half"] and price <= p["peak"] * (1 - c["trail_pct"] / 100):
-                    self.sell(wname, mint, 1, "Trailing stop")
+                    self.sell(wname, mint, 1, "Trailing stop", pair)
 
     def followups(self):
         due = [f for f in self.follow if now() - f["t"] >= self.cfg["followup_minutes"] * 60][:60]
@@ -402,6 +446,9 @@ def write_report(desk, net):
     c, k = desk.w["council"], desk.w["control"]
     sc, sk = summarize(c.closed), summarize(k.closed)
     L = [f"# Kill-First Desk · paper trading", "", f"Updated {iso()} UTC. Paper only: no wallet, no real trades.", ""]
+    if desk.api.jup_down():
+        L += ["> Jupiter quotes are unavailable, so fills are **estimated** from pool depth plus the 1.25% exchange fee, "
+              "and the honeypot sell test falls back to RugCheck's tax and transfer flags.", ""]
     L += ["## Wallets", "", "| | Council picks | Random control |", "|---|---|---|"]
     L += [f"| Value now | ${c.value():.2f} | ${k.value():.2f} |",
           f"| Started with | ${c.start:.2f} | ${k.start:.2f} |",
@@ -473,6 +520,7 @@ class MockAPI:
         if not c or c["hp"] or not c["alive"]: return None
         return int(amt / 1e6 * c["price"] / 180 * 1e9 * 0.98)
     def sol_usd(self): return 180.0
+    def jup_down(self): return False
 
 
 # ------------------------------------------------------------------ main
@@ -488,6 +536,7 @@ def main():
         DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mock-data")
         REPORT = os.path.join(DATA, "REPORT.md")
     os.makedirs(DATA, exist_ok=True)
+    open(os.path.join(DATA, "api-debug.txt"), "w").close()
     sp = os.path.join(DATA, "state.json")
     state = json.load(open(sp)) if os.path.exists(sp) else None
     net = None if a.mock else Net()
