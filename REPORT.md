@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-29 22:39:30 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-29 22:50:04 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 555 calls this run
+Dev wallet watch (Helius): **on**, 600 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.58 | $75.07 |
+| Value now | $74.58 | $74.92 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,15 +24,15 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 8,105 · young coins waiting for a second look: 3,000
+Coins found: 8,475 · young coins waiting for a second look: 2,991
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 4,703 | 831 | 0 (0%) |
-| No market yet | 213 | 0 | — |
-| Too many open trades | 39 | 14 | 0 (0%) |
-| Already pumped this hour | 31 | 19 | 1 (5%) |
-| Council score too low | 27 | 9 | 0 (0%) |
+| Volume too low | 5,076 | 834 | 0 (0%) |
+| No market yet | 214 | 0 | — |
+| Too many open trades | 41 | 14 | 0 (0%) |
+| Already pumped this hour | 32 | 19 | 1 (5%) |
+| Council score too low | 29 | 10 | 0 (0%) |
 | Liquidity too low | 25 | 6 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Top 10 holders own too much | 16 | 11 | 0 (0%) |
@@ -55,6 +55,6 @@ Coins found: 8,105 · young coins waiting for a second look: 3,000
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 22
-- mainnet.helius-rpc.com (rpc error): 74
+- lite-api.jup.ag (400): 23
+- mainnet.helius-rpc.com (rpc error): 82
 - api.rugcheck.xyz (ConnectionError): 3
