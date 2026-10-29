@@ -71,21 +71,29 @@ class Net:
     def __init__(self):
         import requests
         self.s = requests.Session(); self.s.headers.update(UA)
-        self.last = {}; self.errors = {}
+        self.last = {}; self.errors = {}; self.shown = set()
     def get(self, url, gap=0.25, timeout=12):
         host = url.split("/")[2]
         wait = self.last.get(host, 0) + gap - now()
         if wait > 0: time.sleep(wait)
         self.last[host] = now()
+        key = url.split("?")[0].rsplit("/", 1)[0]
         try:
             r = self.s.get(url, timeout=timeout)
+            if (key, r.status_code) not in self.shown:   # show each endpoint's first answer once, for debugging
+                self.shown.add((key, r.status_code))
+                print(f"[api] {r.status_code} {url[:90]} :: {r.text[:220]!r}", flush=True)
             if r.status_code == 429:
+                self.errors[host + " (rate limited)"] = self.errors.get(host + " (rate limited)", 0) + 1
                 time.sleep(5); return None
             if not r.ok:
-                self.errors[host] = self.errors.get(host, 0) + 1; return None
+                self.errors[f"{host} ({r.status_code})"] = self.errors.get(f"{host} ({r.status_code})", 0) + 1; return None
             return r.json()
-        except Exception:
-            self.errors[host] = self.errors.get(host, 0) + 1; return None
+        except Exception as e:
+            k = f"{host} ({type(e).__name__})"
+            if k not in self.shown:
+                self.shown.add(k); print(f"[api] error {url[:90]} :: {e!r}"[:300], flush=True)
+            self.errors[k] = self.errors.get(k, 0) + 1; return None
 
 
 class API:
@@ -496,6 +504,7 @@ def main():
         passes += 1
         if now() - last_save > (5 if a.mock else 300):
             json.dump(desk.state(), open(sp, "w")); write_report(desk, net); last_save = now()
+            print(f"{iso()} pass {passes} found {desk.stats['found']} kills {json.dumps(desk.stats['kills'])} errors {json.dumps(net.errors if net else {})}", flush=True)
             print(f"{iso()} pass {passes} found {desk.stats['found']} council ${desk.w['council'].equity():.2f} "
                   f"({len(desk.w['council'].open)} open) control ${desk.w['control'].equity():.2f}", flush=True)
         time.sleep(max(0, a.poll - (now() - t0)))
