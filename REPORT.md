@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-29 22:07:31 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-29 22:18:10 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 377 calls this run
+Dev wallet watch (Helius): **on**, 449 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.60 | $75.07 |
+| Value now | $74.58 | $74.99 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,22 +24,22 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 6,767 · young coins waiting for a second look: 3,000
+Coins found: 7,179 · young coins waiting for a second look: 3,000
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 3,416 | 467 | 0 (0%) |
+| Volume too low | 3,813 | 494 | 0 (0%) |
 | No market yet | 192 | 0 | — |
-| Too many open trades | 28 | 9 | 0 (0%) |
-| Already pumped this hour | 26 | 18 | 1 (6%) |
-| Council score too low | 24 | 9 | 0 (0%) |
+| Too many open trades | 33 | 10 | 0 (0%) |
+| Already pumped this hour | 28 | 18 | 1 (6%) |
+| Council score too low | 26 | 9 | 0 (0%) |
+| Liquidity too low | 22 | 3 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
-| Liquidity too low | 17 | 3 | 0 (0%) |
 | Top 10 holders own too much | 15 | 10 | 0 (0%) |
 | Dev holds too much | 9 | 4 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 6 | 3 | 0 (0%) |
+| No security report | 3 | 1 | 0 (0%) |
 | Liquidity not locked or burned | 2 | 0 | — |
-| No security report | 2 | 0 | — |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
 | Dev wallet already selling | 1 | 0 | — |
 
@@ -55,6 +55,6 @@ Coins found: 6,767 · young coins waiting for a second look: 3,000
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 17
-- mainnet.helius-rpc.com (rpc error): 43
-- api.rugcheck.xyz (ConnectionError): 2
+- lite-api.jup.ag (400): 19
+- mainnet.helius-rpc.com (rpc error): 63
+- api.rugcheck.xyz (ConnectionError): 3
