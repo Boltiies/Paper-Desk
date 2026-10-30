@@ -1,39 +1,39 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 21:34:10 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 21:44:42 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,712 calls this run
+Dev wallet watch (Helius): **on**, 1,794 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $63.41 | $68.63 |
+| Value now | $62.00 | $68.77 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 3 | 3 |
-| Closed trades | 38 | 20 |
-| Win rate | 11% | 5% |
+| Open trades | 3 | 4 |
+| Closed trades | 39 | 20 |
+| Win rate | 10% | 5% |
 | Avg win | $1.26 | $0.80 |
-| Avg loss | $-0.56 | $-0.46 |
-| Expectancy per trade | $-0.370 | $-0.392 |
-| Return per $ bet | -26.3% | -26.8% |
+| Avg loss | $-0.55 | $-0.46 |
+| Expectancy per trade | $-0.366 | $-0.392 |
+| Return per $ bet | -26.1% | -26.8% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 38 and 20).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 39 and 20).
 
 ## Funnel
 
-Coins found: 41,560 · young coins waiting for a second look: 3,000
+Coins found: 41,887 · young coins waiting for a second look: 2,998
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 37,303 | 8,860 | 2 (0%) |
+| Volume too low | 37,628 | 8,954 | 2 (0%) |
 | No market yet | 246 | 0 | — |
-| Liquidity too low | 213 | 70 | 0 (0%) |
+| Liquidity too low | 214 | 71 | 0 (0%) |
 | Too many open trades | 208 | 73 | 0 (0%) |
-| Already pumped this hour | 159 | 59 | 2 (3%) |
-| Council score too low | 106 | 41 | 2 (5%) |
+| Already pumped this hour | 160 | 61 | 2 (3%) |
+| Council score too low | 107 | 42 | 2 (5%) |
 | Danger flag: Creator history of rugged tokens | 86 | 27 | 0 (0%) |
 | Top 10 holders own too much | 72 | 38 | 1 (3%) |
 | Dev holds too much | 37 | 16 | 1 (6%) |
@@ -48,6 +48,7 @@ Coins found: 41,560 · young coins waiting for a second look: 3,000
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 10-30 21:44 | FUNBUCKS | 78 | Coin died: no buyers | $-0.20 |
 | 10-30 21:27 | Kreo | 70 | Coin died: no buyers | $-0.09 |
 | 10-30 21:25 | PUSD | 72 | Coin died: no buyers | $-0.19 |
 | 10-30 21:21 | :) | 77 | Coin died: no buyers | $-0.18 |
@@ -62,7 +63,6 @@ Coins found: 41,560 · young coins waiting for a second look: 3,000
 | 10-30 20:11 | cezee | 72 | Coin died: no buyers | $-0.19 |
 | 10-30 19:01 | KoreanFlare | 72 | Coin died: no buyers | $-0.58 |
 | 10-30 18:57 | GOTUS | 78 | Coin died: no buyers | $-0.18 |
-| 10-30 18:52 | TIMOTHY | 78 | Coin died: no buyers | $-0.30 |
 
 ## Data source errors this run
 
