@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 15:26:25 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 15:36:56 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,303 calls this run
+Dev wallet watch (Helius): **on**, 1,381 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $66.34 | $72.00 |
+| Value now | $65.94 | $71.91 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 3 |
 | Closed trades | 18 | 10 |
@@ -24,20 +24,20 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 18 and
 
 ## Funnel
 
-Coins found: 28,896 · young coins waiting for a second look: 1,581
+Coins found: 29,203 · young coins waiting for a second look: 1,564
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 26,386 | 6,660 | 1 (0%) |
+| Volume too low | 26,700 | 6,660 | 1 (0%) |
 | No market yet | 220 | 0 | — |
-| Liquidity too low | 146 | 45 | 0 (0%) |
-| Too many open trades | 146 | 48 | 0 (0%) |
-| Already pumped this hour | 124 | 53 | 2 (4%) |
+| Liquidity too low | 148 | 45 | 0 (0%) |
+| Too many open trades | 147 | 48 | 0 (0%) |
+| Already pumped this hour | 126 | 53 | 2 (4%) |
 | Council score too low | 70 | 27 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 52 | 17 | 0 (0%) |
-| Top 10 holders own too much | 46 | 25 | 1 (4%) |
+| Danger flag: Creator history of rugged tokens | 55 | 17 | 0 (0%) |
+| Top 10 holders own too much | 47 | 25 | 1 (4%) |
 | Dev holds too much | 34 | 13 | 1 (8%) |
-| No security report | 25 | 11 | 0 (0%) |
+| No security report | 26 | 11 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Dev wallet already selling | 17 | 4 | 0 (0%) |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
@@ -68,4 +68,5 @@ Coins found: 28,896 · young coins waiting for a second look: 1,581
 
 - lite-api.jup.ag (rate limited): 1
 - mainnet.helius-rpc.com (502): 1
-- api.rugcheck.xyz (ConnectionError): 7
+- api.rugcheck.xyz (ConnectionError): 8
+- frontend-api-v3.pump.fun (ConnectionError): 1
