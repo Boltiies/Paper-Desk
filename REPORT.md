@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 17:44:54 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 17:55:20 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 2,563 calls this run
+Dev wallet watch (Helius): **on**, 2,654 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $64.43 | $70.18 |
+| Value now | $63.80 | $70.14 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 5 | 4 |
+| Open trades | 5 | 5 |
 | Closed trades | 23 | 14 |
 | Win rate | 13% | 7% |
 | Avg win | $0.56 | $0.80 |
@@ -24,18 +24,18 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 23 and
 
 ## Funnel
 
-Coins found: 33,979 · young coins waiting for a second look: 3,000
+Coins found: 34,357 · young coins waiting for a second look: 3,000
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 29,910 | 7,448 | 2 (0%) |
+| Volume too low | 30,279 | 7,545 | 2 (0%) |
 | No market yet | 227 | 0 | — |
-| Too many open trades | 175 | 57 | 0 (0%) |
-| Liquidity too low | 171 | 52 | 0 (0%) |
-| Already pumped this hour | 139 | 54 | 2 (4%) |
-| Council score too low | 80 | 30 | 2 (7%) |
-| Danger flag: Creator history of rugged tokens | 74 | 20 | 0 (0%) |
-| Top 10 holders own too much | 64 | 25 | 1 (4%) |
+| Too many open trades | 177 | 57 | 0 (0%) |
+| Liquidity too low | 173 | 52 | 0 (0%) |
+| Already pumped this hour | 140 | 54 | 2 (4%) |
+| Council score too low | 81 | 30 | 2 (7%) |
+| Danger flag: Creator history of rugged tokens | 74 | 23 | 0 (0%) |
+| Top 10 holders own too much | 67 | 25 | 1 (4%) |
 | Dev holds too much | 36 | 14 | 1 (7%) |
 | No security report | 28 | 14 | 0 (0%) |
 | Dev wallet already selling | 21 | 5 | 0 (0%) |
