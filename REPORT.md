@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 07:36:09 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 07:46:58 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,151 calls this run
+Dev wallet watch (Helius): **on**, 44 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.56 | $74.95 |
+| Value now | $74.56 | $74.86 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,24 +24,25 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 19,432 · young coins waiting for a second look: 792
+Coins found: 18,870 · young coins waiting for a second look: 1,088
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 17,938 | 3,936 | 1 (0%) |
+| Volume too low | 17,098 | 3,936 | 1 (0%) |
 | No market yet | 218 | 0 | — |
-| Too many open trades | 105 | 36 | 0 (0%) |
-| Liquidity too low | 104 | 26 | 0 (0%) |
-| Already pumped this hour | 81 | 37 | 1 (3%) |
-| Council score too low | 58 | 22 | 0 (0%) |
-| Top 10 holders own too much | 34 | 20 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 30 | 9 | 0 (0%) |
+| Too many open trades | 103 | 36 | 0 (0%) |
+| Liquidity too low | 99 | 26 | 0 (0%) |
+| Already pumped this hour | 76 | 37 | 1 (3%) |
+| Council score too low | 57 | 22 | 0 (0%) |
+| Top 10 holders own too much | 33 | 20 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 29 | 9 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
-| Dev holds too much | 18 | 10 | 1 (10%) |
+| Dev holds too much | 15 | 10 | 1 (10%) |
 | No security report | 12 | 7 | 0 (0%) |
-| Dev wallet already selling | 10 | 0 | — |
+| Dev wallet already selling | 9 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
+| Sell test failed (honeypot or no route) | 1 | 0 | — |
 
 ## Recent council trades
 
@@ -55,6 +56,5 @@ Coins found: 19,432 · young coins waiting for a second look: 792
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 34
-- mainnet.helius-rpc.com (rpc error): 117
-- api.rugcheck.xyz (ConnectionError): 7
+- mainnet.helius-rpc.com (rpc error -32015): 3
+- lite-api.jup.ag (rate limited): 1
