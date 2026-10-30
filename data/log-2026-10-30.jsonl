@@ -214,3 +214,10 @@
 {"mint":"3yRD5rsbikyJoVGjCp11H6ZnYRySEMXqdfnvGvJSperp","sym":"perpetual","reason":"Liquidity too low","dev":0,"insiders":0,"top10":7.8,"lp_locked":100,"liq":2778,"vol":43263,"h1":-94,"tx_h1":1482,"t":"2026-10-30 06:41:42","kind":"kill"}
 {"mint":"H1unvm4JYjxfXvcKzvVVrYg3SGF1AaK8ZxfAEmpJxS6U","sym":"Hypermine","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":19.4,"liq":0,"vol":68086,"h1":331,"tx_h1":2009,"t":"2026-10-30 06:44:11","kind":"kill"}
 {"mint":"Ddwf94wedgCuMHAkwgti8A7sL2CxvBYJStJBj2cFpump","sym":"ZERO","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":28.5,"liq":0,"vol":57551,"h1":560,"tx_h1":1593,"t":"2026-10-30 06:44:13","kind":"kill"}
+{"mint":"BRpJM5C8FjPFPAUiJqh8uUQ2GHM1VB5otAFtLfB9pump","sym":"Job","reason":"Danger flag: Creator history of rugged tokens","dev":0.1,"insiders":0,"top10":0.2,"t":"2026-10-30 06:45:41","kind":"kill"}
+{"mint":"6L5G6SgJbCxsxWaZMY3mSHWZYbnd9AAVHFacZbYtpump","sym":"BSVtony","reason":"Danger flag: Creator history of rugged tokens","dev":0,"insiders":0,"top10":10.2,"t":"2026-10-30 06:47:42","kind":"kill"}
+{"mint":"8k1CRo5QRJSonsobPiTiCA6R6ChBzcFm3bqmPFXpump","sym":"Grok","reason":"Liquidity too low","dev":0,"insiders":0,"top10":1.0,"lp_locked":100,"liq":1857,"vol":60477,"h1":-96,"tx_h1":18699,"t":"2026-10-30 06:49:11","kind":"kill"}
+{"mint":"ETg4VKR6b9t42GCAwst293W6vkgehhjfTcSJGGUZpump","sym":"Job","reason":"Danger flag: Creator history of rugged tokens","dev":0.2,"insiders":0,"top10":0.3,"t":"2026-10-30 06:51:41","kind":"kill"}
+{"mint":"Hox1Kc7dzUuy84FCR8hCwZrnCj8UrcpoZkDntd1opump","sym":"XTO","reason":"Dev holds too much","dev":79.3,"insiders":0,"top10":99.1,"t":"2026-10-30 06:53:41","kind":"kill"}
+{"mint":"PbUrSxnDyATmLhyhGKSx4xcL6aLd5WffnRwjd92pump","sym":"TESLA SI","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1796,"vol":21292,"h1":0,"tx_h1":0,"t":"2026-10-30 06:54:11","kind":"kill"}
+{"mint":"EBif2XUqDsJChtCn8drwLv3pg7fBPbmAHbBCP8ecWHs7","sym":"ACT H:","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":21.6,"liq":0,"vol":45492,"h1":307,"tx_h1":1543,"t":"2026-10-30 06:54:12","kind":"kill"}
