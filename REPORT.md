@@ -1,45 +1,45 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 13:50:52 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 14:01:22 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 494 calls this run
+Dev wallet watch (Helius): **on**, 573 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $72.59 | $73.26 |
+| Value now | $70.96 | $72.77 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 3 |
-| Closed trades | 11 | 7 |
-| Win rate | 18% | 14% |
+| Closed trades | 12 | 7 |
+| Win rate | 17% | 14% |
 | Avg win | $0.77 | $0.80 |
-| Avg loss | $-0.77 | $-0.68 |
-| Expectancy per trade | $-0.493 | $-0.469 |
-| Return per $ bet | -32.5% | -30.7% |
+| Avg loss | $-0.72 | $-0.68 |
+| Expectancy per trade | $-0.470 | $-0.469 |
+| Return per $ bet | -31.0% | -30.7% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 11 and 7).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 12 and 7).
 
 ## Funnel
 
-Coins found: 26,050 · young coins waiting for a second look: 1,022
+Coins found: 26,333 · young coins waiting for a second look: 1,049
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 24,170 | 6,027 | 1 (0%) |
+| Volume too low | 24,418 | 6,144 | 1 (0%) |
 | No market yet | 219 | 0 | — |
+| Liquidity too low | 137 | 38 | 0 (0%) |
 | Too many open trades | 137 | 45 | 0 (0%) |
-| Liquidity too low | 134 | 37 | 0 (0%) |
-| Already pumped this hour | 112 | 46 | 2 (4%) |
+| Already pumped this hour | 114 | 47 | 2 (4%) |
 | Council score too low | 68 | 25 | 0 (0%) |
-| Top 10 holders own too much | 44 | 24 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 42 | 15 | 0 (0%) |
-| Dev holds too much | 26 | 11 | 1 (9%) |
+| Top 10 holders own too much | 44 | 25 | 1 (4%) |
+| Danger flag: Creator history of rugged tokens | 44 | 15 | 0 (0%) |
+| Dev holds too much | 26 | 12 | 1 (8%) |
 | No SOL price | 20 | 0 | — |
 | No security report | 20 | 10 | 0 (0%) |
-| Dev wallet already selling | 14 | 1 | 0 (0%) |
+| Dev wallet already selling | 14 | 2 | 0 (0%) |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 2 | 0 | — |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
@@ -48,6 +48,7 @@ Coins found: 26,050 · young coins waiting for a second look: 1,022
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 10-30 13:52 | Gruffalo | 76 | Coin died: no buyers | $-0.22 |
 | 10-30 12:57 | Jesus | 82 | Hard stop | $-1.01 |
 | 10-30 12:54 | BlindInu | 78 | Hard stop | $-0.75 |
 | 10-30 12:42 | Solcoin | 78 | Hard stop | $-1.01 |
