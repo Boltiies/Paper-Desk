@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 01:09:30 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 01:20:00 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,106 calls this run
+Dev wallet watch (Helius): **on**, 1,157 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.52 | $74.82 |
+| Value now | $74.52 | $74.97 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,21 +24,21 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 12,507 · young coins waiting for a second look: 2,931
+Coins found: 12,704 · young coins waiting for a second look: 2,817
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 9,091 | 1,625 | 0 (0%) |
+| Volume too low | 9,393 | 1,640 | 0 (0%) |
 | No market yet | 216 | 0 | — |
-| Too many open trades | 62 | 24 | 0 (0%) |
-| Liquidity too low | 46 | 11 | 0 (0%) |
-| Council score too low | 39 | 14 | 0 (0%) |
-| Already pumped this hour | 38 | 22 | 1 (5%) |
+| Too many open trades | 66 | 25 | 0 (0%) |
+| Liquidity too low | 46 | 12 | 0 (0%) |
+| Already pumped this hour | 40 | 22 | 1 (5%) |
+| Council score too low | 40 | 14 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
-| Top 10 holders own too much | 16 | 12 | 0 (0%) |
+| Top 10 holders own too much | 17 | 12 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 15 | 5 | 0 (0%) |
-| Dev holds too much | 11 | 6 | 1 (17%) |
-| No security report | 6 | 3 | 0 (0%) |
+| Dev holds too much | 11 | 7 | 1 (14%) |
+| No security report | 7 | 3 | 0 (0%) |
 | Dev wallet already selling | 4 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
@@ -55,6 +55,6 @@ Coins found: 12,507 · young coins waiting for a second look: 2,931
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 39
-- mainnet.helius-rpc.com (rpc error): 145
-- api.rugcheck.xyz (ConnectionError): 6
+- lite-api.jup.ag (400): 41
+- mainnet.helius-rpc.com (rpc error): 155
+- api.rugcheck.xyz (ConnectionError): 7
