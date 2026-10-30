@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 11:36:25 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 11:51:55 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 746 calls this run
+Dev wallet watch (Helius): **on**, 791 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.55 | $74.98 |
+| Value now | $74.55 | $75.03 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,22 +24,22 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 23,387 · young coins waiting for a second look: 735
+Coins found: 23,605 · young coins waiting for a second look: 677
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 21,867 | 5,112 | 1 (0%) |
+| Volume too low | 22,137 | 5,359 | 1 (0%) |
 | No market yet | 219 | 0 | — |
-| Too many open trades | 132 | 43 | 0 (0%) |
-| Liquidity too low | 115 | 31 | 0 (0%) |
-| Already pumped this hour | 94 | 39 | 1 (3%) |
-| Council score too low | 63 | 23 | 0 (0%) |
+| Too many open trades | 133 | 44 | 0 (0%) |
+| Liquidity too low | 115 | 32 | 0 (0%) |
+| Already pumped this hour | 97 | 40 | 1 (2%) |
+| Council score too low | 64 | 23 | 0 (0%) |
 | Top 10 holders own too much | 42 | 22 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 40 | 15 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Dev holds too much | 18 | 10 | 1 (10%) |
-| No security report | 18 | 8 | 0 (0%) |
-| Dev wallet already selling | 11 | 0 | — |
+| No security report | 18 | 9 | 0 (0%) |
+| Dev wallet already selling | 12 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 1 | 0 | — |
@@ -56,7 +56,7 @@ Coins found: 23,387 · young coins waiting for a second look: 735
 
 ## Data source errors this run
 
-- mainnet.helius-rpc.com (rpc error -32015): 54
+- mainnet.helius-rpc.com (rpc error -32015): 60
 - lite-api.jup.ag (rate limited): 1
 - api.rugcheck.xyz (ConnectionError): 6
 - frontend-api-v3.pump.fun (ConnectionError): 1
