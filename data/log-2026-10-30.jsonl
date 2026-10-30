@@ -156,3 +156,13 @@
 {"mint":"EVSYDMt9mMk91DjQp3gdEzg73Yuvrb8wqXnTNs79pump","sym":"SIC","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":2942,"vol":20201,"h1":4,"tx_h1":1,"t":"2026-10-30 05:03:12","kind":"kill"}
 {"mint":"HKgPvmVzFbfskMajYFoTZMUBxUwqDa4v16zrv2fpump","sym":"USDF","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":9.8,"lp_locked":100,"liq":303224,"vol":145314,"h1":33503,"tx_h1":1873,"t":"2026-10-30 05:07:13","kind":"kill"}
 {"mint":"HMgqmxq8mwCyNvPD8otUBgYN2Qk6zcsX2zPYhdMLpump","sym":"SI","reason":"No security report","t":"2026-10-30 05:08:11","kind":"kill"}
+{"mint":"fL3strhHzs1V3JSBom6TV3wFDionzXwbJeVqWKfpump","sym":"X\u200aT\u200aO","reason":"Dev holds too much","dev":79.3,"insiders":0,"top10":99.8,"t":"2026-10-30 05:09:11","kind":"kill"}
+{"mint":"yHdVpdAq1VkCSmDwZ7JTX2uriUxoJKtJLYfQyhwpump","sym":"FOMO","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1783,"vol":32803,"h1":0,"tx_h1":0,"t":"2026-10-30 05:09:15","kind":"kill"}
+{"mint":"3XPP1njjy7y5LYQGbddg5FVMYjJt5C2Hb7goB7rHpump","sym":"Privacy","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":28.3,"liq":0,"vol":75342,"h1":305,"tx_h1":2103,"t":"2026-10-30 05:09:46","kind":"kill"}
+{"mint":"5W626epqJVLbLCCqgXRt78BQuz6mpzKC9X4Mh9Kwpump","sym":"Supertoken","reason":"No security report","t":"2026-10-30 05:10:41","kind":"kill"}
+{"mint":"F6Q8hZ1NqQPsfLAUkMRxPSHvz9qUE7ZrVzJA7uXypump","sym":"Fox","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":53.2,"t":"2026-10-30 05:10:45","kind":"kill"}
+{"mint":"Apd2KsSKwXg91tGVnRCNp8R4SSSXT1ApL33ksNadpump","sym":"UODF","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":0.5,"lp_locked":100,"liq":990496,"vol":490307,"h1":354447,"tx_h1":4197,"t":"2026-10-30 05:13:11","kind":"kill"}
+{"mint":"UZAn4b5UskJCf3hc3PwTSw6nt87NQbXXmF5wnB1pump","sym":"DOTF","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":9.7,"lp_locked":100,"liq":303426,"vol":145310,"h1":33449,"tx_h1":1898,"t":"2026-10-30 05:15:41","kind":"kill"}
+{"mint":"APRCBBws3HLRmuxQAd4DKf3ckazEaiJHiE1o3ZHSpump","sym":"MOOF","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":39.2,"t":"2026-10-30 05:16:41","kind":"kill"}
+{"mint":"gy92RZZzsh48Ycy36SdLseXDfn2mU19CymHPCSKpump","sym":"YouTube","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.3,"lp_locked":100,"liq":1779,"vol":23061,"h1":0,"tx_h1":0,"t":"2026-10-30 05:17:11","kind":"kill"}
+{"mint":"iKNGZbAUF4iLeGznbAkVUQs5G6CgcDdRUuquWSCpump","sym":"AODF","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":9.7,"lp_locked":100,"liq":304086,"vol":145228,"h1":33611,"tx_h1":1884,"t":"2026-10-30 05:19:11","kind":"kill"}
