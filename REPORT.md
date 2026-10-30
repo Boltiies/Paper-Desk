@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 00:05:00 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 00:16:02 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 915 calls this run
+Dev wallet watch (Helius): **on**, 953 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.54 | $74.95 |
+| Value now | $74.53 | $74.81 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,22 +24,22 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 10,893 · young coins waiting for a second look: 3,000
+Coins found: 11,196 · young coins waiting for a second look: 3,000
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 7,433 | 1,236 | 0 (0%) |
+| Volume too low | 7,731 | 1,236 | 0 (0%) |
 | No market yet | 214 | 0 | — |
-| Too many open trades | 56 | 20 | 0 (0%) |
-| Liquidity too low | 43 | 9 | 0 (0%) |
-| Already pumped this hour | 35 | 21 | 1 (5%) |
+| Too many open trades | 57 | 20 | 0 (0%) |
+| Liquidity too low | 44 | 9 | 0 (0%) |
+| Already pumped this hour | 36 | 21 | 1 (5%) |
 | Council score too low | 35 | 12 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Top 10 holders own too much | 16 | 12 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 12 | 4 | 0 (0%) |
-| Dev holds too much | 9 | 6 | 1 (17%) |
+| Dev holds too much | 10 | 6 | 1 (17%) |
 | No security report | 5 | 2 | 0 (0%) |
-| Dev wallet already selling | 3 | 0 | — |
+| Dev wallet already selling | 4 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
 
@@ -55,6 +55,6 @@ Coins found: 10,893 · young coins waiting for a second look: 3,000
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 33
-- mainnet.helius-rpc.com (rpc error): 138
+- lite-api.jup.ag (400): 35
+- mainnet.helius-rpc.com (rpc error): 145
 - api.rugcheck.xyz (ConnectionError): 5
