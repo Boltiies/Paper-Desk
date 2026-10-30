@@ -37,7 +37,7 @@ CFG = dict(
     max_roundtrip_loss=15.0,  # % lost buying then instantly selling (tax + fees + impact)
     max_avg_trade_usd=2_000,  # few huge trades = likely fake volume
     # council
-    min_score=70,
+    min_score=70, min_tx_m5=15,
     # exits
     stop_pct=40.0, target_pct=150.0, sell_part=0.25, trail_pct=50.0,
     dead_minutes=10, dev_watch_sec=60, min_tx_h1=5,   # fewer trades than this in the last hour = dead coin
@@ -52,6 +52,7 @@ SOL = "So11111111111111111111111111111111111111112"
 USDC = "EPjFWdd5AufqSSqLM2bmQ9wXDG7Bpq1yYZ9KTDj2Dt1v"
 DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 REPORT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "REPORT.md")
+LAB_SNAPS = (5, 15, 30, 60, 120, 240)   # minutes after first check when the lab records each coin's price
 RETRY_MIN = (3, 10, 30)   # minutes after first sight to look at a young coin again
 QUIET = {"No market yet", "Volume too low"}   # counted, not logged one by one
 UA = {"User-Agent": "kill-first-desk-paper/1.0", "Accept": "application/json"}
@@ -282,8 +283,46 @@ def est_impact(usd, pair):
 
 EXCHANGE_FEE = 0.0125
 
+def features(pair, rep, meta=None):
+    """Everything we know about a coin at decision time, logged so the lab can learn from it."""
+    tx = pair.get("txns") or {}; vol = pair.get("volume") or {}; ch = pair.get("priceChange") or {}
+    def bs(w):
+        t = tx.get(w) or {}; return (t.get("buys") or 0), (t.get("sells") or 0)
+    b5, s5 = bs("m5"); b1, s1 = bs("h1"); b6, s6 = bs("h6")
+    born = fnum(pair.get("pairCreatedAt"))
+    age = (now() - born / 1000) / 60 if born else None
+    holders = fnum((rep or {}).get("totalHolders"), 0) or 0
+    info = pair.get("info") or {}; m = meta if isinstance(meta, dict) else {}
+    return dict(
+        tx_m5=b5 + s5, ratio_m5=round(b5 / (b5 + s5), 3) if b5 + s5 else None,
+        tx_h1=b1 + s1, ratio_h1=round(b1 / (b1 + s1), 3) if b1 + s1 else None, tx_h6=b6 + s6,
+        accel=round((b5 + s5) * 12 / (b1 + s1), 2) if b1 + s1 else None,
+        vol_m5=round(fnum(vol.get("m5"), 0) or 0), vol_h1=round(fnum(vol.get("h1"), 0) or 0), vol_h24=round(fnum(vol.get("h24"), 0) or 0),
+        ch_m5=fnum(ch.get("m5")), ch_h1=fnum(ch.get("h1")), ch_h6=fnum(ch.get("h6")),
+        liq=round(fnum((pair.get("liquidity") or {}).get("usd"), 0) or 0), mcap=round(fnum(pair.get("marketCap"), 0) or fnum(pair.get("fdv"), 0) or 0),
+        age_min=round(age, 1) if age is not None else None, holders=int(holders),
+        holders_per_min=round(holders / max(age, 1), 2) if age else None,
+        dex=pair.get("dexId"), socials=len(info.get("socials") or []) + len(info.get("websites") or []) + sum(1 for k in ("twitter", "telegram", "website") if m.get(k)),
+        boosts=(pair.get("boosts") or {}).get("active") or 0,
+        avg_trade=round((fnum(vol.get("h1"), 0) or 0) / (b1 + s1), 1) if b1 + s1 else None)
+
+
 def council(pair, rep, src):
-    """Deterministic score. Same coin, same data -> same score."""
+    """Version 2. Deterministic: same coin, same data -> same score.
+    Built from the first live run, where 1-hour numbers couldn't tell rising coins from fading ones:
+    momentum now comes from the last 5 minutes and whether trading is speeding up."""
+    f = features(pair, rep, src)
+    r5 = f["ratio_m5"] or 0; acc = f["accel"] or 0; t5 = f["tx_m5"]
+    mo = 100 * (0.4 * clip((r5 - 0.5) / 0.2) + 0.3 * clip((acc - 0.5) / 1.0) + 0.3 * clip(math.log10(max(t5, 1)) / 2.5))
+    hpm = f["holders_per_min"]
+    cm = 100 * (0.5 * clip(math.log10(max(f["holders"], 1)) / 3) + 0.5 * (clip(math.log10(max(hpm * 10, 1)) / 2) if hpm is not None else 0.5))
+    so = [30, 55, 75, 90][min(3, f["socials"])]
+    score = round(0.7 * mo + 0.2 * cm + 0.1 * so)
+    return score, dict(momentum=round(mo), social=so, community=round(cm), **f)
+
+
+def council_v1(pair, rep, src):
+    """First version, kept for comparison."""
     tx = (pair.get("txns") or {}).get("h1") or {}
     b, s = tx.get("buys") or 0, tx.get("sells") or 0
     ratio = b / (b + s) if b + s else 0
@@ -344,6 +383,8 @@ class Desk:
         self.stats = st.get("stats", {"found": 0, "kills": {}, "kills_pumped": {}, "kills_checked": {}, "scores": []})
         self.sol = None; self.sol_t = 0
         self.helius = None
+        self.lab = {m: {**e, "snaps": {int(k): v for k, v in e["snaps"].items()}} for m, e in (st.get("lab") or {}).items()}
+        self.last_manage = 0
         os.makedirs(DATA, exist_ok=True)
 
     # logging
@@ -353,7 +394,40 @@ class Desk:
         with open(os.path.join(DATA, f"log-{day()}.jsonl"), "a") as fh:
             fh.write(json.dumps(kw, separators=(",", ":")) + "\n")
 
+    # ---- lab: follow every coin that reached the security check, bought or not
+    def lab_add(self, mint, sym, pair, rep, meta, facts):
+        price = fnum(pair.get("priceUsd"))
+        if not price or mint in self.lab or len(self.lab) > 4000: return
+        self.lab[mint] = dict(mint=mint, sym=sym, t0=now(), p0=price, hi=price, lo=price, snaps={}, verdict="?",
+                              f=features(pair, rep, meta), sec=dict(facts))
+    def lab_mark(self, mint, verdict, score=None):
+        e = self.lab.get(mint)
+        if e and e["verdict"] in ("?", "passed"):
+            e["verdict"] = verdict
+            if score is not None: e["score"] = score
+    def lab_update(self):
+        due = [e for e in self.lab.values() if any(m not in e["snaps"] and now() - e["t0"] >= m * 60 for m in LAB_SNAPS)]
+        if not due: return
+        pairs = self.api.pairs([e["mint"] for e in due[:300]])
+        for e in due[:300]:
+            pair = pairs.get(e["mint"]); price = fnum((pair or {}).get("priceUsd"))
+            tx1 = ((pair or {}).get("txns") or {}).get("h1") or {}
+            alive = price and (tx1.get("buys") or 0) + (tx1.get("sells") or 0) >= self.cfg["min_tx_h1"]
+            for m in LAB_SNAPS:
+                if m not in e["snaps"] and now() - e["t0"] >= m * 60:
+                    e["snaps"][m] = round(price / e["p0"], 3) if alive else 0
+            if alive:
+                e["hi"] = max(e["hi"], price); e["lo"] = min(e["lo"], price)
+        for mint in [m for m, e in self.lab.items() if len(e["snaps"]) == len(LAB_SNAPS)]:
+            e = self.lab.pop(mint)
+            e["max_x"] = round(e["hi"] / e["p0"], 3); e["min_x"] = round(e["lo"] / e["p0"], 3)
+            e["snaps"] = {str(k): v for k, v in e["snaps"].items()}
+            for k in ("hi", "lo"): e.pop(k)
+            with open(os.path.join(DATA, "lab.jsonl"), "a") as fh: fh.write(json.dumps(e, separators=(",", ":")) + "\n")
+            self.stats["lab_done"] = self.stats.get("lab_done", 0) + 1
+
     def kill(self, mint, sym, reason, price=None, **kw):
+        self.lab_mark(mint, reason)
         k = self.stats["kills"]; k[reason] = k.get(reason, 0) + 1
         if reason not in QUIET: self.log("kill", mint=mint, sym=sym, reason=reason, **kw)
         if price and len(self.follow) < self.cfg["followup_cap"]:
@@ -381,6 +455,7 @@ class Desk:
         if not jobs: return
         pairs = self.api.pairs([j[1] for j in jobs])
         for name, mint, meta, n in jobs:
+            if now() - self.last_manage > 20: self.manage()
             self.attempt = n
             r = self.judge(name, mint, meta, pairs.get(mint))
             if r == "RETRY":
@@ -403,7 +478,9 @@ class Desk:
             self.last_reason = "Volume too low"; return "RETRY"   # young coin: look again before running security
         rep = self.api.rugcheck(mint)
         ok, why, facts = security(rep, pair, self.cfg)
+        self.lab_add(mint, sym, pair, rep, meta, facts)
         if not ok:
+            self.lab_mark(mint, why)
             return self.kill(mint, sym, why, price, **facts)
         sol = self.sol_price()
         if not sol:
@@ -430,6 +507,9 @@ class Desk:
             return self.kill(mint, sym, "Sell test: tax or fees too high", price, **facts)
         score, parts = council(pair, rep, meta)
         facts.update(score=score, **parts)
+        self.lab_mark(mint, "passed", score)
+        if parts["tx_m5"] < self.cfg["min_tx_m5"]:
+            return self.kill(mint, sym, "Fading: few trades in last 5 min", price, **facts)
         self.stats["scores"].append(score); self.stats["scores"] = self.stats["scores"][-5000:]
         took = False
         ctrl = random.random() < self.cfg["control_prob"]
@@ -471,6 +551,7 @@ class Desk:
                             creator=facts.get("creator"), dev_checked=facts.get("dev_checked") or int(now()), dev_t=now(),
                             got=0.0, half=False, t=now(), last_seen=now(), score=facts.get("score"), facts=facts)
         self.log("buy", wallet=wname, mint=mint, sym=sym, usd=round(usd, 2), price=price, **facts)
+        if wname == "council": self.lab_mark(mint, "bought")
         return True
 
     def sell(self, wname, mint, part, why, pair=None):
@@ -496,6 +577,7 @@ class Desk:
             self.log("partial", wallet=wname, mint=mint, sym=p["sym"], usd=round(usd, 2), why=why)
 
     def manage(self):
+        self.last_manage = now()
         mints = sorted({m for w in self.w.values() for m in w.open})
         if not mints: return
         pairs = self.api.pairs(mints)
@@ -544,7 +626,7 @@ class Desk:
 
     def state(self):
         return dict(council=self.w["council"].dump(), control=self.w["control"].dump(),
-                    seen=list(self.seen)[-20000:], follow=self.follow, retry=self.retry, stats=self.stats, saved=iso())
+                    seen=list(self.seen)[-20000:], follow=self.follow, retry=self.retry, lab=self.lab, stats=self.stats, saved=iso())
 
 
 # ------------------------------------------------------------------ report
@@ -586,6 +668,8 @@ def write_report(desk, net):
     else:
         L += [f"Not enough trades yet. Need at least 30 closed trades in each wallet (now {sc.get('n',0)} and {sk.get('n',0)})."]
     st = desk.stats
+    L += ["", f"Lab: {st.get('lab_done', 0):,} coins fully tracked for 4 hours, {len(desk.lab):,} still being followed. "
+          "Run `python analyze.py` to see what predicted the winners (writes LEARN.md)."]
     L += ["", "## Funnel", "", f"Coins found: {st['found']:,} · young coins waiting for a second look: {len(desk.retry):,}", "", "| Stopped because | Count | Checked 1h later | Pumped 2x+ |", "|---|---|---|---|"]
     for r, n in sorted(st["kills"].items(), key=lambda x: -x[1]):
         ch = st["kills_checked"].get(r, 0); pm = st["kills_pumped"].get(r, 0)
@@ -619,8 +703,9 @@ class MockAPI:
             c["price"] *= math.exp(c["drift"] + 0.08 * self.r.gauss(0, 1))
             if self.r.random() < 0.002: c["alive"] = False
             out[m] = {"baseToken": {"address": m, "symbol": m[:8]}, "dexId": "pumpfun", "priceUsd": str(c["price"]),
-                      "liquidity": {"usd": 30000}, "volume": {"h24": c["vol"], "h1": c["vol"] / 4},
-                      "priceChange": {"h1": self.r.uniform(-30, 150)}, "txns": {"h1": {"buys": self.r.randint(50, 900), "sells": self.r.randint(50, 600)}},
+                      "liquidity": {"usd": 30000},
+                      "priceChange": {"h1": self.r.uniform(-30, 150)}, "txns": {"m5": {"buys": self.r.randint(0, 80), "sells": self.r.randint(0, 60)}, "h1": {"buys": self.r.randint(50, 900), "sells": self.r.randint(50, 600)}},
+                      "pairCreatedAt": (self.t0 - 600) * 1000, "volume": {"h24": c["vol"], "h1": c["vol"] / 4, "m5": c["vol"] / 40},
                       "info": {"socials": [{"type": "twitter"}] * self.r.randint(0, 2)}}
         return out
     def rugcheck(self, m):
@@ -667,6 +752,7 @@ def main():
     global DATA, REPORT
     if a.mock:
         CFG.update(followup_minutes=0.3, dead_minutes=0.1, dev_watch_sec=0)
+        global LAB_SNAPS; LAB_SNAPS = (0.05, 0.1, 0.2)
         DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mock-data")
         REPORT = os.path.join(DATA, "REPORT.md")
     os.makedirs(DATA, exist_ok=True)
@@ -687,7 +773,7 @@ def main():
     while now() < end:
         t0 = now()
         try:
-            desk.scout(); desk.manage(); desk.followups()
+            desk.scout(); desk.manage(); desk.followups(); desk.lab_update()
         except Exception as e:
             print("pass error:", repr(e), flush=True)
         passes += 1

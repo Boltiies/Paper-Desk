@@ -52,3 +52,20 @@ source in the latest run.
 Edit `CFG` at the top of `paper_trader.py`. Defaults match the tuned simulator:
 2% bets, max 5 open trades, 40% daily loss limit, −40% stop, 25% sold at +150%,
 50% trailing stop on the rest, council score 70+.
+
+## Council v2 and the lab (from 30 Oct 2026)
+
+The first council (v1) ran for 62 closed trades and did no better than random
+picks: about -27% per dollar bet in both wallets. Its results are saved in
+`data/archive-v1.json`.
+
+Version 2 scores coins on the last 5 minutes instead of the last hour, since
+1-hour numbers couldn't tell rising coins from fading ones. It skips coins with
+fewer than 15 trades in the last 5 minutes, and checks open trades every 20
+seconds even during long scouting passes.
+
+**The lab** follows every coin that reaches the security check, bought or not,
+and records its price 5, 15, 30, 60, 120 and 240 minutes later in `data/lab.jsonl`.
+That gives hundreds of labeled coins a day instead of a few dozen trades.
+`python analyze.py` writes `LEARN.md`, showing which features went with coins
+that hit 2x and which went with coins that died.
