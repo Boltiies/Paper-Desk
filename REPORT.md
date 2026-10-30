@@ -1,44 +1,44 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 18:54:42 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 19:05:11 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 291 calls this run
+Dev wallet watch (Helius): **on**, 375 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $63.65 | $69.93 |
+| Value now | $63.54 | $69.95 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 4 | 5 |
-| Closed trades | 24 | 14 |
+| Open trades | 3 | 5 |
+| Closed trades | 26 | 14 |
 | Win rate | 12% | 7% |
 | Avg win | $0.56 | $0.80 |
-| Avg loss | $-0.66 | $-0.52 |
-| Expectancy per trade | $-0.511 | $-0.427 |
-| Return per $ bet | -34.9% | -28.6% |
+| Avg loss | $-0.64 | $-0.52 |
+| Expectancy per trade | $-0.501 | $-0.427 |
+| Return per $ bet | -34.5% | -28.6% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 24 and 14).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 26 and 14).
 
 ## Funnel
 
-Coins found: 35,714 · young coins waiting for a second look: 3,000
+Coins found: 36,192 · young coins waiting for a second look: 3,000
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 31,603 | 7,899 | 2 (0%) |
+| Volume too low | 32,077 | 7,912 | 2 (0%) |
 | No market yet | 229 | 0 | — |
+| Liquidity too low | 181 | 60 | 0 (0%) |
 | Too many open trades | 181 | 63 | 0 (0%) |
-| Liquidity too low | 180 | 60 | 0 (0%) |
 | Already pumped this hour | 142 | 57 | 2 (4%) |
 | Council score too low | 91 | 31 | 2 (6%) |
 | Danger flag: Creator history of rugged tokens | 77 | 25 | 0 (0%) |
 | Top 10 holders own too much | 69 | 36 | 1 (3%) |
 | Dev holds too much | 36 | 16 | 1 (6%) |
 | No security report | 29 | 14 | 0 (0%) |
-| Dev wallet already selling | 23 | 5 | 0 (0%) |
+| Dev wallet already selling | 25 | 5 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 2 | 0 | — |
@@ -48,6 +48,8 @@ Coins found: 35,714 · young coins waiting for a second look: 3,000
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 10-30 19:01 | KoreanFlare | 72 | Coin died: no buyers | $-0.58 |
+| 10-30 18:57 | GOTUS | 78 | Coin died: no buyers | $-0.18 |
 | 10-30 18:52 | TIMOTHY | 78 | Coin died: no buyers | $-0.30 |
 | 10-30 17:37 | newt | 77 | Coin died: no buyers | $-0.44 |
 | 10-30 17:31 | UBER | 75 | Coin died: no buyers | $-0.52 |
@@ -61,8 +63,6 @@ Coins found: 35,714 · young coins waiting for a second look: 3,000
 | 10-30 14:32 | Will | 83 | Trailing stop | $+0.13 |
 | 10-30 14:06 | WHL | 78 | Hard stop | $-0.82 |
 | 10-30 13:52 | Gruffalo | 76 | Coin died: no buyers | $-0.22 |
-| 10-30 12:57 | Jesus | 82 | Hard stop | $-1.01 |
-| 10-30 12:54 | BlindInu | 78 | Hard stop | $-0.75 |
 
 ## Data source errors this run
 
