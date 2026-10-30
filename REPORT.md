@@ -1,42 +1,42 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 17:02:58 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 17:13:52 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 2,236 calls this run
+Dev wallet watch (Helius): **on**, 2,320 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $64.32 | $70.59 |
+| Value now | $64.59 | $70.66 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 5 | 5 |
-| Closed trades | 21 | 12 |
+| Open trades | 5 | 4 |
+| Closed trades | 21 | 13 |
 | Win rate | 14% | 8% |
 | Avg win | $0.56 | $0.80 |
-| Avg loss | $-0.70 | $-0.59 |
-| Expectancy per trade | $-0.524 | $-0.471 |
-| Return per $ bet | -35.5% | -31.4% |
+| Avg loss | $-0.70 | $-0.55 |
+| Expectancy per trade | $-0.524 | $-0.447 |
+| Return per $ bet | -35.5% | -29.8% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 21 and 12).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 21 and 13).
 
 ## Funnel
 
-Coins found: 32,362 · young coins waiting for a second look: 2,509
+Coins found: 32,798 · young coins waiting for a second look: 2,692
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 28,829 | 7,272 | 2 (0%) |
+| Volume too low | 29,068 | 7,427 | 2 (0%) |
 | No market yet | 220 | 0 | — |
-| Too many open trades | 172 | 54 | 0 (0%) |
-| Liquidity too low | 162 | 48 | 0 (0%) |
-| Already pumped this hour | 133 | 54 | 2 (4%) |
-| Council score too low | 76 | 30 | 2 (7%) |
+| Too many open trades | 173 | 56 | 0 (0%) |
+| Liquidity too low | 167 | 52 | 0 (0%) |
+| Already pumped this hour | 134 | 54 | 2 (4%) |
+| Council score too low | 77 | 30 | 2 (7%) |
 | Danger flag: Creator history of rugged tokens | 71 | 20 | 0 (0%) |
-| Top 10 holders own too much | 55 | 25 | 1 (4%) |
-| Dev holds too much | 34 | 14 | 1 (7%) |
+| Top 10 holders own too much | 59 | 25 | 1 (4%) |
+| Dev holds too much | 36 | 14 | 1 (7%) |
 | No security report | 28 | 14 | 0 (0%) |
 | Dev wallet already selling | 21 | 5 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
