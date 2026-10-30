@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 03:00:19 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 03:10:43 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 264 calls this run
+Dev wallet watch (Helius): **on**, 305 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.52 | $74.77 |
+| Value now | $74.52 | $74.66 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,21 +24,21 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 13,698 · young coins waiting for a second look: 2,828
+Coins found: 14,032 · young coins waiting for a second look: 2,904
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 10,349 | 2,088 | 1 (0%) |
+| Volume too low | 10,598 | 2,330 | 1 (0%) |
 | No market yet | 216 | 0 | — |
-| Too many open trades | 72 | 27 | 0 (0%) |
-| Liquidity too low | 51 | 12 | 0 (0%) |
-| Council score too low | 50 | 16 | 0 (0%) |
-| Already pumped this hour | 40 | 23 | 1 (4%) |
+| Too many open trades | 74 | 28 | 0 (0%) |
+| Liquidity too low | 52 | 13 | 0 (0%) |
+| Council score too low | 50 | 18 | 0 (0%) |
+| Already pumped this hour | 44 | 23 | 1 (4%) |
 | No SOL price | 20 | 0 | — |
-| Top 10 holders own too much | 18 | 12 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 16 | 5 | 0 (0%) |
+| Top 10 holders own too much | 19 | 13 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 16 | 6 | 0 (0%) |
 | Dev holds too much | 13 | 8 | 1 (12%) |
-| No security report | 7 | 3 | 0 (0%) |
+| No security report | 8 | 3 | 0 (0%) |
 | Dev wallet already selling | 6 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
@@ -56,5 +56,5 @@ Coins found: 13,698 · young coins waiting for a second look: 2,828
 ## Data source errors this run
 
 - lite-api.jup.ag (400): 9
-- mainnet.helius-rpc.com (rpc error): 26
-- api.rugcheck.xyz (ConnectionError): 2
+- mainnet.helius-rpc.com (rpc error): 39
+- api.rugcheck.xyz (ConnectionError): 3
