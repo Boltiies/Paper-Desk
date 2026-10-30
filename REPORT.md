@@ -1,44 +1,44 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 19:48:14 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 19:58:45 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 795 calls this run
+Dev wallet watch (Helius): **on**, 925 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $66.87 | $69.85 |
+| Value now | $69.34 | $69.28 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 5 | 5 |
-| Closed trades | 26 | 15 |
-| Win rate | 12% | 7% |
+| Open trades | 5 | 4 |
+| Closed trades | 26 | 16 |
+| Win rate | 12% | 6% |
 | Avg win | $0.56 | $0.80 |
-| Avg loss | $-0.64 | $-0.50 |
-| Expectancy per trade | $-0.501 | $-0.418 |
-| Return per $ bet | -34.5% | -28.1% |
+| Avg loss | $-0.64 | $-0.51 |
+| Expectancy per trade | $-0.501 | $-0.431 |
+| Return per $ bet | -34.5% | -29.1% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 26 and 15).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 26 and 16).
 
 ## Funnel
 
-Coins found: 37,894 · young coins waiting for a second look: 3,000
+Coins found: 38,290 · young coins waiting for a second look: 3,000
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 33,730 | 8,211 | 2 (0%) |
+| Volume too low | 34,113 | 8,296 | 2 (0%) |
 | No market yet | 245 | 0 | — |
-| Too many open trades | 190 | 65 | 0 (0%) |
-| Liquidity too low | 187 | 61 | 0 (0%) |
-| Already pumped this hour | 145 | 57 | 2 (4%) |
-| Council score too low | 96 | 35 | 2 (6%) |
+| Too many open trades | 195 | 65 | 0 (0%) |
+| Liquidity too low | 190 | 63 | 0 (0%) |
+| Already pumped this hour | 147 | 58 | 2 (3%) |
+| Council score too low | 98 | 37 | 2 (5%) |
 | Danger flag: Creator history of rugged tokens | 80 | 27 | 0 (0%) |
 | Top 10 holders own too much | 70 | 36 | 1 (3%) |
 | Dev holds too much | 36 | 16 | 1 (6%) |
 | No security report | 30 | 15 | 1 (7%) |
-| Dev wallet already selling | 27 | 5 | 0 (0%) |
+| Dev wallet already selling | 28 | 6 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Liquidity not locked or burned | 4 | 1 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 2 | 0 | — |
