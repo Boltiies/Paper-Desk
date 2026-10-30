@@ -309,3 +309,8 @@
 {"mint":"gymsqxXCwRcs1xogAKVLxvwjCh33yHmaN3M8z2Qpump","sym":"Haaland","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1775,"vol":69104,"h1":-96,"tx_h1":9121,"t":"2026-10-30 10:44:25","kind":"kill"}
 {"mint":"3bCLUTvnGBYJ7rgPh7Nc8NieKi9YaRG8UqdRvEHXpump","sym":"SeaZ","reason":"No security report","t":"2026-10-30 10:45:25","kind":"kill"}
 {"mint":"5yappSXzEFBAqJufBqhpRJq29BVFbd5iyAkLvZgBpump","sym":"DAEMON","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":20.6,"liq":0,"vol":98270,"h1":734,"tx_h1":3105,"t":"2026-10-30 10:50:26","kind":"kill"}
+{"mint":"BZQUF3ZwVJsBiwRuraYuGjbcaNzaceRUHVVz6577pump","sym":"ATONKY","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1842,"vol":106766,"h1":-96,"tx_h1":2233,"t":"2026-10-30 10:54:25","kind":"kill"}
+{"mint":"HftEwseBtcbgxj9j7AfgsA5ZiTEhSK9qWXZs8rzfpump","sym":"CTO","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":35.9,"t":"2026-10-30 10:56:55","kind":"kill"}
+{"mint":"2Y2BzPy4MmaXbwWRogEdFLVyBXjKZR8VfhHHy8XUpump","sym":"HUGE","reason":"Council score too low","dev":0,"insiders":0,"top10":0.5,"liq":0,"vol":56368,"h1":-7,"tx_h1":8583,"fills":"jupiter","roundtrip_loss":2.6,"score":62,"momentum":73,"social":30,"community":66,"holders":47,"buy_ratio":0.57,"holders_per_min":3.33,"creator":"H1NNcTBHhoQixmddnHNaNUcqqCpvhNAW4pbAChfTV3Na","t":"2026-10-30 10:57:26","kind":"kill"}
+{"mint":"2211sKbQxtB84KD6e73ZEKar8vRYpNyqfpg8QX3Tpump","sym":"DAEMON","reason":"No security report","t":"2026-10-30 10:57:55","kind":"kill"}
+{"mint":"GjcDHkMfngu5vD2kS5qYiLVar9yPpkjrqWwyP8MApump","sym":"USDF","reason":"Dev holds too much","dev":79.3,"insiders":0,"top10":99.3,"t":"2026-10-30 11:03:26","kind":"kill"}

@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 10:52:55 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 11:03:26 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 617 calls this run
+Dev wallet watch (Helius): **on**, 645 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.55 | $74.88 |
+| Value now | $74.55 | $74.99 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,21 +24,21 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 22,664 · young coins waiting for a second look: 905
+Coins found: 22,867 · young coins waiting for a second look: 896
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 20,990 | 5,012 | 1 (0%) |
+| Volume too low | 21,197 | 5,112 | 1 (0%) |
 | No market yet | 219 | 0 | — |
-| Too many open trades | 126 | 40 | 0 (0%) |
-| Liquidity too low | 113 | 29 | 0 (0%) |
+| Too many open trades | 126 | 43 | 0 (0%) |
+| Liquidity too low | 114 | 31 | 0 (0%) |
 | Already pumped this hour | 94 | 39 | 1 (3%) |
-| Council score too low | 62 | 23 | 0 (0%) |
-| Top 10 holders own too much | 39 | 22 | 0 (0%) |
+| Council score too low | 63 | 23 | 0 (0%) |
+| Top 10 holders own too much | 40 | 22 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 39 | 15 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
-| No security report | 17 | 8 | 0 (0%) |
-| Dev holds too much | 16 | 10 | 1 (10%) |
+| No security report | 18 | 8 | 0 (0%) |
+| Dev holds too much | 17 | 10 | 1 (10%) |
 | Dev wallet already selling | 11 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
@@ -58,6 +58,6 @@ Coins found: 22,664 · young coins waiting for a second look: 905
 
 - mainnet.helius-rpc.com (rpc error -32015): 44
 - lite-api.jup.ag (rate limited): 1
-- api.rugcheck.xyz (ConnectionError): 5
+- api.rugcheck.xyz (ConnectionError): 6
 - frontend-api-v3.pump.fun (ConnectionError): 1
 - mainnet.helius-rpc.com (ConnectionError): 1
