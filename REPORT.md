@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 17:55:20 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 18:33:42 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 2,654 calls this run
+Dev wallet watch (Helius): **on**, 105 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $63.80 | $70.14 |
+| Value now | $63.78 | $69.76 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 5 |
 | Closed trades | 23 | 14 |
@@ -24,20 +24,20 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 23 and
 
 ## Funnel
 
-Coins found: 34,357 · young coins waiting for a second look: 3,000
+Coins found: 34,818 · young coins waiting for a second look: 3,000
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 30,279 | 7,545 | 2 (0%) |
-| No market yet | 227 | 0 | — |
-| Too many open trades | 177 | 57 | 0 (0%) |
-| Liquidity too low | 173 | 52 | 0 (0%) |
-| Already pumped this hour | 140 | 54 | 2 (4%) |
-| Council score too low | 81 | 30 | 2 (7%) |
-| Danger flag: Creator history of rugged tokens | 74 | 23 | 0 (0%) |
-| Top 10 holders own too much | 67 | 25 | 1 (4%) |
-| Dev holds too much | 36 | 14 | 1 (7%) |
-| No security report | 28 | 14 | 0 (0%) |
+| Volume too low | 30,727 | 7,802 | 2 (0%) |
+| No market yet | 229 | 0 | — |
+| Too many open trades | 179 | 62 | 0 (0%) |
+| Liquidity too low | 175 | 58 | 0 (0%) |
+| Already pumped this hour | 140 | 56 | 2 (4%) |
+| Council score too low | 84 | 31 | 2 (6%) |
+| Danger flag: Creator history of rugged tokens | 76 | 25 | 0 (0%) |
+| Top 10 holders own too much | 68 | 34 | 1 (3%) |
+| Dev holds too much | 36 | 16 | 1 (6%) |
+| No security report | 29 | 14 | 0 (0%) |
 | Dev wallet already selling | 21 | 5 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
@@ -66,7 +66,4 @@ Coins found: 34,357 · young coins waiting for a second look: 3,000
 
 ## Data source errors this run
 
-- lite-api.jup.ag (rate limited): 1
-- mainnet.helius-rpc.com (502): 1
-- api.rugcheck.xyz (ConnectionError): 10
-- frontend-api-v3.pump.fun (ConnectionError): 1
+- api.rugcheck.xyz (ConnectionError): 1
