@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 01:52:00 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 01:55:58 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,262 calls this run
+Dev wallet watch (Helius): **on**, 1,271 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.52 | $74.94 |
+| Value now | $74.52 | $74.92 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,14 +24,14 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 13,353 · young coins waiting for a second look: 2,526
+Coins found: 13,410 · young coins waiting for a second look: 2,478
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 10,316 | 2,002 | 0 (0%) |
+| Volume too low | 10,419 | 2,005 | 0 (0%) |
 | No market yet | 216 | 0 | — |
 | Too many open trades | 72 | 27 | 0 (0%) |
-| Liquidity too low | 51 | 12 | 0 (0%) |
+| Liquidity too low | 53 | 12 | 0 (0%) |
 | Already pumped this hour | 44 | 22 | 1 (5%) |
 | Council score too low | 40 | 16 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
