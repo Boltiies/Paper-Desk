@@ -1,8 +1,8 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 02:17:47 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 02:28:41 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 79 calls this run
+Dev wallet watch (Helius): **on**, 117 calls this run
 
 ## Wallets
 
@@ -24,18 +24,18 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 12,636 · young coins waiting for a second look: 2,988
+Coins found: 12,928 · young coins waiting for a second look: 2,944
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 9,154 | 1,999 | 0 (0%) |
+| Volume too low | 9,482 | 1,999 | 0 (0%) |
 | No market yet | 216 | 0 | — |
-| Too many open trades | 63 | 27 | 0 (0%) |
-| Liquidity too low | 47 | 12 | 0 (0%) |
-| Council score too low | 42 | 16 | 0 (0%) |
+| Too many open trades | 64 | 27 | 0 (0%) |
+| Liquidity too low | 49 | 12 | 0 (0%) |
+| Council score too low | 46 | 16 | 0 (0%) |
 | Already pumped this hour | 39 | 22 | 1 (5%) |
 | No SOL price | 20 | 0 | — |
-| Top 10 holders own too much | 17 | 12 | 0 (0%) |
+| Top 10 holders own too much | 18 | 12 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 16 | 5 | 0 (0%) |
 | Dev holds too much | 12 | 7 | 1 (14%) |
 | Dev wallet already selling | 5 | 0 | — |
@@ -55,5 +55,5 @@ Coins found: 12,636 · young coins waiting for a second look: 2,988
 
 ## Data source errors this run
 
-- lite-api.jup.ag (400): 3
-- mainnet.helius-rpc.com (rpc error): 8
+- lite-api.jup.ag (400): 4
+- mainnet.helius-rpc.com (rpc error): 10
