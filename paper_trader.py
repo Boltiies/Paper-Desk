@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 CFG = dict(
     start_usd=77.0,
     bet_pct=2.0,              # % of wallet per trade
-    max_open=3,
+    max_open=5,
     daily_loss_pct=40.0,      # stop buying for the UTC day after losing this much
     # security (fail closed: unknown = killed)
     max_dev_pct=10.0, max_insider_pct=25.0, max_top10_pct=35.0,

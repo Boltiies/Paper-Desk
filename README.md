@@ -50,5 +50,5 @@ source in the latest run.
 ## Rules
 
 Edit `CFG` at the top of `paper_trader.py`. Defaults match the tuned simulator:
-2% bets, max 3 open trades, 40% daily loss limit, −40% stop, 25% sold at +150%,
+2% bets, max 5 open trades, 40% daily loss limit, −40% stop, 25% sold at +150%,
 50% trailing stop on the rest, council score 70+.
