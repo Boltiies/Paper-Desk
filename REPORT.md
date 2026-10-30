@@ -1,40 +1,40 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 16:09:27 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 16:20:26 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,695 calls this run
+Dev wallet watch (Helius): **on**, 1,792 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $65.70 | $70.68 |
+| Value now | $64.81 | $70.73 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 5 |
-| Closed trades | 19 | 11 |
-| Win rate | 16% | 9% |
+| Closed trades | 20 | 11 |
+| Win rate | 15% | 9% |
 | Avg win | $0.56 | $0.80 |
-| Avg loss | $-0.69 | $-0.62 |
-| Expectancy per trade | $-0.496 | $-0.493 |
-| Return per $ bet | -33.6% | -32.7% |
+| Avg loss | $-0.72 | $-0.62 |
+| Expectancy per trade | $-0.529 | $-0.493 |
+| Return per $ bet | -35.8% | -32.7% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 19 and 11).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 20 and 11).
 
 ## Funnel
 
-Coins found: 30,319 · young coins waiting for a second look: 1,824
+Coins found: 30,763 · young coins waiting for a second look: 2,011
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 27,526 | 7,004 | 2 (0%) |
+| Volume too low | 27,775 | 7,048 | 2 (0%) |
 | No market yet | 220 | 0 | — |
-| Liquidity too low | 155 | 47 | 0 (0%) |
-| Too many open trades | 155 | 50 | 0 (0%) |
-| Already pumped this hour | 130 | 54 | 2 (4%) |
+| Liquidity too low | 159 | 47 | 0 (0%) |
+| Too many open trades | 157 | 51 | 0 (0%) |
+| Already pumped this hour | 131 | 54 | 2 (4%) |
 | Council score too low | 72 | 29 | 2 (7%) |
-| Danger flag: Creator history of rugged tokens | 58 | 17 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 58 | 18 | 0 (0%) |
 | Top 10 holders own too much | 49 | 25 | 1 (4%) |
 | Dev holds too much | 34 | 14 | 1 (7%) |
 | No security report | 27 | 13 | 0 (0%) |
@@ -48,6 +48,7 @@ Coins found: 30,319 · young coins waiting for a second look: 1,824
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 10-30 16:18 | HEXN | 94 | Hard stop | $-1.16 |
 | 10-30 15:58 | CARINA | 83 | Hard stop | $-0.55 |
 | 10-30 15:15 | NEBULA | 73 | Hard stop | $-1.14 |
 | 10-30 15:06 | BBW | 70 | Coin died: no buyers | $-0.19 |
@@ -62,7 +63,6 @@ Coins found: 30,319 · young coins waiting for a second look: 1,824
 | 10-30 12:23 | SI | 70 | Coin died: no buyers | $-0.23 |
 | 10-30 12:23 | 10XHYPE | 76 | Coin died: no buyers | $-0.53 |
 | 10-30 12:23 | PurrPetual | 74 | Coin died: no buyers | $-0.78 |
-| 10-29 21:40 | Hackinu | 77 | Trailing stop | $+0.72 |
 
 ## Data source errors this run
 
