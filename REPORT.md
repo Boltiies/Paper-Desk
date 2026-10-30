@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 13:39:51 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 13:50:52 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 412 calls this run
+Dev wallet watch (Helius): **on**, 494 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $71.12 | $73.49 |
+| Value now | $72.59 | $73.26 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 5 | 2 |
+| Open trades | 5 | 3 |
 | Closed trades | 11 | 7 |
 | Win rate | 18% | 14% |
 | Avg win | $0.77 | $0.80 |
@@ -24,21 +24,21 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 11 and
 
 ## Funnel
 
-Coins found: 25,751 · young coins waiting for a second look: 935
+Coins found: 26,050 · young coins waiting for a second look: 1,022
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 23,968 | 5,893 | 1 (0%) |
+| Volume too low | 24,170 | 6,027 | 1 (0%) |
 | No market yet | 219 | 0 | — |
-| Too many open trades | 135 | 45 | 0 (0%) |
-| Liquidity too low | 132 | 36 | 0 (0%) |
-| Already pumped this hour | 110 | 44 | 2 (5%) |
-| Council score too low | 66 | 25 | 0 (0%) |
-| Top 10 holders own too much | 44 | 23 | 0 (0%) |
+| Too many open trades | 137 | 45 | 0 (0%) |
+| Liquidity too low | 134 | 37 | 0 (0%) |
+| Already pumped this hour | 112 | 46 | 2 (4%) |
+| Council score too low | 68 | 25 | 0 (0%) |
+| Top 10 holders own too much | 44 | 24 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 42 | 15 | 0 (0%) |
-| Dev holds too much | 25 | 11 | 1 (9%) |
+| Dev holds too much | 26 | 11 | 1 (9%) |
 | No SOL price | 20 | 0 | — |
-| No security report | 19 | 10 | 0 (0%) |
+| No security report | 20 | 10 | 0 (0%) |
 | Dev wallet already selling | 14 | 1 | 0 (0%) |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 2 | 0 | — |
@@ -64,4 +64,4 @@ Coins found: 25,751 · young coins waiting for a second look: 935
 
 - lite-api.jup.ag (rate limited): 1
 - mainnet.helius-rpc.com (502): 1
-- api.rugcheck.xyz (ConnectionError): 1
+- api.rugcheck.xyz (ConnectionError): 2
