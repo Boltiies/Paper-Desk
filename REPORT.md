@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 04:46:11 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 04:57:14 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 656 calls this run
+Dev wallet watch (Helius): **on**, 683 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $74.54 | $74.91 |
+| Value now | $74.54 | $75.02 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 5 | 4 |
@@ -24,21 +24,21 @@ Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 
 
 ## Funnel
 
-Coins found: 16,425 · young coins waiting for a second look: 2,720
+Coins found: 16,616 · young coins waiting for a second look: 2,562
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 13,110 | 2,773 | 1 (0%) |
+| Volume too low | 13,448 | 2,773 | 1 (0%) |
 | No market yet | 217 | 0 | — |
 | Too many open trades | 91 | 32 | 0 (0%) |
-| Liquidity too low | 77 | 17 | 0 (0%) |
+| Liquidity too low | 81 | 17 | 0 (0%) |
+| Already pumped this hour | 54 | 28 | 1 (4%) |
 | Council score too low | 54 | 19 | 0 (0%) |
-| Already pumped this hour | 53 | 28 | 1 (4%) |
-| Top 10 holders own too much | 23 | 14 | 0 (0%) |
+| Top 10 holders own too much | 26 | 14 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 21 | 8 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
-| Danger flag: Creator history of rugged tokens | 19 | 8 | 0 (0%) |
 | Dev holds too much | 14 | 8 | 1 (12%) |
-| No security report | 8 | 4 | 0 (0%) |
+| No security report | 9 | 4 | 0 (0%) |
 | Dev wallet already selling | 7 | 0 | — |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
@@ -57,4 +57,4 @@ Coins found: 16,425 · young coins waiting for a second look: 2,720
 
 - lite-api.jup.ag (400): 20
 - mainnet.helius-rpc.com (rpc error): 86
-- api.rugcheck.xyz (ConnectionError): 3
+- api.rugcheck.xyz (ConnectionError): 4
