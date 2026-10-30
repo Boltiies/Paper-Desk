@@ -19,11 +19,13 @@ rows = [json.loads(l) for l in open(path)] if os.path.exists(path) else []
 def last(r):
     s = r["snaps"]; return s[max(s, key=float)] if s else None
 
+SKIPPED = ("?", "Volume too low", "No market yet")
 for r in rows:
+    if r["verdict"] in SKIPPED: r["verdict"] = "Dropped before security (low volume)"
     r["ran"] = r.get("max_x", 0) >= 2
     r["end"] = last(r)
     r["died"] = r["end"] == 0
-    r["gate"] = "passed security" if r["verdict"] in ("passed", "bought", "Council score too low", "Fading: few trades in last 5 min",
+    r["gate"] = "dropped before security" if r["verdict"].startswith("Dropped") else "passed security" if r["verdict"] in ("passed", "bought", "Council score too low", "Fading: few trades in last 5 min",
                                                       "Too many open trades", "Dev wallet already selling") else "failed security"
 
 def line(group, label):
@@ -51,13 +53,13 @@ def buckets(key, cuts, fmt="{}", pool=None):
     return res
 
 L = ["# What the lab learned", "",
-     f"{len(rows):,} coins reached the security check and were followed for 4 hours, bought or not. "
+     f"{len(rows):,} coins with a live market were followed for 4 hours, bought or not. "
      "\"Ran\" means it hit 2x at some point; \"died\" means trading had stopped by 4 hours. "
      "Base rate first, then each feature. Groups under ~50 coins are noise.", ""]
 if not rows:
     L += ["No finished coins yet. Each coin takes 4 hours to finish."]
 else:
-    L += table("Overall", [("All coins", rows)] + [(g, [r for r in rows if r["gate"] == g]) for g in ("passed security", "failed security")])
+    L += table("Overall", [("All coins", rows)] + [(g, [r for r in rows if r["gate"] == g]) for g in ("dropped before security", "failed security", "passed security")])
     verdicts = sorted({r["verdict"] for r in rows}, key=lambda v: -sum(r["verdict"] == v for r in rows))
     L += table("By what the desk decided", [(v, [r for r in rows if r["verdict"] == v]) for v in verdicts],
                "If a kill reason's coins ran as often as the coins it bought, that filter isn't helping.")

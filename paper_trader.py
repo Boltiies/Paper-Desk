@@ -383,7 +383,9 @@ class Desk:
         self.stats = st.get("stats", {"found": 0, "kills": {}, "kills_pumped": {}, "kills_checked": {}, "scores": []})
         self.sol = None; self.sol_t = 0
         self.helius = None
-        self.lab = {m: {**e, "snaps": {int(k): v for k, v in e["snaps"].items()}} for m, e in (st.get("lab") or {}).items()}
+        lp = os.path.join(DATA, "lab-pending.json")
+        pend = json.load(open(lp)) if os.path.exists(lp) else (st.get("lab") or {})
+        self.lab = {m: {**e, "snaps": {float(k) if "." in str(k) else int(k): v for k, v in e["snaps"].items()}} for m, e in pend.items()}
         self.last_manage = 0
         os.makedirs(DATA, exist_ok=True)
 
@@ -397,7 +399,11 @@ class Desk:
     # ---- lab: follow every coin that reached the security check, bought or not
     def lab_add(self, mint, sym, pair, rep, meta, facts):
         price = fnum(pair.get("priceUsd"))
-        if not price or mint in self.lab or len(self.lab) > 4000: return
+        if mint in self.lab:
+            if facts and not self.lab[mint]["sec"]: self.lab[mint]["sec"] = dict(facts)
+            if rep and not self.lab[mint]["f"].get("holders"): self.lab[mint]["f"]["holders"] = int(fnum(rep.get("totalHolders"), 0) or 0)
+            return
+        if not price or len(self.lab) > 12000: return
         self.lab[mint] = dict(mint=mint, sym=sym, t0=now(), p0=price, hi=price, lo=price, snaps={}, verdict="?",
                               f=features(pair, rep, meta), sec=dict(facts))
     def lab_mark(self, mint, verdict, score=None):
@@ -408,8 +414,9 @@ class Desk:
     def lab_update(self):
         due = [e for e in self.lab.values() if any(m not in e["snaps"] and now() - e["t0"] >= m * 60 for m in LAB_SNAPS)]
         if not due: return
-        pairs = self.api.pairs([e["mint"] for e in due[:300]])
-        for e in due[:300]:
+        due = due[:900]
+        pairs = self.api.pairs([e["mint"] for e in due])
+        for e in due:
             pair = pairs.get(e["mint"]); price = fnum((pair or {}).get("priceUsd"))
             tx1 = ((pair or {}).get("txns") or {}).get("h1") or {}
             alive = price and (tx1.get("buys") or 0) + (tx1.get("sells") or 0) >= self.cfg["min_tx_h1"]
@@ -471,6 +478,7 @@ class Desk:
         self.last_sym, self.last_price = sym, price
         if not pair:
             self.last_reason = "No market yet"; return "RETRY"
+        self.lab_add(mint, sym, pair, None, meta, {})
         vol = fnum((pair.get("volume") or {}).get("h24"), 0) or 0
         if vol < self.cfg["min_vol_usd"] * 0.25:    # cheap pre-filter before the slow security calls
             self.last_reason = "Volume too low"; return "RETRY"
@@ -626,7 +634,7 @@ class Desk:
 
     def state(self):
         return dict(council=self.w["council"].dump(), control=self.w["control"].dump(),
-                    seen=list(self.seen)[-20000:], follow=self.follow, retry=self.retry, lab=self.lab, stats=self.stats, saved=iso())
+                    seen=list(self.seen)[-20000:], follow=self.follow, retry=self.retry, stats=self.stats, saved=iso())
 
 
 # ------------------------------------------------------------------ report
@@ -786,7 +794,8 @@ def main():
                   f"({len(desk.w['council'].open)} open) control ${desk.w['control'].equity():.2f}", flush=True)
         time.sleep(max(0, a.poll - (now() - t0)))
     json.dump(desk.state(), open(sp, "w")); write_report(desk, net)
-    print(f"{iso()} done after {passes} passes", flush=True)
+    json.dump(desk.lab, open(os.path.join(DATA, "lab-pending.json"), "w"), separators=(",", ":"))
+    print(f"{iso()} done after {passes} passes, lab following {len(desk.lab)} coins", flush=True)
 
 if __name__ == "__main__":
     main()

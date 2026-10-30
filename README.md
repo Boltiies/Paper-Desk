@@ -64,7 +64,7 @@ Version 2 scores coins on the last 5 minutes instead of the last hour, since
 fewer than 15 trades in the last 5 minutes, and checks open trades every 20
 seconds even during long scouting passes.
 
-**The lab** follows every coin that reaches the security check, bought or not,
+**The lab** follows every coin that gets a live market, including ones dropped for low volume,
 and records its price 5, 15, 30, 60, 120 and 240 minutes later in `data/lab.jsonl`.
 That gives hundreds of labeled coins a day instead of a few dozen trades.
 `python analyze.py` writes `LEARN.md`, showing which features went with coins
