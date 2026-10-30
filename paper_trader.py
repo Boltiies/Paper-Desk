@@ -40,7 +40,7 @@ CFG = dict(
     min_score=70,
     # exits
     stop_pct=40.0, target_pct=150.0, sell_part=0.25, trail_pct=50.0,
-    dead_minutes=10, dev_watch_sec=60,
+    dead_minutes=10, dev_watch_sec=60, min_tx_h1=5,   # fewer trades than this in the last hour = dead coin
     # costs not in the Jupiter quote
     priority_fee_usd=0.05, jito_tip_usd=0.02,
     # control group
@@ -159,7 +159,7 @@ class Helius:
         return self.rpc("getSignaturesForAddress", [wallet, {"limit": limit}]) or []
     def sold(self, wallet, mint, sig):
         """True if this transaction lowered the wallet's balance of the coin."""
-        tx = self.rpc("getTransaction", [sig, {"maxSupportedTransactionVersion": 0, "encoding": "jsonParsed", "commitment": "confirmed"}])
+        tx = self.rpc("getTransaction", [sig, {"maxSupportedTransactionVersion": 1, "encoding": "jsonParsed", "commitment": "confirmed"}])
         meta = (tx or {}).get("meta") or {}
         def bal(lst):
             return sum(fnum(((b.get("uiTokenAmount") or {}).get("uiAmount")), 0) or 0
@@ -511,7 +511,9 @@ class Desk:
                         self.sell(wname, mint, 1, "Dev wallet sold, got out", pair); continue
                 price = fnum((pair or {}).get("priceUsd"))
                 liq = fnum(((pair or {}).get("liquidity") or {}).get("usd"), 0) or 0
-                if price and (liq > 500 or (pair or {}).get("dexId") == "pumpfun"):
+                tx1 = ((pair or {}).get("txns") or {}).get("h1") or {}
+                active = (tx1.get("buys") or 0) + (tx1.get("sells") or 0) >= c["min_tx_h1"]
+                if price and active and (liq > 500 or (pair or {}).get("dexId") == "pumpfun"):
                     p["last_seen"] = now()
                 elif now() - p["last_seen"] > c["dead_minutes"] * 60:
                     self.sell(wname, mint, 1, "Coin died: no buyers", pair); continue
