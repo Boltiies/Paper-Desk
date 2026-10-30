@@ -138,7 +138,11 @@ class Net:
                 self.errors[f"{host} ({r.status_code})"] = self.errors.get(f"{host} ({r.status_code})", 0) + 1; return None
             d = r.json()
             if d.get("error"):
-                self.errors[f"{host} (rpc error)"] = self.errors.get(f"{host} (rpc error)", 0) + 1; return None
+                err = d["error"]; code = err.get("code") if isinstance(err, dict) else err
+                k = f"{host} (rpc error {code})"
+                if k not in self.shown:
+                    self.shown.add(k); msg = f"[api] rpc error {tag} :: {str(err)[:200]}"; print(msg, flush=True); debug(msg)
+                self.errors[k] = self.errors.get(k, 0) + 1; return None
             return d.get("result")
         except Exception as e:
             self.errors[f"{host} ({type(e).__name__})"] = self.errors.get(f"{host} ({type(e).__name__})", 0) + 1; return None
@@ -215,12 +219,12 @@ class API:
         return int(d["outAmount"])
     def jup_down(self): return self.jup_fails >= 5
     def sol_usd(self):
-        out = None if self.jup_down() else self.quote(SOL, USDC, 10**9)
-        if out: return out / 1e6
         d = self.n.get("https://api.dexscreener.com/tokens/v1/solana/" + SOL, gap=0.25) or []
         best = max((p for p in d if (p.get("baseToken") or {}).get("address") == SOL), default=None,
                    key=lambda p: fnum((p.get("liquidity") or {}).get("usd"), 0) or 0)
-        return fnum(best.get("priceUsd")) if best else None
+        if best: return fnum(best.get("priceUsd"))
+        out = None if self.jup_down() else self.quote(SOL, USDC, 10**9)
+        return out / 1e6 if out else None
 
 
 # ------------------------------------------------------------------ the workers
