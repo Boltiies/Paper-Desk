@@ -1,45 +1,45 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-30 16:20:26 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-30 16:30:54 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,792 calls this run
+Dev wallet watch (Helius): **on**, 1,905 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $64.81 | $70.73 |
+| Value now | $64.75 | $70.60 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 5 |
-| Closed trades | 20 | 11 |
-| Win rate | 15% | 9% |
+| Closed trades | 20 | 12 |
+| Win rate | 15% | 8% |
 | Avg win | $0.56 | $0.80 |
-| Avg loss | $-0.72 | $-0.62 |
-| Expectancy per trade | $-0.529 | $-0.493 |
-| Return per $ bet | -35.8% | -32.7% |
+| Avg loss | $-0.72 | $-0.59 |
+| Expectancy per trade | $-0.529 | $-0.471 |
+| Return per $ bet | -35.8% | -31.4% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 20 and 11).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 20 and 12).
 
 ## Funnel
 
-Coins found: 30,763 · young coins waiting for a second look: 2,011
+Coins found: 31,183 · young coins waiting for a second look: 2,187
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 27,775 | 7,048 | 2 (0%) |
+| Volume too low | 28,011 | 7,048 | 2 (0%) |
 | No market yet | 220 | 0 | — |
-| Liquidity too low | 159 | 47 | 0 (0%) |
-| Too many open trades | 157 | 51 | 0 (0%) |
+| Liquidity too low | 160 | 47 | 0 (0%) |
+| Too many open trades | 160 | 51 | 0 (0%) |
 | Already pumped this hour | 131 | 54 | 2 (4%) |
-| Council score too low | 72 | 29 | 2 (7%) |
+| Council score too low | 73 | 29 | 2 (7%) |
 | Danger flag: Creator history of rugged tokens | 58 | 18 | 0 (0%) |
-| Top 10 holders own too much | 49 | 25 | 1 (4%) |
+| Top 10 holders own too much | 50 | 25 | 1 (4%) |
 | Dev holds too much | 34 | 14 | 1 (7%) |
-| No security report | 27 | 13 | 0 (0%) |
+| No security report | 28 | 13 | 0 (0%) |
 | No SOL price | 20 | 0 | — |
-| Dev wallet already selling | 19 | 4 | 0 (0%) |
+| Dev wallet already selling | 20 | 4 | 0 (0%) |
 | Liquidity not locked or burned | 3 | 1 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 2 | 0 | — |
 | Sell test: tax or fees too high | 1 | 1 | 0 (0%) |
@@ -68,5 +68,5 @@ Coins found: 30,763 · young coins waiting for a second look: 2,011
 
 - lite-api.jup.ag (rate limited): 1
 - mainnet.helius-rpc.com (502): 1
-- api.rugcheck.xyz (ConnectionError): 9
+- api.rugcheck.xyz (ConnectionError): 10
 - frontend-api-v3.pump.fun (ConnectionError): 1
