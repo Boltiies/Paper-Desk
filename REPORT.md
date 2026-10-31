@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-31 16:03:47 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-31 16:14:48 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 43 calls this run
+Dev wallet watch (Helius): **on**, 50 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $71.66 | $72.84 |
+| Value now | $71.01 | $71.81 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 0 | 0 |
+| Open trades | 3 | 4 |
 | Closed trades | 5 | 5 |
 | Win rate | 0% | 0% |
 | Avg win | $0.00 | $0.00 |
@@ -22,25 +22,25 @@ Dev wallet watch (Helius): **on**, 43 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 5 and 5).
 
-Lab: 16,772 coins fully tracked for 4 hours, 4,963 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 16,946 coins fully tracked for 4 hours, 5,059 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 23,718 · young coins waiting for a second look: 1,625
+Coins found: 24,043 · young coins waiting for a second look: 1,645
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 23,919 | 6,057 | 1 (0%) |
+| Volume too low | 24,202 | 6,066 | 1 (0%) |
 | No security report | 1,040 | 305 | 3 (1%) |
-| Already pumped this hour | 28 | 7 | 1 (14%) |
-| Fading: few trades in last 5 min | 25 | 12 | 0 (0%) |
+| Already pumped this hour | 34 | 7 | 1 (14%) |
+| Fading: few trades in last 5 min | 27 | 12 | 0 (0%) |
+| Liquidity too low | 26 | 4 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 24 | 10 | 0 (0%) |
-| Liquidity too low | 21 | 4 | 0 (0%) |
-| Council score too low | 17 | 3 | 0 (0%) |
+| Council score too low | 21 | 3 | 0 (0%) |
 | No market yet | 8 | 0 | — |
+| Sell test failed (honeypot or no route) | 3 | 0 | — |
 | Top 10 holders own too much | 3 | 1 | 0 (0%) |
 | Dev wallet already selling | 2 | 1 | 0 (0%) |
-| Sell test failed (honeypot or no route) | 1 | 0 | — |
 
 ## Recent council trades
 
@@ -54,5 +54,4 @@ Coins found: 23,718 · young coins waiting for a second look: 1,625
 
 ## Data source errors this run
 
-- api.rugcheck.xyz (400): 410
-- api.rugcheck.xyz (ConnectionError): 5
+- lite-api.jup.ag (rate limited): 3
