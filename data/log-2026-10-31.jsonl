@@ -67,3 +67,20 @@
 {"mint":"AFwYedmrgqZp6sXcfNgEAzw36gChMWo1yErbABWxpump","sym":"MOMO","reason":"No security report","t":"2026-10-31 01:30:51","kind":"kill"}
 {"mint":"DEEuKednTwtLRwN4kfNRpAAo5n2MeSRu4AHA9X8Bpump","sym":"DearCZ","reason":"No security report","t":"2026-10-31 01:31:51","kind":"kill"}
 {"mint":"HvitmAeh6TkToQonoiNwqWcrZsYdYiaSZHP7yMmspump","sym":"LUMI","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":13.9,"lp_locked":100,"liq":41794,"vol":972852,"h1":355,"tx_h1":18699,"t":"2026-10-31 01:34:51","kind":"kill"}
+{"mint":"2dmmwpCKQuzjKGiXgxEi8wfbVhPMfALKjkS7fPMFpump","sym":"iCrashed ","reason":"No security report","t":"2026-10-31 01:35:21","kind":"kill"}
+{"mint":"3p9U4H8ZGZtPycDopoRhBAekukPNC3kb3i2sh8rVpump","sym":"nazkun","reason":"No security report","t":"2026-10-31 01:36:51","kind":"kill"}
+{"mint":"2FGmQEgZcWKqJxxB7ZWMwzcJyPGK3QGUfXba5zxNpump","sym":"Lumi","reason":"No security report","t":"2026-10-31 01:36:52","kind":"kill"}
+{"mint":"72xeAdNUsuNyreBnDh5X9fBbBBNeEJXHLXtn6AL6pump","sym":"nazkun","reason":"No security report","t":"2026-10-31 01:37:22","kind":"kill"}
+{"mint":"2MFYxxA3WD2iLaTN7fvfAVi944HgqpD2S2mT5VWzpump","sym":"nazkun","reason":"No security report","t":"2026-10-31 01:37:53","kind":"kill"}
+{"mint":"D1i7WnQYruLC3j48AHB3stX7ZxUKmQLRZjeadmALpump","sym":"nazkun","reason":"No security report","t":"2026-10-31 01:37:55","kind":"kill"}
+{"mint":"EigTZo8aBfoCo5AUwaL5krikg9vKAGYE3dzq32R2pump","sym":"LUMI","reason":"Fading: few trades in last 5 min","dev":0,"insiders":0,"top10":15.2,"liq":0,"vol":150558,"h1":6,"tx_h1":3210,"fills":"jupiter","roundtrip_loss":2.5,"score":12,"momentum":4,"social":90,"community":0,"tx_m5":2,"ratio_m5":0.5,"ratio_h1":0.54,"tx_h6":3210,"accel":0.01,"vol_m5":10,"vol_h1":150558,"vol_h24":150558,"ch_m5":0.2,"ch_h1":6.15,"ch_h6":6.15,"mcap":3901,"age_min":37.1,"holders":0,"holders_per_min":0.0,"dex":"pumpfun","socials":4,"boosts":0,"avg_trade":46.9,"t":"2026-10-31 01:38:52","kind":"kill"}
+{"mint":"8jtGpVpWu68tcCBHh7uTvUPFMEfyynooify6QeA2pump","sym":"ante","reason":"No security report","t":"2026-10-31 01:39:51","kind":"kill"}
+{"mint":"4JMiqwfWoeRcBnG7Y9th1GtadFBd3R2q87Vt6yQQpump","sym":"ACC","reason":"No security report","t":"2026-10-31 01:39:54","kind":"kill"}
+{"mint":"vM3WiGzBbLosBTh6Rv7v7Vg46CZdNCvqcWDQiVKpump","sym":"Lumi","reason":"No security report","t":"2026-10-31 01:40:51","kind":"kill"}
+{"mint":"27MtUd9sWiBeo4wTMAQVwcBz9D7kuoYBmaxB4Lwapump","sym":"GINA","reason":"No security report","t":"2026-10-31 01:41:21","kind":"kill"}
+{"mint":"5iCwbSuVERt4v19ULqzQLhQzFQQaoJkm9Me6699fpump","sym":"Lumi","reason":"No security report","t":"2026-10-31 01:41:22","kind":"kill"}
+{"mint":"xk7nxmRSYx6VBgWC5VMTDnUoT88DqhyxAJuNT7cpump","sym":"ChatGPT","reason":"No security report","t":"2026-10-31 01:42:21","kind":"kill"}
+{"mint":"7x6QyiMf2KL6PB6f2umKcbZcLrixiwbpyg6Hekrqpump","sym":"FomoGiving","reason":"No security report","t":"2026-10-31 01:42:23","kind":"kill"}
+{"mint":"hhasheictTaC5GhhJW3CoF1uTp51eN5z4x4pyifFMd5","sym":"hyperhash","reason":"No security report","t":"2026-10-31 01:43:23","kind":"kill"}
+{"mint":"7EjoUqfyy5zZJ9ARWrVVt8XY62P3vQDzRuZNEtqrpump","sym":"Lumi","reason":"No security report","t":"2026-10-31 01:44:51","kind":"kill"}
+{"mint":"8At3PnqT98qEtTTe5zYJkcJ4iz9b1ecBuC4JrQsepump","sym":"Frogger","reason":"No security report","t":"2026-10-31 01:45:21","kind":"kill"}
