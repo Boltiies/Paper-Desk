@@ -256,3 +256,8 @@
 2026-10-31 07:40:03 [api] 400 https://api.rugcheck.xyz/v1/tokens/Gr8aNPC1P5bKZLFNc8LspLLTFUbKDAjVna1pP8yMpump/report :: '{"error":"unable to generate report"}'
 2026-10-31 07:41:03 [api] 400 https://api.rugcheck.xyz/v1/tokens/FcuBvFQLGA1oUPEMHRqn5ngyBtgtrK7iNAKNSKqApump/report :: '{"error":"unable to generate report"}'
 2026-10-31 07:42:03 [api] 400 https://api.rugcheck.xyz/v1/tokens/GqVDnW39wKcpRdhmrACqkNdiB2VD3B9pvt6HgJJppump/report :: '{"error":"unable to generate report"}'
+2026-10-31 07:46:03 [api] 400 https://api.rugcheck.xyz/v1/tokens/9Pz2reimHeS3rUxHE6hPiuXkvijjDb9Nid2xrkmZpump/report :: '{"error":"unable to generate report"}'
+2026-10-31 07:48:33 [api] 400 https://api.rugcheck.xyz/v1/tokens/CH4somejo6HMscqRV5JqekHC7ZPrk7eepTGRR1jvpump/report :: '{"error":"unable to generate report"}'
+2026-10-31 07:51:34 [api] 400 https://api.rugcheck.xyz/v1/tokens/AgykEbGxkZfLmmob9shuqZHBbc76nJqhLV48oypGpump/report :: '{"error":"unable to generate report"}'
+2026-10-31 07:53:33 [api] 400 https://api.rugcheck.xyz/v1/tokens/GQiBSQ82ZnatWdrT3dicFAUzooft7EEv3rjQ4aB9pump/report :: '{"error":"unable to generate report"}'
+2026-10-31 07:53:36 [api] 400 https://api.rugcheck.xyz/v1/tokens/4vcrdnK7uxX5Ebnp9M2GPFMyAwjNYwkE7maVqhJEpump/report :: '{"error":"unable to generate report"}'
