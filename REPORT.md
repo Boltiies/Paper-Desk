@@ -1,45 +1,45 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-31 19:29:39 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-31 19:40:08 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,537 calls this run
+Dev wallet watch (Helius): **on**, 1,605 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $70.45 | $66.87 |
+| Value now | $72.09 | $67.02 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 3 | 3 |
-| Closed trades | 14 | 12 |
-| Win rate | 14% | 0% |
+| Open trades | 2 | 4 |
+| Closed trades | 15 | 12 |
+| Win rate | 13% | 0% |
 | Avg win | $0.60 | $0.00 |
-| Avg loss | $-0.89 | $-0.81 |
-| Expectancy per trade | $-0.681 | $-0.810 |
-| Return per $ bet | -47.6% | -55.5% |
+| Avg loss | $-0.88 | $-0.81 |
+| Expectancy per trade | $-0.687 | $-0.810 |
+| Return per $ bet | -48.0% | -55.5% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 14 and 12).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 15 and 12).
 
-Lab: 20,963 coins fully tracked for 4 hours, 5,374 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 21,170 coins fully tracked for 4 hours, 5,407 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 30,233 · young coins waiting for a second look: 2,564
+Coins found: 30,712 · young coins waiting for a second look: 2,819
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 29,291 | 7,356 | 2 (0%) |
-| No security report | 1,047 | 329 | 3 (1%) |
-| Already pumped this hour | 70 | 10 | 1 (10%) |
-| Liquidity too low | 61 | 13 | 0 (0%) |
-| Fading: few trades in last 5 min | 55 | 14 | 0 (0%) |
-| Council score too low | 46 | 7 | 0 (0%) |
+| Volume too low | 29,506 | 7,475 | 2 (0%) |
+| No security report | 1,048 | 329 | 3 (1%) |
+| Already pumped this hour | 72 | 12 | 2 (17%) |
+| Liquidity too low | 63 | 15 | 0 (0%) |
+| Fading: few trades in last 5 min | 57 | 15 | 0 (0%) |
+| Council score too low | 47 | 7 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 39 | 16 | 0 (0%) |
 | Top 10 holders own too much | 20 | 7 | 0 (0%) |
+| No market yet | 9 | 0 | — |
 | Dev wallet already selling | 8 | 3 | 0 (0%) |
-| No market yet | 8 | 0 | — |
 | Sell test failed (honeypot or no route) | 4 | 0 | — |
 | Dev holds too much | 2 | 1 | 0 (0%) |
 
@@ -47,6 +47,7 @@ Coins found: 30,233 · young coins waiting for a second look: 2,564
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 10-31 19:36 | BNB | 84 | Hard stop | $-0.77 |
 | 10-31 19:25 | HALLOWEEN | 86 | Trailing stop | $+0.04 |
 | 10-31 19:01 | Satoshi | 91 | Hard stop | $-0.89 |
 | 10-31 18:47 | Puffen | 73 | Hard stop | $-0.98 |
@@ -65,4 +66,4 @@ Coins found: 30,233 · young coins waiting for a second look: 2,564
 ## Data source errors this run
 
 - lite-api.jup.ag (rate limited): 5
-- api.rugcheck.xyz (ConnectionError): 7
+- api.rugcheck.xyz (ConnectionError): 8
