@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-31 19:08:37 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-31 19:19:07 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,375 calls this run
+Dev wallet watch (Helius): **on**, 1,462 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $73.11 | $67.09 |
+| Value now | $72.08 | $67.13 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 4 | 5 |
 | Closed trades | 13 | 10 |
@@ -22,20 +22,20 @@ Dev wallet watch (Helius): **on**, 1,375 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 13 and 10).
 
-Lab: 20,452 coins fully tracked for 4 hours, 5,395 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 20,711 coins fully tracked for 4 hours, 5,382 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 29,283 · young coins waiting for a second look: 2,237
+Coins found: 29,927 · young coins waiting for a second look: 2,561
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 28,682 | 7,206 | 1 (0%) |
-| No security report | 1,046 | 329 | 3 (1%) |
-| Already pumped this hour | 69 | 10 | 1 (10%) |
-| Liquidity too low | 59 | 10 | 0 (0%) |
-| Fading: few trades in last 5 min | 50 | 14 | 0 (0%) |
-| Council score too low | 42 | 6 | 0 (0%) |
+| Volume too low | 28,993 | 7,235 | 1 (0%) |
+| No security report | 1,047 | 329 | 3 (1%) |
+| Already pumped this hour | 70 | 10 | 1 (10%) |
+| Liquidity too low | 61 | 10 | 0 (0%) |
+| Fading: few trades in last 5 min | 53 | 14 | 0 (0%) |
+| Council score too low | 44 | 6 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 39 | 14 | 0 (0%) |
 | Top 10 holders own too much | 20 | 7 | 0 (0%) |
 | No market yet | 8 | 0 | — |
@@ -64,4 +64,4 @@ Coins found: 29,283 · young coins waiting for a second look: 2,237
 ## Data source errors this run
 
 - lite-api.jup.ag (rate limited): 5
-- api.rugcheck.xyz (ConnectionError): 6
+- api.rugcheck.xyz (ConnectionError): 7
