@@ -1,52 +1,53 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-31 17:50:08 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-31 18:05:40 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 695 calls this run
+Dev wallet watch (Helius): **on**, 833 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $69.51 | $68.22 |
+| Value now | $70.54 | $67.75 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 4 | 4 |
-| Closed trades | 9 | 8 |
+| Open trades | 3 | 4 |
+| Closed trades | 10 | 9 |
 | Win rate | 0% | 0% |
 | Avg win | $0.00 | $0.00 |
-| Avg loss | $-0.89 | $-0.94 |
-| Expectancy per trade | $-0.889 | $-0.936 |
-| Return per $ bet | -60.9% | -62.6% |
+| Avg loss | $-0.89 | $-0.92 |
+| Expectancy per trade | $-0.887 | $-0.919 |
+| Return per $ bet | -61.1% | -61.9% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 9 and 8).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 10 and 9).
 
-Lab: 18,772 coins fully tracked for 4 hours, 5,331 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 19,094 coins fully tracked for 4 hours, 5,350 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 26,683 · young coins waiting for a second look: 1,714
+Coins found: 27,233 · young coins waiting for a second look: 1,844
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 26,671 | 6,816 | 1 (0%) |
+| Volume too low | 27,079 | 6,816 | 1 (0%) |
 | No security report | 1,044 | 329 | 3 (1%) |
-| Already pumped this hour | 50 | 9 | 1 (11%) |
-| Liquidity too low | 44 | 7 | 0 (0%) |
-| Fading: few trades in last 5 min | 42 | 12 | 0 (0%) |
+| Already pumped this hour | 55 | 9 | 1 (11%) |
+| Liquidity too low | 45 | 7 | 0 (0%) |
+| Fading: few trades in last 5 min | 44 | 12 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 34 | 12 | 0 (0%) |
-| Council score too low | 33 | 6 | 0 (0%) |
-| Top 10 holders own too much | 17 | 7 | 0 (0%) |
+| Council score too low | 34 | 6 | 0 (0%) |
+| Top 10 holders own too much | 19 | 7 | 0 (0%) |
 | No market yet | 8 | 0 | — |
 | Dev wallet already selling | 7 | 2 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 4 | 0 | — |
-| Dev holds too much | 1 | 0 | — |
+| Dev holds too much | 2 | 0 | — |
 
 ## Recent council trades
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 10-31 18:01 | KIM | 83 | Hard stop | $-0.86 |
 | 10-31 17:30 | GTA 6 Coin | 80 | Dev wallet sold, got out | $-0.34 |
 | 10-31 16:45 | DOUGHBRIKS | 70 | Hard stop | $-0.72 |
 | 10-31 16:22 | MAX | 71 | Hard stop | $-0.05 |
