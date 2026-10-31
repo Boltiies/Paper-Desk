@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-31 16:25:37 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-31 16:36:10 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 119 calls this run
+Dev wallet watch (Helius): **on**, 166 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $69.22 | $68.95 |
+| Value now | $70.02 | $69.74 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 2 | 2 |
+| Open trades | 3 | 2 |
 | Closed trades | 7 | 7 |
 | Win rate | 0% | 0% |
 | Avg win | $0.00 | $0.00 |
@@ -22,25 +22,25 @@ Dev wallet watch (Helius): **on**, 119 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 7 and 7).
 
-Lab: 17,140 coins fully tracked for 4 hours, 5,066 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 17,343 coins fully tracked for 4 hours, 5,099 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 24,311 · young coins waiting for a second look: 1,616
+Coins found: 24,620 · young coins waiting for a second look: 1,641
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 24,486 | 6,172 | 1 (0%) |
-| No security report | 1,041 | 319 | 3 (1%) |
+| Volume too low | 24,762 | 6,313 | 1 (0%) |
+| No security report | 1,041 | 328 | 3 (1%) |
 | Already pumped this hour | 36 | 7 | 1 (14%) |
 | Fading: few trades in last 5 min | 29 | 12 | 0 (0%) |
-| Liquidity too low | 27 | 4 | 0 (0%) |
+| Liquidity too low | 28 | 4 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 25 | 10 | 0 (0%) |
 | Council score too low | 24 | 3 | 0 (0%) |
+| Top 10 holders own too much | 8 | 1 | 0 (0%) |
 | No market yet | 8 | 0 | — |
 | Sell test failed (honeypot or no route) | 4 | 0 | — |
-| Top 10 holders own too much | 3 | 1 | 0 (0%) |
-| Dev wallet already selling | 3 | 1 | 0 (0%) |
+| Dev wallet already selling | 4 | 1 | 0 (0%) |
 
 ## Recent council trades
 
