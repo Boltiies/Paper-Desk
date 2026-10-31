@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-31 18:36:39 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-31 18:47:10 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,059 calls this run
+Dev wallet watch (Helius): **on**, 1,178 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $69.23 | $67.98 |
+| Value now | $71.05 | $67.47 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 3 | 5 |
+| Open trades | 5 | 5 |
 | Closed trades | 11 | 9 |
 | Win rate | 9% | 0% |
 | Avg win | $1.16 | $0.00 |
@@ -22,26 +22,26 @@ Dev wallet watch (Helius): **on**, 1,059 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 11 and 9).
 
-Lab: 19,803 coins fully tracked for 4 hours, 5,269 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 19,974 coins fully tracked for 4 hours, 5,374 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 28,134 · young coins waiting for a second look: 1,895
+Coins found: 28,496 · young coins waiting for a second look: 2,026
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 27,902 | 7,046 | 1 (0%) |
+| Volume too low | 28,124 | 7,197 | 1 (0%) |
 | No security report | 1,045 | 329 | 3 (1%) |
-| Already pumped this hour | 61 | 10 | 1 (10%) |
-| Liquidity too low | 55 | 8 | 0 (0%) |
-| Fading: few trades in last 5 min | 48 | 12 | 0 (0%) |
-| Council score too low | 37 | 6 | 0 (0%) |
+| Already pumped this hour | 64 | 10 | 1 (10%) |
+| Liquidity too low | 57 | 9 | 0 (0%) |
+| Fading: few trades in last 5 min | 48 | 13 | 0 (0%) |
+| Council score too low | 39 | 6 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 36 | 14 | 0 (0%) |
 | Top 10 holders own too much | 19 | 7 | 0 (0%) |
 | No market yet | 8 | 0 | — |
 | Dev wallet already selling | 7 | 3 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 4 | 0 | — |
-| Dev holds too much | 2 | 0 | — |
+| Dev holds too much | 2 | 1 | 0 (0%) |
 
 ## Recent council trades
 
