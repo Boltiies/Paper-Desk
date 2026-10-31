@@ -1,6 +1,6 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-10-31 11:32:50 UTC. Paper only: no wallet, no real trades.
+Updated 2026-10-31 11:43:19 UTC. Paper only: no wallet, no real trades.
 
 Dev wallet watch (Helius): **on**, 0 calls this run
 
@@ -22,16 +22,16 @@ Dev wallet watch (Helius): **on**, 0 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 4 and 5).
 
-Lab: 12,340 coins fully tracked for 4 hours, 3,905 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 12,510 coins fully tracked for 4 hours, 3,934 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 16,700 · young coins waiting for a second look: 954
+Coins found: 16,891 · young coins waiting for a second look: 913
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 17,964 | 4,448 | 1 (0%) |
-| No security report | 678 | 192 | 2 (1%) |
+| Volume too low | 18,181 | 4,565 | 1 (0%) |
+| No security report | 693 | 197 | 3 (2%) |
 | Fading: few trades in last 5 min | 23 | 12 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 23 | 10 | 0 (0%) |
 | Already pumped this hour | 18 | 7 | 1 (14%) |
@@ -53,4 +53,4 @@ Coins found: 16,700 · young coins waiting for a second look: 954
 
 ## Data source errors this run
 
-- api.rugcheck.xyz (400): 53
+- api.rugcheck.xyz (400): 68
