@@ -53,6 +53,7 @@ USDC = "EPjFWdd5AufqSSqLM2bmQ9wXDG7Bpq1yYZ9KTDj2Dt1v"
 DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 REPORT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "REPORT.md")
 LAB_SNAPS = (5, 15, 30, 60, 120, 240)   # minutes after first check when the lab records each coin's price
+REPORT_RETRY_MIN = (2, 5, 10, 20)   # minutes to wait before asking RugCheck again about a coin it doesn't know yet
 RETRY_MIN = (3, 10, 30)   # minutes after first sight to look at a young coin again
 QUIET = {"No market yet", "Volume too low"}   # counted, not logged one by one
 UA = {"User-Agent": "kill-first-desk-paper/1.0", "Accept": "application/json"}
@@ -379,7 +380,8 @@ class Desk:
         self.w = {"council": Wallet("council", st.get("council")), "control": Wallet("control", st.get("control"))}
         self.seen = dict.fromkeys(st.get("seen", []))
         self.follow = st.get("follow", [])
-        self.retry = st.get("retry", [])   # young coins rechecked later: no market yet / volume still low
+        self.retry = st.get("retry", [])
+        self.report_tries = st.get("report_tries", {})   # young coins rechecked later: no market yet / volume still low
         self.stats = st.get("stats", {"found": 0, "kills": {}, "kills_pumped": {}, "kills_checked": {}, "scores": []})
         self.sol = None; self.sol_t = 0
         self.helius = None
@@ -465,7 +467,12 @@ class Desk:
             if now() - self.last_manage > 20: self.manage()
             self.attempt = n
             r = self.judge(name, mint, meta, pairs.get(mint))
-            if r == "RETRY":
+            if r == "RETRY" and self.last_reason == "No security report":
+                k = self.report_tries.get(mint, 0); self.report_tries[mint] = k + 1
+                small = {kk: meta.get(kk) for kk in ("symbol", "twitter", "telegram", "website")} if isinstance(meta, dict) else {}
+                self.retry.append(dict(src=name, mint=mint, meta=small, n=n, due=now() + REPORT_RETRY_MIN[k] * 60))
+                self.stats["report_retries"] = self.stats.get("report_retries", 0) + 1
+            elif r == "RETRY":
                 if n < len(RETRY_MIN) and len(self.retry) < 3000:
                     small = {k: meta.get(k) for k in ("symbol", "twitter", "telegram", "website")} if isinstance(meta, dict) else {}
                     self.retry.append(dict(src=name, mint=mint, meta=small, n=n + 1, due=now() + RETRY_MIN[n] * 60))
@@ -485,6 +492,10 @@ class Desk:
         if vol < self.cfg["min_vol_usd"] and getattr(self, "attempt", 0) < len(RETRY_MIN):
             self.last_reason = "Volume too low"; return "RETRY"   # young coin: look again before running security
         rep = self.api.rugcheck(mint)
+        if not rep and self.report_tries.get(mint, 0) < len(REPORT_RETRY_MIN):
+            # brand-new coins often aren't in RugCheck yet: look again shortly instead of dropping them
+            self.lab_add(mint, sym, pair, None, meta, {})
+            self.last_reason = "No security report"; return "RETRY"
         ok, why, facts = security(rep, pair, self.cfg)
         self.lab_add(mint, sym, pair, rep, meta, facts)
         if not ok:
@@ -634,7 +645,8 @@ class Desk:
 
     def state(self):
         return dict(council=self.w["council"].dump(), control=self.w["control"].dump(),
-                    seen=list(self.seen)[-20000:], follow=self.follow, retry=self.retry, stats=self.stats, saved=iso())
+                    seen=list(self.seen)[-20000:], follow=self.follow, retry=self.retry,
+                    report_tries=dict(list(self.report_tries.items())[-5000:]), stats=self.stats, saved=iso())
 
 
 # ------------------------------------------------------------------ report
@@ -678,7 +690,8 @@ def write_report(desk, net):
     st = desk.stats
     L += ["", f"Lab: {st.get('lab_done', 0):,} coins fully tracked for 4 hours, {len(desk.lab):,} still being followed. "
           "Run `python analyze.py` to see what predicted the winners (writes LEARN.md)."]
-    L += ["", "## Funnel", "", f"Coins found: {st['found']:,} · young coins waiting for a second look: {len(desk.retry):,}", "", "| Stopped because | Count | Checked 1h later | Pumped 2x+ |", "|---|---|---|---|"]
+    L += ["", "## Funnel", "", f"Coins found: {st['found']:,} · young coins waiting for a second look: {len(desk.retry):,} · "
+          f"RugCheck rechecks: {st.get('report_retries', 0):,}", "", "| Stopped because | Count | Checked 1h later | Pumped 2x+ |", "|---|---|---|---|"]
     for r, n in sorted(st["kills"].items(), key=lambda x: -x[1]):
         ch = st["kills_checked"].get(r, 0); pm = st["kills_pumped"].get(r, 0)
         L.append(f"| {r} | {n:,} | {ch:,} | {pm} ({100*pm/ch:.0f}%) |" if ch else f"| {r} | {n:,} | 0 | — |")
@@ -718,6 +731,8 @@ class MockAPI:
         return out
     def rugcheck(self, m):
         c = self.coins[m]
+        c["rc"] = c.get("rc", 0) + 1
+        if c["rc"] == 1 and self.r.random() < 0.4: return None   # not indexed yet
         return {"mintAuthority": None, "freezeAuthority": "X" if c["hp"] else None, "creator": "DEV", "rugged": False,
                 "topHolders": [{"owner": "DEV", "pct": 25 if c["rug"] else 3}] + [{"owner": f"H{i}", "pct": 2, "insider": False} for i in range(9)],
                 "markets": [{"lp": {"lpLockedPct": 100}}], "risks": [], "totalHolders": self.r.randint(20, 2000)}
