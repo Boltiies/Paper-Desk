@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 20:47:03 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 20:57:32 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 173 calls this run
+Dev wallet watch (Helius): **on**, 229 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $50.48 | $55.89 |
+| Value now | $50.63 | $55.67 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 55 | 47 |
@@ -23,20 +23,20 @@ Dev wallet watch (Helius): **on**, 173 calls this run
 Council picks return -42.0% per dollar bet, random picks -36.2%. Gap: **-5.8 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 50,883 coins fully tracked for 4 hours, 6,374 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 51,128 coins fully tracked for 4 hours, 6,467 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 68,632 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 47
+Coins found: 68,944 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 47
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 66,245 | 16,987 | 7 (0%) |
+| Volume too low | 66,549 | 17,084 | 8 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 325 | 96 | 0 (0%) |
-| Already pumped this hour | 230 | 57 | 6 (11%) |
-| Fading: few trades in last 5 min | 227 | 71 | 0 (0%) |
-| Council score too low | 164 | 46 | 1 (2%) |
+| Liquidity too low | 326 | 96 | 0 (0%) |
+| Already pumped this hour | 232 | 57 | 6 (11%) |
+| Fading: few trades in last 5 min | 231 | 73 | 0 (0%) |
+| Council score too low | 165 | 47 | 1 (2%) |
 | Danger flag: Creator history of rugged tokens | 111 | 45 | 0 (0%) |
 | Top 10 holders own too much | 111 | 36 | 0 (0%) |
 | No market yet | 39 | 0 | — |
