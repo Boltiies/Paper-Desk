@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 13:13:28 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 13:23:57 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 2,311 calls this run
+Dev wallet watch (Helius): **on**, 2,425 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $57.28 | $60.12 |
+| Value now | $56.97 | $59.73 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 5 |
 | Closed trades | 40 | 34 |
@@ -23,21 +23,21 @@ Dev wallet watch (Helius): **on**, 2,311 calls this run
 Council picks return -43.2% per dollar bet, random picks -41.7%. Gap: **-1.6 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 41,855 coins fully tracked for 4 hours, 4,164 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 41,971 coins fully tracked for 4 hours, 4,272 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 53,106 · young coins waiting for a second look: 1,057 · RugCheck rechecks: 25
+Coins found: 53,336 · young coins waiting for a second look: 1,071 · RugCheck rechecks: 25
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 53,055 | 14,193 | 5 (0%) |
+| Volume too low | 53,266 | 14,193 | 5 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
 | Liquidity too low | 226 | 72 | 0 (0%) |
-| Already pumped this hour | 181 | 48 | 6 (12%) |
+| Already pumped this hour | 182 | 48 | 6 (12%) |
 | Fading: few trades in last 5 min | 155 | 51 | 0 (0%) |
-| Council score too low | 115 | 32 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 85 | 33 | 0 (0%) |
+| Council score too low | 116 | 32 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 88 | 33 | 0 (0%) |
 | Top 10 holders own too much | 83 | 26 | 0 (0%) |
 | Dev holds too much | 19 | 6 | 0 (0%) |
 | Dev wallet already selling | 14 | 6 | 0 (0%) |
