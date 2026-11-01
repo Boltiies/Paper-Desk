@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 04:13:09 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 04:23:38 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 392 calls this run
+Dev wallet watch (Helius): **on**, 445 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $59.17 | $62.53 |
+| Value now | $59.23 | $62.58 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
 | Closed trades | 26 | 22 |
@@ -22,25 +22,25 @@ Dev wallet watch (Helius): **on**, 392 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 26 and 22).
 
-Lab: 33,183 coins fully tracked for 4 hours, 4,859 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 33,426 coins fully tracked for 4 hours, 4,752 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 44,097 · young coins waiting for a second look: 1,135 · RugCheck rechecks: 15
+Coins found: 44,245 · young coins waiting for a second look: 947 · RugCheck rechecks: 15
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 44,207 | 10,662 | 2 (0%) |
+| Volume too low | 44,539 | 10,680 | 2 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
 | Liquidity too low | 160 | 49 | 0 (0%) |
 | Fading: few trades in last 5 min | 144 | 47 | 0 (0%) |
-| Already pumped this hour | 136 | 34 | 4 (12%) |
-| Council score too low | 86 | 23 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 66 | 28 | 0 (0%) |
+| Already pumped this hour | 137 | 34 | 4 (12%) |
+| Council score too low | 87 | 23 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 67 | 28 | 0 (0%) |
 | Top 10 holders own too much | 46 | 14 | 0 (0%) |
 | No market yet | 12 | 0 | — |
 | Dev wallet already selling | 11 | 6 | 0 (0%) |
-| Dev holds too much | 9 | 5 | 0 (0%) |
+| Dev holds too much | 10 | 5 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 4 | 0 | — |
 | Liquidity not locked or burned | 1 | 1 | 0 (0%) |
 
