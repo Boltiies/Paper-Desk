@@ -1,44 +1,44 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 12:52:27 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 13:02:59 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 2,084 calls this run
+Dev wallet watch (Helius): **on**, 2,185 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $55.98 | $60.55 |
+| Value now | $57.20 | $59.16 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 3 | 5 |
-| Closed trades | 39 | 32 |
-| Win rate | 15% | 9% |
-| Avg win | $0.80 | $0.58 |
-| Avg loss | $-0.79 | $-0.72 |
-| Expectancy per trade | $-0.549 | $-0.596 |
-| Return per $ bet | -42.8% | -44.4% |
+| Open trades | 4 | 4 |
+| Closed trades | 39 | 34 |
+| Win rate | 15% | 12% |
+| Avg win | $0.80 | $0.78 |
+| Avg loss | $-0.79 | $-0.73 |
+| Expectancy per trade | $-0.549 | $-0.555 |
+| Return per $ bet | -42.8% | -41.7% |
 
 ## Does the council have an edge?
 
-Council picks return -42.8% per dollar bet, random picks -44.4%. Gap: **+1.6 points**.
+Council picks return -42.8% per dollar bet, random picks -41.7%. Gap: **-1.1 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 41,578 coins fully tracked for 4 hours, 3,917 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 41,691 coins fully tracked for 4 hours, 4,116 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 52,556 · young coins waiting for a second look: 1,044 · RugCheck rechecks: 24
+Coins found: 52,846 · young coins waiting for a second look: 1,058 · RugCheck rechecks: 24
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 52,542 | 14,016 | 5 (0%) |
+| Volume too low | 52,808 | 14,121 | 5 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 221 | 71 | 0 (0%) |
-| Already pumped this hour | 175 | 48 | 6 (12%) |
-| Fading: few trades in last 5 min | 155 | 50 | 0 (0%) |
-| Council score too low | 113 | 32 | 0 (0%) |
+| Liquidity too low | 222 | 71 | 0 (0%) |
+| Already pumped this hour | 180 | 48 | 6 (12%) |
+| Fading: few trades in last 5 min | 155 | 51 | 0 (0%) |
+| Council score too low | 114 | 32 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 84 | 33 | 0 (0%) |
-| Top 10 holders own too much | 78 | 25 | 0 (0%) |
+| Top 10 holders own too much | 80 | 25 | 0 (0%) |
 | Dev holds too much | 19 | 6 | 0 (0%) |
 | Dev wallet already selling | 13 | 6 | 0 (0%) |
 | No market yet | 13 | 0 | — |
