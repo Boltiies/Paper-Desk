@@ -1,48 +1,48 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 18:48:44 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 18:59:16 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,893 calls this run
+Dev wallet watch (Helius): **on**, 1,947 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $49.96 | $56.87 |
+| Value now | $50.03 | $56.50 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 3 |
-| Closed trades | 54 | 41 |
-| Win rate | 15% | 12% |
-| Avg win | $0.80 | $0.87 |
+| Closed trades | 54 | 42 |
+| Win rate | 15% | 14% |
+| Avg win | $0.80 | $0.74 |
 | Avg loss | $-0.75 | $-0.69 |
-| Expectancy per trade | $-0.523 | $-0.504 |
-| Return per $ bet | -42.4% | -38.4% |
+| Expectancy per trade | $-0.523 | $-0.489 |
+| Return per $ bet | -42.4% | -37.4% |
 
 ## Does the council have an edge?
 
-Council picks return -42.4% per dollar bet, random picks -38.4%. Gap: **-4.0 points**.
+Council picks return -42.4% per dollar bet, random picks -37.4%. Gap: **-5.0 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 48,082 coins fully tracked for 4 hours, 5,812 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 48,344 coins fully tracked for 4 hours, 5,842 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 63,753 · young coins waiting for a second look: 2,986 · RugCheck rechecks: 41
+Coins found: 64,147 · young coins waiting for a second look: 2,999 · RugCheck rechecks: 42
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 61,504 | 16,253 | 7 (0%) |
+| Volume too low | 61,865 | 16,369 | 7 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 297 | 85 | 0 (0%) |
-| Already pumped this hour | 217 | 51 | 6 (12%) |
-| Fading: few trades in last 5 min | 194 | 55 | 0 (0%) |
-| Council score too low | 151 | 41 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 109 | 40 | 0 (0%) |
-| Top 10 holders own too much | 105 | 33 | 0 (0%) |
+| Liquidity too low | 302 | 86 | 0 (0%) |
+| Already pumped this hour | 219 | 53 | 6 (11%) |
+| Fading: few trades in last 5 min | 197 | 62 | 0 (0%) |
+| Council score too low | 152 | 43 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 109 | 43 | 0 (0%) |
+| Top 10 holders own too much | 106 | 33 | 0 (0%) |
 | Dev holds too much | 25 | 8 | 0 (0%) |
+| No market yet | 22 | 0 | — |
 | Dev wallet already selling | 20 | 7 | 0 (0%) |
 | Too many open trades | 17 | 2 | 0 (0%) |
-| No market yet | 14 | 0 | — |
 | Sell test failed (honeypot or no route) | 5 | 1 | 0 (0%) |
 | Liquidity not locked or burned | 1 | 1 | 0 (0%) |
 
@@ -68,4 +68,4 @@ Coins found: 63,753 · young coins waiting for a second look: 2,986 · RugCheck 
 
 ## Data source errors this run
 
-- api.rugcheck.xyz (ConnectionError): 14
+- api.rugcheck.xyz (ConnectionError): 15
