@@ -314,3 +314,4 @@
 {"mint":"LVenZwoXC5msvGCzPw6tkNWuhJhkVZzfCCs9wMbpump","sym":"YouTube","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1744,"vol":39194,"h1":-96,"tx_h1":7430,"t":"2026-11-01 08:47:07","kind":"kill"}
 {"mint":"AXVFoBUpJtjT9yuHSLieXsjicZD6QcAjGqoc7ZB3pump","sym":"DRNK","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":63.5,"t":"2026-11-01 08:47:08","kind":"kill"}
 {"mint":"37H5oXhB4hCUvAeMTdpnysm9cRkjv3UeM1EiXwsWpump","sym":"DRNK","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":65.0,"t":"2026-11-01 08:47:37","kind":"kill"}
+{"mint":"2uVHQPWL21vZhA4EDqHgx7uuratKiNx7H5rkchL5pump","sym":"UDTF","reason":"Dev holds too much","dev":79.3,"insiders":0,"top10":96.7,"t":"2026-11-01 08:53:08","kind":"kill"}
