@@ -945,3 +945,9 @@
 {"mint":"y1zTe6YQsY824FvJ4vR2L141AhBPCet1Va5GCK8pump","sym":"NVIDIA","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1700,"vol":33593,"h1":0,"tx_h1":0,"t":"2026-11-01 21:40:01","kind":"kill"}
 {"mint":"AvrpC5mP8MP6ej5KosfhwpahyV6Zp5QqsYo4NXvSpump","sym":"BHF","reason":"Danger flag: Creator history of rugged tokens","dev":0,"insiders":0,"top10":0.2,"t":"2026-11-01 21:40:03","kind":"kill"}
 {"mint":"t4EkhhqiNCWGbFs5FdGdqWfAQBcwoT5uyKzjwwspump","sym":"OpenAI","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.2,"lp_locked":100,"liq":1715,"vol":50513,"h1":-96,"tx_h1":7062,"t":"2026-11-01 21:51:01","kind":"kill"}
+{"mint":"EaYd9uBdkMpgDB6JAu2igUAXKmNrJGB1hiL22PeMpump","sym":"BABYUNI","reason":"Liquidity not locked or burned","dev":0,"insiders":0,"top10":30.8,"lp_locked":0,"t":"2026-11-01 21:56:31","kind":"kill"}
+{"mint":"7CfAn85iE9R3L3MtSNGa7RpD2Kj3KJUo5pYqb1Cpump","reason":"Council score too low","x":3.19,"t":"2026-11-01 21:56:31","kind":"missed"}
+{"mint":"3ZLL5QEnj2mF1brApnvQZDpvStykkc6KJzCs6YjZpump","sym":"Microsoft","reason":"Liquidity too low","dev":0,"insiders":0,"top10":1.6,"lp_locked":100,"liq":1770,"vol":41755,"h1":-96,"tx_h1":5963,"t":"2026-11-01 21:59:01","kind":"kill"}
+{"mint":"bJcqrdR49WqQVuqWZTQYGXniyXm8wUthGGC1d92pump","sym":"ANAKINCORE","reason":"Liquidity too low","dev":0,"insiders":0,"top10":1.9,"lp_locked":100,"liq":1827,"vol":247005,"h1":-96,"tx_h1":5652,"t":"2026-11-01 21:59:02","kind":"kill"}
+{"mint":"66Qwvu35ay5VccEQz65sBNWYHM7WThQ3bkk47PnQpump","sym":"ADP","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.4,"lp_locked":100,"liq":1360,"vol":384275,"h1":-97,"tx_h1":4801,"t":"2026-11-01 22:00:00","kind":"kill"}
+{"mint":"G64dHSmPtTqBRQ4c6FDwXxdySEDh4jHpKhsiqZLkpump","sym":"MEWZ","reason":"Danger flag: Creator history of rugged tokens","dev":0,"insiders":0,"top10":2.8,"t":"2026-11-01 22:00:02","kind":"kill"}
