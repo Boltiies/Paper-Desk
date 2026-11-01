@@ -336,3 +336,6 @@
 {"mint":"GS6DbJJeNzWJ4SHBrMxh9tGCQJjtACjeyk1E6Qrgpump","sym":"ANSEM","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":17.9,"liq":0,"vol":74025,"h1":551,"tx_h1":2147,"t":"2026-11-01 09:32:26","kind":"kill"}
 {"mint":"7PYqsvKbA19WWtm8SScg1en2pfbds2qLCBL684xZpump","sym":"Rockstar","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1773,"vol":82603,"h1":-96,"tx_h1":20076,"t":"2026-11-01 09:32:55","kind":"kill"}
 {"wallet":"council","mint":"GuvRLfGP4CMJfF9VyHv85vih9yqxhNB5R8zgRcD9pump","sym":"BLACKED","usd":0.5,"why":"Sold 25% at target","t":"2026-11-01 09:33:25","kind":"partial"}
+{"mint":"FFLe6RSDCirjZa3Lno6TxYJ4F7xUTDer5qEX8z6Bpump","sym":"CPAD","reason":"Liquidity too low","dev":0,"insiders":0,"top10":20.5,"lp_locked":100,"liq":4234,"vol":60303,"h1":-87,"tx_h1":2327,"t":"2026-11-01 09:38:55","kind":"kill"}
+{"mint":"nGoEUu5KJaGTkJU8jYQrhYLRDd58Lg18rgmWWFUpump","sym":"Claude","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.2,"lp_locked":100,"liq":1795,"vol":39166,"h1":-96,"tx_h1":8101,"t":"2026-11-01 09:39:25","kind":"kill"}
+{"mint":"HiwLM75PFJuV1dpxETNmWr1gM2VokzvQFxatqw4spump","sym":"fomo","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1738,"vol":42619,"h1":-96,"tx_h1":11629,"t":"2026-11-01 09:41:27","kind":"kill"}
