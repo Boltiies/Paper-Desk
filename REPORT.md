@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 01:28:24 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 01:43:55 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,299 calls this run
+Dev wallet watch (Helius): **on**, 1,431 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $62.17 | $63.30 |
+| Value now | $63.06 | $63.07 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 2 | 5 |
+| Open trades | 3 | 5 |
 | Closed trades | 20 | 19 |
 | Win rate | 10% | 11% |
 | Avg win | $0.60 | $0.48 |
@@ -22,21 +22,21 @@ Dev wallet watch (Helius): **on**, 1,299 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 20 and 19).
 
-Lab: 29,323 coins fully tracked for 4 hours, 5,392 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 29,720 coins fully tracked for 4 hours, 5,340 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 41,089 · young coins waiting for a second look: 2,898 · RugCheck rechecks: 10
+Coins found: 41,496 · young coins waiting for a second look: 2,819 · RugCheck rechecks: 10
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 39,552 | 9,558 | 2 (0%) |
+| Volume too low | 40,025 | 9,754 | 2 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 134 | 37 | 0 (0%) |
-| Fading: few trades in last 5 min | 121 | 39 | 0 (0%) |
-| Already pumped this hour | 107 | 29 | 3 (10%) |
-| Council score too low | 75 | 21 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 54 | 20 | 0 (0%) |
+| Liquidity too low | 138 | 39 | 0 (0%) |
+| Fading: few trades in last 5 min | 125 | 39 | 0 (0%) |
+| Already pumped this hour | 109 | 29 | 3 (10%) |
+| Council score too low | 76 | 21 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 55 | 21 | 0 (0%) |
 | Top 10 holders own too much | 42 | 13 | 0 (0%) |
 | Dev wallet already selling | 11 | 6 | 0 (0%) |
 | No market yet | 11 | 0 | — |
