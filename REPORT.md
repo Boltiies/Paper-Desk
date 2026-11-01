@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 23:00:35 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 23:11:31 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 973 calls this run
+Dev wallet watch (Helius): **on**, 1,019 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $49.29 | $55.81 |
+| Value now | $49.25 | $56.02 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 2 |
 | Closed trades | 56 | 50 |
@@ -23,21 +23,21 @@ Dev wallet watch (Helius): **on**, 973 calls this run
 Council picks return -43.0% per dollar bet, random picks -35.4%. Gap: **-7.6 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 54,219 coins fully tracked for 4 hours, 6,697 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 54,453 coins fully tracked for 4 hours, 6,812 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 73,073 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 47
+Coins found: 73,432 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 47
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 70,604 | 17,878 | 10 (0%) |
+| Volume too low | 70,949 | 17,997 | 10 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 349 | 103 | 0 (0%) |
-| Fading: few trades in last 5 min | 254 | 86 | 0 (0%) |
-| Already pumped this hour | 244 | 64 | 6 (9%) |
-| Council score too low | 173 | 52 | 2 (4%) |
-| Danger flag: Creator history of rugged tokens | 115 | 46 | 0 (0%) |
+| Liquidity too low | 352 | 104 | 0 (0%) |
+| Fading: few trades in last 5 min | 258 | 86 | 0 (0%) |
+| Already pumped this hour | 249 | 65 | 6 (9%) |
+| Council score too low | 174 | 52 | 2 (4%) |
+| Danger flag: Creator history of rugged tokens | 116 | 46 | 0 (0%) |
 | Top 10 holders own too much | 111 | 37 | 0 (0%) |
 | No market yet | 40 | 0 | — |
 | Dev holds too much | 27 | 8 | 0 (0%) |
