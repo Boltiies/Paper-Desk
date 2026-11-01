@@ -1,41 +1,41 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 05:21:38 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 05:37:08 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 854 calls this run
+Dev wallet watch (Helius): **on**, 952 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $58.00 | $61.52 |
+| Value now | $58.04 | $61.41 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 4 | 4 |
-| Closed trades | 27 | 23 |
-| Win rate | 11% | 9% |
+| Open trades | 4 | 3 |
+| Closed trades | 27 | 24 |
+| Win rate | 11% | 8% |
 | Avg win | $0.53 | $0.48 |
-| Avg loss | $-0.86 | $-0.75 |
-| Expectancy per trade | $-0.705 | $-0.647 |
-| Return per $ bet | -52.1% | -46.4% |
+| Avg loss | $-0.86 | $-0.74 |
+| Expectancy per trade | $-0.705 | $-0.636 |
+| Return per $ bet | -52.1% | -45.8% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 27 and 23).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 27 and 24).
 
-Lab: 34,581 coins fully tracked for 4 hours, 4,464 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 34,910 coins fully tracked for 4 hours, 4,311 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 45,278 · young coins waiting for a second look: 764 · RugCheck rechecks: 15
+Coins found: 45,465 · young coins waiting for a second look: 661 · RugCheck rechecks: 15
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 45,736 | 11,060 | 3 (0%) |
+| Volume too low | 46,020 | 11,201 | 3 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
 | Liquidity too low | 167 | 49 | 0 (0%) |
 | Fading: few trades in last 5 min | 144 | 47 | 0 (0%) |
-| Already pumped this hour | 140 | 35 | 5 (14%) |
-| Council score too low | 91 | 23 | 0 (0%) |
+| Already pumped this hour | 144 | 35 | 5 (14%) |
+| Council score too low | 93 | 24 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 68 | 29 | 0 (0%) |
 | Top 10 holders own too much | 48 | 14 | 0 (0%) |
 | No market yet | 12 | 0 | — |
