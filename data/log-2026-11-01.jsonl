@@ -264,3 +264,6 @@
 {"mint":"3WUeMQbvyW4bDJrGNsPJ9Db1VCCMFD4o7baC2e71pump","sym":"CRIME","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":58.0,"t":"2026-11-01 06:42:07","kind":"kill"}
 {"mint":"GHp743PVaKYg7EkNmpDzHabKNUrzhUxpKzvn7UTspump","sym":"YUME","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1842,"vol":22398,"h1":-95,"tx_h1":267,"t":"2026-11-01 06:43:07","kind":"kill"}
 {"mint":"uvt8yph7Gw4eGZCQgfwLh6pduUovCEKDihubL4spump","reason":"Already pumped this hour","x":4.43,"t":"2026-11-01 06:45:08","kind":"missed"}
+{"mint":"2NhKmfR3F5eaZDspw9FzeSAyRtX3Wv3wuppLjU5Npump","sym":"fomo","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1739,"vol":44659,"h1":-96,"tx_h1":12613,"t":"2026-11-01 06:57:38","kind":"kill"}
+{"mint":"4PeyCUSjt7sppMdg8eQCXZyvnZKZSMo1EkoHq93opump","sym":"Job","reason":"Danger flag: Creator history of rugged tokens","dev":0,"insiders":0,"top10":2.8,"t":"2026-11-01 06:58:07","kind":"kill"}
+{"mint":"9SsXwPe42HEQFYUteGy516hRi8cxgs9yyfmoCWpVpump","sym":"Claude","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.2,"lp_locked":100,"liq":1737,"vol":56779,"h1":-96,"tx_h1":8627,"t":"2026-11-01 06:59:37","kind":"kill"}
