@@ -1,46 +1,46 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 04:02:08 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 04:13:09 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 304 calls this run
+Dev wallet watch (Helius): **on**, 392 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $63.55 | $62.30 |
+| Value now | $59.17 | $62.53 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 5 | 3 |
-| Closed trades | 24 | 22 |
-| Win rate | 8% | 9% |
-| Avg win | $0.60 | $0.48 |
-| Avg loss | $-0.86 | $-0.75 |
-| Expectancy per trade | $-0.740 | $-0.642 |
-| Return per $ bet | -53.9% | -45.8% |
+| Open trades | 3 | 3 |
+| Closed trades | 26 | 22 |
+| Win rate | 12% | 9% |
+| Avg win | $0.53 | $0.48 |
+| Avg loss | $-0.85 | $-0.75 |
+| Expectancy per trade | $-0.694 | $-0.642 |
+| Return per $ bet | -51.0% | -45.8% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 24 and 22).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 26 and 22).
 
-Lab: 32,968 coins fully tracked for 4 hours, 4,848 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 33,183 coins fully tracked for 4 hours, 4,859 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 43,927 · young coins waiting for a second look: 1,279 · RugCheck rechecks: 15
+Coins found: 44,097 · young coins waiting for a second look: 1,135 · RugCheck rechecks: 15
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 43,897 | 10,662 | 2 (0%) |
+| Volume too low | 44,207 | 10,662 | 2 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 158 | 49 | 0 (0%) |
+| Liquidity too low | 160 | 49 | 0 (0%) |
 | Fading: few trades in last 5 min | 144 | 47 | 0 (0%) |
-| Already pumped this hour | 135 | 34 | 4 (12%) |
+| Already pumped this hour | 136 | 34 | 4 (12%) |
 | Council score too low | 86 | 23 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 66 | 28 | 0 (0%) |
 | Top 10 holders own too much | 46 | 14 | 0 (0%) |
 | No market yet | 12 | 0 | — |
 | Dev wallet already selling | 11 | 6 | 0 (0%) |
-| Dev holds too much | 8 | 5 | 0 (0%) |
+| Dev holds too much | 9 | 5 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 4 | 0 | — |
 | Liquidity not locked or burned | 1 | 1 | 0 (0%) |
 
@@ -48,6 +48,8 @@ Coins found: 43,927 · young coins waiting for a second look: 1,279 · RugCheck 
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 11-01 04:08 | NIGUIN | 72 | Hard stop | $-0.66 |
+| 11-01 04:04 | YouTube | 90 | Trailing stop | $+0.39 |
 | 11-01 03:52 | ELON | 78 | Hard stop | $-0.67 |
 | 11-01 02:30 | Reaper | 79 | Hard stop | $-0.98 |
 | 11-01 02:14 | PUTIN | 80 | Hard stop | $-0.72 |
@@ -61,8 +63,6 @@ Coins found: 43,927 · young coins waiting for a second look: 1,279 · RugCheck 
 | 10-31 19:25 | HALLOWEEN | 86 | Trailing stop | $+0.04 |
 | 10-31 19:01 | Satoshi | 91 | Hard stop | $-0.89 |
 | 10-31 18:47 | Puffen | 73 | Hard stop | $-0.98 |
-| 10-31 18:18 | HUSS | 72 | Trailing stop | $+1.16 |
-| 10-31 18:01 | KIM | 83 | Hard stop | $-0.86 |
 
 ## Data source errors this run
 
