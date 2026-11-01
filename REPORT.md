@@ -1,44 +1,44 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 12:41:57 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 12:52:27 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,986 calls this run
+Dev wallet watch (Helius): **on**, 2,084 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $57.48 | $61.16 |
+| Value now | $55.98 | $60.55 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 4 | 4 |
-| Closed trades | 38 | 32 |
-| Win rate | 13% | 9% |
-| Avg win | $0.92 | $0.58 |
+| Open trades | 3 | 5 |
+| Closed trades | 39 | 32 |
+| Win rate | 15% | 9% |
+| Avg win | $0.80 | $0.58 |
 | Avg loss | $-0.79 | $-0.72 |
-| Expectancy per trade | $-0.568 | $-0.596 |
-| Return per $ bet | -44.2% | -44.4% |
+| Expectancy per trade | $-0.549 | $-0.596 |
+| Return per $ bet | -42.8% | -44.4% |
 
 ## Does the council have an edge?
 
-Council picks return -44.2% per dollar bet, random picks -44.4%. Gap: **+0.2 points**.
+Council picks return -42.8% per dollar bet, random picks -44.4%. Gap: **+1.6 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 41,474 coins fully tracked for 4 hours, 3,824 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 41,578 coins fully tracked for 4 hours, 3,917 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 52,314 · young coins waiting for a second look: 1,076 · RugCheck rechecks: 24
+Coins found: 52,556 · young coins waiting for a second look: 1,044 · RugCheck rechecks: 24
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 52,277 | 13,891 | 5 (0%) |
+| Volume too low | 52,542 | 14,016 | 5 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 219 | 70 | 0 (0%) |
-| Already pumped this hour | 175 | 47 | 6 (13%) |
-| Fading: few trades in last 5 min | 154 | 50 | 0 (0%) |
-| Council score too low | 111 | 31 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 83 | 33 | 0 (0%) |
-| Top 10 holders own too much | 75 | 25 | 0 (0%) |
+| Liquidity too low | 221 | 71 | 0 (0%) |
+| Already pumped this hour | 175 | 48 | 6 (12%) |
+| Fading: few trades in last 5 min | 155 | 50 | 0 (0%) |
+| Council score too low | 113 | 32 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 84 | 33 | 0 (0%) |
+| Top 10 holders own too much | 78 | 25 | 0 (0%) |
 | Dev holds too much | 19 | 6 | 0 (0%) |
 | Dev wallet already selling | 13 | 6 | 0 (0%) |
 | No market yet | 13 | 0 | — |
@@ -49,6 +49,7 @@ Coins found: 52,314 · young coins waiting for a second look: 1,076 · RugCheck 
 
 | Closed | Coin | Score | Exit | P&L |
 |---|---|---|---|---|
+| 11-01 12:49 | MARS | 75 | Trailing stop | $+0.19 |
 | 11-01 12:29 | MARS | 80 | Hard stop | $-0.96 |
 | 11-01 12:15 | UPVEMBER | 79 | Hard stop | $-0.92 |
 | 11-01 12:00 | SA | 70 | Hard stop | $-0.54 |
@@ -63,7 +64,6 @@ Coins found: 52,314 · young coins waiting for a second look: 1,076 · RugCheck 
 | 11-01 04:27 | Movember | 77 | Hard stop | $-0.99 |
 | 11-01 04:08 | NIGUIN | 72 | Hard stop | $-0.66 |
 | 11-01 04:04 | YouTube | 90 | Trailing stop | $+0.39 |
-| 11-01 03:52 | ELON | 78 | Hard stop | $-0.67 |
 
 ## Data source errors this run
 
