@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 16:31:44 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 16:42:16 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,096 calls this run
+Dev wallet watch (Helius): **on**, 1,169 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $52.93 | $56.47 |
+| Value now | $53.50 | $55.94 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 4 | 3 |
 | Closed trades | 50 | 40 |
@@ -23,22 +23,22 @@ Dev wallet watch (Helius): **on**, 1,096 calls this run
 Council picks return -40.7% per dollar bet, random picks -37.8%. Gap: **-2.8 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 45,095 coins fully tracked for 4 hours, 5,429 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 45,298 coins fully tracked for 4 hours, 5,483 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 58,989 · young coins waiting for a second look: 1,834 · RugCheck rechecks: 36
+Coins found: 59,297 · young coins waiting for a second look: 1,831 · RugCheck rechecks: 36
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 57,997 | 15,377 | 7 (0%) |
+| Volume too low | 58,300 | 15,441 | 7 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 271 | 78 | 0 (0%) |
-| Already pumped this hour | 205 | 49 | 6 (12%) |
+| Liquidity too low | 275 | 78 | 0 (0%) |
+| Already pumped this hour | 207 | 49 | 6 (12%) |
 | Fading: few trades in last 5 min | 162 | 52 | 0 (0%) |
-| Council score too low | 143 | 38 | 0 (0%) |
-| Top 10 holders own too much | 97 | 32 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 96 | 36 | 0 (0%) |
+| Council score too low | 144 | 38 | 0 (0%) |
+| Top 10 holders own too much | 98 | 32 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 96 | 38 | 0 (0%) |
 | Dev holds too much | 24 | 8 | 0 (0%) |
 | Dev wallet already selling | 20 | 6 | 0 (0%) |
 | Too many open trades | 16 | 1 | 0 (0%) |
