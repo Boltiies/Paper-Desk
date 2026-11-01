@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 19:46:45 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 19:57:16 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 2,192 calls this run
+Dev wallet watch (Helius): **on**, 2,273 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $49.75 | $55.62 |
+| Value now | $49.67 | $55.59 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 3 | 3 |
+| Open trades | 3 | 5 |
 | Closed trades | 54 | 43 |
 | Win rate | 15% | 14% |
 | Avg win | $0.80 | $0.74 |
@@ -23,20 +23,20 @@ Dev wallet watch (Helius): **on**, 2,192 calls this run
 Council picks return -42.4% per dollar bet, random picks -38.0%. Gap: **-4.4 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 49,469 coins fully tracked for 4 hours, 5,982 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 49,683 coins fully tracked for 4 hours, 6,097 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 66,100 · young coins waiting for a second look: 2,999 · RugCheck rechecks: 44
+Coins found: 66,527 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 44
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 63,765 | 16,607 | 7 (0%) |
+| Volume too low | 64,186 | 16,717 | 7 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 318 | 87 | 0 (0%) |
-| Already pumped this hour | 223 | 54 | 6 (11%) |
-| Fading: few trades in last 5 min | 209 | 66 | 0 (0%) |
-| Council score too low | 156 | 44 | 1 (2%) |
+| Liquidity too low | 318 | 89 | 0 (0%) |
+| Already pumped this hour | 223 | 55 | 6 (11%) |
+| Fading: few trades in last 5 min | 212 | 67 | 0 (0%) |
+| Council score too low | 158 | 44 | 1 (2%) |
 | Danger flag: Creator history of rugged tokens | 110 | 45 | 0 (0%) |
 | Top 10 holders own too much | 110 | 35 | 0 (0%) |
 | No market yet | 32 | 0 | — |
