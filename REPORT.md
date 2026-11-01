@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 02:52:57 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 03:03:22 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,885 calls this run
+Dev wallet watch (Helius): **on**, 1,921 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $59.85 | $62.91 |
+| Value now | $59.81 | $62.94 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 1 | 3 |
 | Closed trades | 23 | 21 |
@@ -22,21 +22,21 @@ Dev wallet watch (Helius): **on**, 1,885 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 23 and 21).
 
-Lab: 31,520 coins fully tracked for 4 hours, 4,971 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 31,756 coins fully tracked for 4 hours, 4,903 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 42,793 · young coins waiting for a second look: 2,170 · RugCheck rechecks: 14
+Coins found: 42,972 · young coins waiting for a second look: 2,003 · RugCheck rechecks: 14
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 41,917 | 10,231 | 2 (0%) |
+| Volume too low | 42,258 | 10,274 | 2 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 151 | 45 | 0 (0%) |
-| Fading: few trades in last 5 min | 139 | 42 | 0 (0%) |
+| Liquidity too low | 153 | 46 | 0 (0%) |
+| Fading: few trades in last 5 min | 140 | 43 | 0 (0%) |
 | Already pumped this hour | 122 | 32 | 3 (9%) |
-| Council score too low | 79 | 23 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 62 | 24 | 0 (0%) |
+| Council score too low | 80 | 23 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 63 | 25 | 0 (0%) |
 | Top 10 holders own too much | 44 | 14 | 0 (0%) |
 | No market yet | 12 | 0 | — |
 | Dev wallet already selling | 11 | 6 | 0 (0%) |
