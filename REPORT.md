@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 09:15:27 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 09:25:57 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 51 calls this run
+Dev wallet watch (Helius): **on**, 95 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $56.53 | $60.09 |
+| Value now | $56.43 | $59.99 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 2 |
 | Closed trades | 31 | 27 |
@@ -22,23 +22,23 @@ Dev wallet watch (Helius): **on**, 51 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 31 and 27).
 
-Lab: 38,982 coins fully tracked for 4 hours, 2,900 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 39,100 coins fully tracked for 4 hours, 2,901 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 48,461 · young coins waiting for a second look: 574 · RugCheck rechecks: 20
+Coins found: 48,611 · young coins waiting for a second look: 607 · RugCheck rechecks: 21
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 49,021 | 12,627 | 4 (0%) |
+| Volume too low | 49,133 | 12,633 | 4 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
 | Liquidity too low | 190 | 62 | 0 (0%) |
 | Already pumped this hour | 157 | 42 | 6 (14%) |
-| Fading: few trades in last 5 min | 149 | 48 | 0 (0%) |
+| Fading: few trades in last 5 min | 150 | 48 | 0 (0%) |
 | Council score too low | 101 | 28 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 73 | 30 | 0 (0%) |
-| Top 10 holders own too much | 64 | 19 | 0 (0%) |
-| Dev holds too much | 17 | 6 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 75 | 30 | 0 (0%) |
+| Top 10 holders own too much | 65 | 19 | 0 (0%) |
+| Dev holds too much | 18 | 6 | 0 (0%) |
 | No market yet | 13 | 0 | — |
 | Dev wallet already selling | 11 | 6 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 5 | 0 | — |
@@ -67,3 +67,4 @@ Coins found: 48,461 · young coins waiting for a second look: 574 · RugCheck re
 ## Data source errors this run
 
 - lite-api.jup.ag (rate limited): 1
+- api.rugcheck.xyz (ConnectionError): 1
