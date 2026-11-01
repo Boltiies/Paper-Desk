@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 01:54:54 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 02:05:23 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,536 calls this run
+Dev wallet watch (Helius): **on**, 1,627 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $62.57 | $63.05 |
+| Value now | $62.14 | $63.36 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 3 | 5 |
 | Closed trades | 21 | 19 |
@@ -22,20 +22,20 @@ Dev wallet watch (Helius): **on**, 1,536 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 21 and 19).
 
-Lab: 30,019 coins fully tracked for 4 hours, 5,303 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 30,291 coins fully tracked for 4 hours, 5,269 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 41,717 · young coins waiting for a second look: 2,729 · RugCheck rechecks: 10
+Coins found: 41,947 · young coins waiting for a second look: 2,658 · RugCheck rechecks: 11
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 40,321 | 9,890 | 2 (0%) |
+| Volume too low | 40,618 | 9,890 | 2 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 142 | 40 | 0 (0%) |
-| Fading: few trades in last 5 min | 127 | 40 | 0 (0%) |
+| Liquidity too low | 144 | 40 | 0 (0%) |
+| Fading: few trades in last 5 min | 128 | 40 | 0 (0%) |
 | Already pumped this hour | 112 | 30 | 3 (10%) |
-| Council score too low | 77 | 22 | 0 (0%) |
+| Council score too low | 78 | 22 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 57 | 22 | 0 (0%) |
 | Top 10 holders own too much | 44 | 13 | 0 (0%) |
 | Dev wallet already selling | 11 | 6 | 0 (0%) |
@@ -66,5 +66,5 @@ Coins found: 41,717 · young coins waiting for a second look: 2,729 · RugCheck 
 
 ## Data source errors this run
 
-- api.rugcheck.xyz (ConnectionError): 9
+- api.rugcheck.xyz (ConnectionError): 10
 - api.rugcheck.xyz (400): 1
