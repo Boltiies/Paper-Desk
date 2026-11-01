@@ -944,3 +944,4 @@
 {"mint":"M54wapTEBuXuyF4rj7bcMGY4KFYkvZiXSS6uNDrpump","sym":"supermandev","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":19.9,"liq":0,"vol":58974,"h1":423,"tx_h1":1318,"t":"2026-11-01 21:39:30","kind":"kill"}
 {"mint":"y1zTe6YQsY824FvJ4vR2L141AhBPCet1Va5GCK8pump","sym":"NVIDIA","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1700,"vol":33593,"h1":0,"tx_h1":0,"t":"2026-11-01 21:40:01","kind":"kill"}
 {"mint":"AvrpC5mP8MP6ej5KosfhwpahyV6Zp5QqsYo4NXvSpump","sym":"BHF","reason":"Danger flag: Creator history of rugged tokens","dev":0,"insiders":0,"top10":0.2,"t":"2026-11-01 21:40:03","kind":"kill"}
+{"mint":"t4EkhhqiNCWGbFs5FdGdqWfAQBcwoT5uyKzjwwspump","sym":"OpenAI","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.2,"lp_locked":100,"liq":1715,"vol":50513,"h1":-96,"tx_h1":7062,"t":"2026-11-01 21:51:01","kind":"kill"}
