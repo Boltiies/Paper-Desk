@@ -298,3 +298,7 @@
 {"mint":"4UK1TNpMDkijYzs2EycrbRN5nBcBSB2FbzWBTcNRpump","sym":"SEI","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":20.2,"liq":0,"vol":61920,"h1":261,"tx_h1":2183,"t":"2026-11-01 08:11:38","kind":"kill"}
 {"mint":"12iEZAHbHgBWDcyoAqeaeXJdXvEwUmZHkK2VuY8Wpump","sym":"Gemini","reason":"Top 10 holders own too much","dev":0.3,"insiders":0,"top10":37.0,"t":"2026-11-01 08:12:07","kind":"kill"}
 {"mint":"DQkXEH163WfZ1CPgN2cZFNHa9Nxk5v7FhV2eQwbpump","sym":"NAFF","reason":"Dev holds too much","dev":79.3,"insiders":0,"top10":99.7,"t":"2026-11-01 08:15:07","kind":"kill"}
+{"mint":"CZFATPdGAhw4RwhqnUpRDnhKxrthDXpxGXm8wjCmpump","sym":"MrBeast","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.3,"lp_locked":100,"liq":1746,"vol":42994,"h1":-96,"tx_h1":5813,"t":"2026-11-01 08:19:07","kind":"kill"}
+{"wallet":"control","mint":"FPujsiHMbvh4mGnC1oW83ii16JR1kmUaF6a5A9Fqpump","sym":"Purple","cost":1.21,"back":0.45,"pnl":-0.835,"why":"Hard stop","score":69,"held_min":13.5,"opened":"2026-11-01 08:08:39","closed":"2026-11-01 08:22:08","t":"2026-11-01 08:22:08","kind":"exit"}
+{"mint":"8Y4NrFT78e5a2w5inmgitrAgPBpE6s8icPkTVCctpump","sym":"DOGE PAID","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":52.0,"t":"2026-11-01 08:22:09","kind":"kill"}
+{"mint":"Dd1CxyYQv3kAQ1qSm78srmMEB4rk3omkWoaZRQBRpump","sym":"RR","reason":"Danger flag: Creator history of rugged tokens","dev":0,"insiders":0,"top10":0.1,"t":"2026-11-01 08:23:07","kind":"kill"}
