@@ -307,3 +307,10 @@
 {"mint":"Cz1H9x9BQfVtVNYkzvhJyptCsJZTVXsaMoWJbs2ipump","sym":"ELONPAD","reason":"Already pumped this hour","dev":0,"insiders":0,"top10":20.6,"liq":0,"vol":70955,"h1":943,"tx_h1":2274,"t":"2026-11-01 08:34:37","kind":"kill"}
 {"mint":"6EKBUGCsP8CDszCf1H14REm621WoitFUkLb3ooyRpump","sym":"Coca-Cola","reason":"Liquidity too low","dev":0,"insiders":0,"top10":1.4,"lp_locked":100,"liq":1774,"vol":35542,"h1":-96,"tx_h1":4529,"t":"2026-11-01 08:36:37","kind":"kill"}
 {"mint":"D7NRHmk6WcXSE26Nh5hbNogmZ5PEwcDmBXHK2ArCpump","sym":"GTA 6 Coin","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.0,"lp_locked":100,"liq":1802,"vol":48788,"h1":-96,"tx_h1":7059,"t":"2026-11-01 08:38:09","kind":"kill"}
+{"mint":"2U8byxcP62kMptKA4iZCCTSih7CtZrznvfKqdRTPpump","sym":"Purple","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":48.2,"t":"2026-11-01 08:43:41","kind":"kill"}
+{"mint":"4rAFUvxex88k58GLW1fkyEpQhyMDnvrBUdDvGeXSpump","sym":"Purple","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":37.2,"t":"2026-11-01 08:44:38","kind":"kill"}
+{"mint":"5tzvpQBXeDzRJetmbN1Ld8DomBxA9GcoGkjkXr9ipump","sym":"DRNK","reason":"Top 10 holders own too much","dev":0.0,"insiders":0,"top10":61.9,"t":"2026-11-01 08:45:07","kind":"kill"}
+{"mint":"B8kDfzC4msFj9E1mUmygbY8N6o5Lh3DcMa7qj3GMpump","sym":"DRNK","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":49.1,"t":"2026-11-01 08:46:09","kind":"kill"}
+{"mint":"LVenZwoXC5msvGCzPw6tkNWuhJhkVZzfCCs9wMbpump","sym":"YouTube","reason":"Liquidity too low","dev":0,"insiders":0,"top10":0.1,"lp_locked":100,"liq":1744,"vol":39194,"h1":-96,"tx_h1":7430,"t":"2026-11-01 08:47:07","kind":"kill"}
+{"mint":"AXVFoBUpJtjT9yuHSLieXsjicZD6QcAjGqoc7ZB3pump","sym":"DRNK","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":63.5,"t":"2026-11-01 08:47:08","kind":"kill"}
+{"mint":"37H5oXhB4hCUvAeMTdpnysm9cRkjv3UeM1EiXwsWpump","sym":"DRNK","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":65.0,"t":"2026-11-01 08:47:37","kind":"kill"}
