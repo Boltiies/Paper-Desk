@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-01 10:50:27 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-01 11:05:57 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 797 calls this run
+Dev wallet watch (Helius): **on**, 1,021 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $59.56 | $59.16 |
+| Value now | $61.46 | $61.16 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 4 | 3 |
+| Open trades | 5 | 4 |
 | Closed trades | 33 | 29 |
 | Win rate | 9% | 7% |
 | Avg win | $0.53 | $0.48 |
@@ -22,22 +22,22 @@ Dev wallet watch (Helius): **on**, 797 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 33 and 29).
 
-Lab: 40,126 coins fully tracked for 4 hours, 3,048 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 40,319 coins fully tracked for 4 hours, 3,105 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 49,915 · young coins waiting for a second look: 752 · RugCheck rechecks: 22
+Coins found: 50,225 · young coins waiting for a second look: 809 · RugCheck rechecks: 22
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 50,260 | 13,232 | 5 (0%) |
+| Volume too low | 50,509 | 13,387 | 5 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 206 | 67 | 0 (0%) |
-| Already pumped this hour | 163 | 43 | 6 (14%) |
-| Fading: few trades in last 5 min | 152 | 49 | 0 (0%) |
-| Council score too low | 104 | 30 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 76 | 30 | 0 (0%) |
-| Top 10 holders own too much | 66 | 24 | 0 (0%) |
+| Liquidity too low | 207 | 68 | 0 (0%) |
+| Already pumped this hour | 164 | 43 | 6 (14%) |
+| Fading: few trades in last 5 min | 152 | 50 | 0 (0%) |
+| Council score too low | 105 | 30 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 76 | 31 | 0 (0%) |
+| Top 10 holders own too much | 66 | 25 | 0 (0%) |
 | Dev holds too much | 18 | 6 | 0 (0%) |
 | No market yet | 13 | 0 | — |
 | Dev wallet already selling | 11 | 6 | 0 (0%) |
