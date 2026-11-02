@@ -483,3 +483,5 @@
 {"mint":"8mCBqQsvLtyaW93PGWFGZrj7ZjWn395TBZ9TCsvipump","sym":"SPERM","reason":"Danger flag: Creator history of rugged tokens","dev":1.1,"insiders":0,"top10":25.2,"t":"2026-11-02 11:12:58","kind":"kill"}
 {"mint":"Bb5AaSm994ek8uGMgLj5gTukg6KNLM8jjL4GLZyYpump","sym":"ZUMQO","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":39.0,"t":"2026-11-02 11:12:59","kind":"kill"}
 {"mint":"xezc3tczJHPfj4UxvzkPBGr89zSKeGq2d4dBMrupump","sym":"UDTF","reason":"Dev holds too much","dev":79.3,"insiders":0,"top10":99.8,"t":"2026-11-02 11:13:59","kind":"kill"}
+{"mint":"EKdmt1ojaSFMmMvH3KnTS7Um5Xyr1WjMhvhXhePPpump","sym":"SI","reason":"Top 10 holders own too much","dev":0.4,"insiders":0,"top10":88.0,"t":"2026-11-02 11:18:28","kind":"kill"}
+{"mint":"EXHk4K4D4DomonPFeq4158rm9ENdjHyWAKTpaVeopump","sym":"NoNutNov","reason":"Dev holds too much","dev":52.2,"insiders":0,"top10":56.7,"t":"2026-11-02 11:22:57","kind":"kill"}
