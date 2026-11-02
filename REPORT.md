@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 10:04:58 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 10:19:59 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 113 calls this run
+Dev wallet watch (Helius): **on**, 158 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $75.75 | $73.78 |
+| Value now | $75.75 | $74.48 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 3 |
 | Closed trades | 1 | 15 |
@@ -22,21 +22,21 @@ Dev wallet watch (Helius): **on**, 113 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 1 and 15).
 
-Lab: 10,607 coins fully tracked for 4 hours, 4,064 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 10,902 coins fully tracked for 4 hours, 4,052 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 7,562 · young coins waiting for a second look: 898 · RugCheck rechecks: 15 · coins matching the v3 pattern on sight: 24
+Coins found: 7,885 · young coins waiting for a second look: 931 · RugCheck rechecks: 16 · coins matching the v3 pattern on sight: 25
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 9,111 | 2,063 | 1 (0%) |
-| Doesn't match the v3 pattern | 95 | 31 | 0 (0%) |
-| Top 10 holders own too much | 42 | 10 | 1 (10%) |
-| Liquidity too low | 38 | 12 | 0 (0%) |
+| Volume too low | 9,395 | 2,278 | 1 (0%) |
+| Doesn't match the v3 pattern | 98 | 34 | 0 (0%) |
+| Top 10 holders own too much | 42 | 11 | 1 (9%) |
+| Liquidity too low | 39 | 12 | 0 (0%) |
 | Dev holds too much | 16 | 2 | 0 (0%) |
-| Danger flag: Creator history of rugged tokens | 14 | 4 | 0 (0%) |
-| Dev wallet already selling | 9 | 4 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 15 | 4 | 0 (0%) |
+| Dev wallet already selling | 10 | 5 | 0 (0%) |
 | No market yet | 2 | 0 | — |
 
 ## Recent council trades
@@ -47,4 +47,4 @@ Coins found: 7,562 · young coins waiting for a second look: 898 · RugCheck rec
 
 ## Data source errors this run
 
-- api.rugcheck.xyz (ConnectionError): 1
+- api.rugcheck.xyz (ConnectionError): 2
