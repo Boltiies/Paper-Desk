@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 01:24:02 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 01:35:04 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 2,335 calls this run
+Dev wallet watch (Helius): **on**, 2,458 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $53.25 | $53.06 |
+| Value now | $53.15 | $53.14 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 4 | 4 |
 | Closed trades | 60 | 53 |
@@ -23,21 +23,21 @@ Dev wallet watch (Helius): **on**, 2,335 calls this run
 Council picks return -42.6% per dollar bet, random picks -37.3%. Gap: **-5.3 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 58,506 coins fully tracked for 4 hours, 6,271 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 58,740 coins fully tracked for 4 hours, 6,312 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 77,838 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 49
+Coins found: 78,181 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 49
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 75,260 | 18,827 | 11 (0%) |
+| Volume too low | 75,598 | 18,830 | 11 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 373 | 111 | 0 (0%) |
-| Fading: few trades in last 5 min | 290 | 101 | 0 (0%) |
+| Liquidity too low | 374 | 111 | 0 (0%) |
+| Fading: few trades in last 5 min | 293 | 101 | 0 (0%) |
 | Already pumped this hour | 258 | 70 | 6 (9%) |
 | Council score too low | 184 | 54 | 2 (4%) |
-| Danger flag: Creator history of rugged tokens | 123 | 48 | 0 (0%) |
+| Danger flag: Creator history of rugged tokens | 124 | 48 | 0 (0%) |
 | Top 10 holders own too much | 118 | 37 | 0 (0%) |
 | No market yet | 40 | 0 | — |
 | Dev holds too much | 27 | 8 | 0 (0%) |
