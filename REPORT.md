@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 13:41:58 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 13:57:29 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,126 calls this run
+Dev wallet watch (Helius): **on**, 1,218 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $72.74 | $66.31 |
+| Value now | $72.74 | $66.40 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 4 |
 | Closed trades | 3 | 25 |
@@ -22,21 +22,21 @@ Dev wallet watch (Helius): **on**, 1,126 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 3 and 25).
 
-Lab: 14,238 coins fully tracked for 4 hours, 4,767 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 14,500 coins fully tracked for 4 hours, 4,789 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 12,734 · young coins waiting for a second look: 1,118 · RugCheck rechecks: 22 · coins matching the v3 pattern on sight: 52
+Coins found: 13,117 · young coins waiting for a second look: 1,063 · RugCheck rechecks: 22 · coins matching the v3 pattern on sight: 56
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 13,926 | 3,511 | 2 (0%) |
-| Doesn't match the v3 pattern | 154 | 41 | 0 (0%) |
-| Liquidity too low | 61 | 16 | 0 (0%) |
-| Top 10 holders own too much | 60 | 17 | 1 (6%) |
+| Volume too low | 14,357 | 3,521 | 2 (0%) |
+| Doesn't match the v3 pattern | 155 | 41 | 0 (0%) |
+| Liquidity too low | 62 | 16 | 0 (0%) |
+| Top 10 holders own too much | 62 | 17 | 1 (6%) |
 | Danger flag: Creator history of rugged tokens | 27 | 6 | 0 (0%) |
 | Dev holds too much | 25 | 2 | 0 (0%) |
-| Dev wallet already selling | 18 | 7 | 0 (0%) |
+| Dev wallet already selling | 21 | 7 | 0 (0%) |
 | No market yet | 3 | 0 | — |
 | Few huge trades (fake volume?) | 2 | 0 | — |
 | Sell test failed (honeypot or no route) | 1 | 0 | — |
