@@ -1,39 +1,39 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 18:04:15 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 18:14:41 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 897 calls this run
+Dev wallet watch (Helius): **on**, 931 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $68.09 | $61.05 |
+| Value now | $68.09 | $60.91 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 0 | 4 |
-| Closed trades | 9 | 35 |
+| Open trades | 0 | 3 |
+| Closed trades | 9 | 36 |
 | Win rate | 0% | 11% |
 | Avg win | $0.00 | $1.47 |
-| Avg loss | $-0.99 | $-0.69 |
-| Expectancy per trade | $-0.990 | $-0.442 |
-| Return per $ bet | -68.0% | -30.6% |
+| Avg loss | $-0.99 | $-0.67 |
+| Expectancy per trade | $-0.990 | $-0.435 |
+| Return per $ bet | -68.0% | -30.2% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 9 and 35).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 9 and 36).
 
-Lab: 19,442 coins fully tracked for 4 hours, 6,266 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 19,709 coins fully tracked for 4 hours, 6,332 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 22,497 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 62 · coins matching the v3 pattern on sight: 99
+Coins found: 22,952 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 66 · coins matching the v3 pattern on sight: 99
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 21,573 | 5,081 | 3 (0%) |
-| Doesn't match the v3 pattern | 257 | 72 | 0 (0%) |
-| Liquidity too low | 112 | 29 | 0 (0%) |
-| Top 10 holders own too much | 90 | 26 | 2 (8%) |
+| Volume too low | 22,025 | 5,171 | 3 (0%) |
+| Doesn't match the v3 pattern | 259 | 73 | 0 (0%) |
+| Liquidity too low | 113 | 31 | 0 (0%) |
+| Top 10 holders own too much | 90 | 27 | 2 (7%) |
 | Danger flag: Creator history of rugged tokens | 35 | 7 | 0 (0%) |
 | Dev wallet already selling | 33 | 12 | 0 (0%) |
 | Dev holds too much | 29 | 2 | 0 (0%) |
@@ -61,5 +61,5 @@ Coins found: 22,497 · young coins waiting for a second look: 3,000 · RugCheck 
 
 - lite-api.jup.ag (rate limited): 3
 - api.rugcheck.xyz (ConnectionError): 6
-- api.rugcheck.xyz (400): 7
-- api.rugcheck.xyz (ReadTimeout): 11
+- api.rugcheck.xyz (400): 10
+- api.rugcheck.xyz (ReadTimeout): 12
