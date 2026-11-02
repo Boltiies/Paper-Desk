@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 18:47:20 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 18:58:13 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,104 calls this run
+Dev wallet watch (Helius): **on**, 1,155 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $68.09 | $60.74 |
+| Value now | $68.09 | $60.58 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 5 |
 | Closed trades | 9 | 37 |
@@ -22,18 +22,18 @@ Dev wallet watch (Helius): **on**, 1,104 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 9 and 37).
 
-Lab: 20,412 coins fully tracked for 4 hours, 6,479 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 20,760 coins fully tracked for 4 hours, 6,515 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 24,037 · young coins waiting for a second look: 3,001 · RugCheck rechecks: 70 · coins matching the v3 pattern on sight: 102
+Coins found: 24,436 · young coins waiting for a second look: 3,001 · RugCheck rechecks: 75 · coins matching the v3 pattern on sight: 104
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 23,060 | 5,433 | 3 (0%) |
-| Doesn't match the v3 pattern | 281 | 76 | 0 (0%) |
-| Liquidity too low | 122 | 32 | 0 (0%) |
-| Top 10 holders own too much | 95 | 30 | 2 (7%) |
+| Volume too low | 23,449 | 5,433 | 3 (0%) |
+| Doesn't match the v3 pattern | 287 | 76 | 0 (0%) |
+| Liquidity too low | 125 | 32 | 0 (0%) |
+| Top 10 holders own too much | 96 | 30 | 2 (7%) |
 | Dev wallet already selling | 39 | 13 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 39 | 8 | 0 (0%) |
 | Dev holds too much | 29 | 2 | 0 (0%) |
@@ -62,5 +62,5 @@ Coins found: 24,037 · young coins waiting for a second look: 3,001 · RugCheck 
 
 - lite-api.jup.ag (rate limited): 4
 - api.rugcheck.xyz (ConnectionError): 7
-- api.rugcheck.xyz (400): 13
+- api.rugcheck.xyz (400): 18
 - api.rugcheck.xyz (ReadTimeout): 12
