@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 15:06:31 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 15:12:26 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,637 calls this run
+Dev wallet watch (Helius): **on**, 1,671 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $72.35 | $63.44 |
+| Value now | $72.35 | $63.26 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 4 |
 | Closed trades | 4 | 29 |
@@ -22,17 +22,17 @@ Dev wallet watch (Helius): **on**, 1,637 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 4 and 29).
 
-Lab: 15,802 coins fully tracked for 4 hours, 5,137 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 15,928 coins fully tracked for 4 hours, 5,138 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 15,480 · young coins waiting for a second look: 1,639 · RugCheck rechecks: 38 · coins matching the v3 pattern on sight: 76
+Coins found: 15,749 · young coins waiting for a second look: 1,750 · RugCheck rechecks: 38 · coins matching the v3 pattern on sight: 77
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 16,084 | 3,978 | 2 (0%) |
-| Doesn't match the v3 pattern | 181 | 48 | 0 (0%) |
-| Top 10 holders own too much | 73 | 19 | 1 (5%) |
+| Volume too low | 16,234 | 4,022 | 2 (0%) |
+| Doesn't match the v3 pattern | 186 | 49 | 0 (0%) |
+| Top 10 holders own too much | 75 | 20 | 1 (5%) |
 | Liquidity too low | 71 | 21 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 30 | 6 | 0 (0%) |
 | Dev holds too much | 28 | 2 | 0 (0%) |
@@ -41,6 +41,7 @@ Coins found: 15,480 · young coins waiting for a second look: 1,639 · RugCheck 
 | Few huge trades (fake volume?) | 2 | 1 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 1 | 1 | 0 (0%) |
 | No holder data | 1 | 0 | — |
+| Sell test: tax or fees too high | 1 | 0 | — |
 
 ## Recent council trades
 
