@@ -1,16 +1,16 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 16:59:58 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 17:11:00 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 569 calls this run
+Dev wallet watch (Helius): **on**, 630 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $68.09 | $61.03 |
+| Value now | $68.09 | $60.93 |
 | Started with | $77.00 | $77.00 |
-| Open trades | 0 | 4 |
+| Open trades | 0 | 5 |
 | Closed trades | 9 | 34 |
 | Win rate | 0% | 12% |
 | Avg win | $0.00 | $1.47 |
@@ -22,22 +22,22 @@ Dev wallet watch (Helius): **on**, 569 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 9 and 34).
 
-Lab: 18,120 coins fully tracked for 4 hours, 5,715 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 18,367 coins fully tracked for 4 hours, 5,781 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 20,067 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 42 · coins matching the v3 pattern on sight: 90
+Coins found: 20,586 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 42 · coins matching the v3 pattern on sight: 92
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 19,201 | 4,678 | 3 (0%) |
-| Doesn't match the v3 pattern | 233 | 62 | 0 (0%) |
-| Liquidity too low | 99 | 25 | 0 (0%) |
-| Top 10 holders own too much | 83 | 23 | 2 (9%) |
-| Danger flag: Creator history of rugged tokens | 33 | 7 | 0 (0%) |
-| Dev wallet already selling | 30 | 11 | 0 (0%) |
+| Volume too low | 19,701 | 4,781 | 3 (0%) |
+| Doesn't match the v3 pattern | 238 | 64 | 0 (0%) |
+| Liquidity too low | 102 | 27 | 0 (0%) |
+| Top 10 holders own too much | 85 | 23 | 2 (9%) |
+| Danger flag: Creator history of rugged tokens | 34 | 7 | 0 (0%) |
+| Dev wallet already selling | 30 | 12 | 0 (0%) |
 | Dev holds too much | 29 | 2 | 0 (0%) |
-| No market yet | 6 | 0 | — |
+| No market yet | 14 | 0 | — |
 | Sell test failed (honeypot or no route) | 3 | 2 | 0 (0%) |
 | Few huge trades (fake volume?) | 2 | 1 | 0 (0%) |
 | No holder data | 2 | 1 | 0 (0%) |
