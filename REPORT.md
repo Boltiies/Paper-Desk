@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 21:58:00 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 22:08:33 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 490 calls this run
+Dev wallet watch (Helius): **on**, 536 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $60.81 | $58.97 |
+| Value now | $60.81 | $58.87 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 5 |
 | Closed trades | 17 | 42 |
@@ -22,19 +22,19 @@ Dev wallet watch (Helius): **on**, 490 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 17 and 42).
 
-Lab: 25,530 coins fully tracked for 4 hours, 7,161 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 25,867 coins fully tracked for 4 hours, 7,163 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 31,120 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 80 · coins matching the v3 pattern on sight: 122
+Coins found: 31,481 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 80 · coins matching the v3 pattern on sight: 124
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 29,983 | 6,577 | 3 (0%) |
-| Doesn't match the v3 pattern | 364 | 103 | 1 (1%) |
-| Liquidity too low | 162 | 48 | 0 (0%) |
-| Top 10 holders own too much | 104 | 33 | 2 (6%) |
-| Dev wallet already selling | 55 | 20 | 0 (0%) |
+| Volume too low | 30,337 | 6,608 | 3 (0%) |
+| Doesn't match the v3 pattern | 369 | 106 | 1 (1%) |
+| Liquidity too low | 162 | 49 | 0 (0%) |
+| Top 10 holders own too much | 106 | 33 | 2 (6%) |
+| Dev wallet already selling | 55 | 21 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 41 | 10 | 0 (0%) |
 | Dev holds too much | 31 | 3 | 0 (0%) |
 | No market yet | 14 | 0 | — |
