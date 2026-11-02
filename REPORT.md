@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 17:21:59 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 17:32:28 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 676 calls this run
+Dev wallet watch (Helius): **on**, 726 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $68.09 | $60.89 |
+| Value now | $68.09 | $61.22 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 5 |
 | Closed trades | 9 | 34 |
@@ -22,20 +22,20 @@ Dev wallet watch (Helius): **on**, 676 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 9 and 34).
 
-Lab: 18,638 coins fully tracked for 4 hours, 5,894 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 18,832 coins fully tracked for 4 hours, 5,984 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 20,958 · young coins waiting for a second look: 2,997 · RugCheck rechecks: 43 · coins matching the v3 pattern on sight: 93
+Coins found: 21,401 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 43 · coins matching the v3 pattern on sight: 95
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 20,069 | 4,919 | 3 (0%) |
-| Doesn't match the v3 pattern | 240 | 67 | 0 (0%) |
-| Liquidity too low | 105 | 28 | 0 (0%) |
-| Top 10 holders own too much | 87 | 25 | 2 (8%) |
-| Danger flag: Creator history of rugged tokens | 34 | 7 | 0 (0%) |
-| Dev wallet already selling | 30 | 12 | 0 (0%) |
+| Volume too low | 20,502 | 5,048 | 3 (0%) |
+| Doesn't match the v3 pattern | 242 | 70 | 0 (0%) |
+| Liquidity too low | 107 | 29 | 0 (0%) |
+| Top 10 holders own too much | 88 | 26 | 2 (8%) |
+| Danger flag: Creator history of rugged tokens | 35 | 7 | 0 (0%) |
+| Dev wallet already selling | 31 | 12 | 0 (0%) |
 | Dev holds too much | 29 | 2 | 0 (0%) |
 | No market yet | 14 | 0 | — |
 | Sell test failed (honeypot or no route) | 3 | 3 | 0 (0%) |
