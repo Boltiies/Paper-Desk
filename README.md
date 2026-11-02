@@ -85,3 +85,17 @@ the social score are gone. The random control wallet still buys a random sample
 of coins that pass security, so the two wallets show whether the pattern beats
 chance after fees. Rough estimates from the lab still came out at about -11% per
 trade, so this is a test, not a sure thing.
+
+## Survivor desk (from 2 Nov 2026)
+
+A second, separate test (`survivor_trader.py`, results in **SURVIVORS.md** and
+`data-survivors/`). The new-coin desk keeps losing because it's late to coins that
+snipers and insiders already own. The survivor desk stays out of that race: it only
+trades coins that graduated from the launch curve and are still actively trading
+1 to 30 days after launch (liquidity $25k+, 24h volume $50k+, market cap
+$100k-$50M). It finds them from the main desk's lab and GeckoTerminal's busy pools.
+
+Its signal was fixed before the test: down 20-60% over 24 hours, up over the last
+hour, buys 55%+ of the last 5 minutes. A random control wallet buys a random
+sample of the same coins. Exits: -25% stop, half sold at +50%, 25% trailing stop
+on the rest, sold after 24 hours. Runs every 6 hours on its own schedule.

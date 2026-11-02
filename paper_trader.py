@@ -299,7 +299,7 @@ def features(pair, rep, meta=None):
         tx_h1=b1 + s1, ratio_h1=round(b1 / (b1 + s1), 3) if b1 + s1 else None, tx_h6=b6 + s6,
         accel=round((b5 + s5) * 12 / (b1 + s1), 2) if b1 + s1 else None,
         vol_m5=round(fnum(vol.get("m5"), 0) or 0), vol_h1=round(fnum(vol.get("h1"), 0) or 0), vol_h24=round(fnum(vol.get("h24"), 0) or 0),
-        ch_m5=fnum(ch.get("m5")), ch_h1=fnum(ch.get("h1")), ch_h6=fnum(ch.get("h6")),
+        ch_m5=fnum(ch.get("m5")), ch_h1=fnum(ch.get("h1")), ch_h6=fnum(ch.get("h6")), ch_h24=fnum(ch.get("h24")),
         liq=round(fnum((pair.get("liquidity") or {}).get("usd"), 0) or 0), mcap=round(fnum(pair.get("marketCap"), 0) or fnum(pair.get("fdv"), 0) or 0),
         age_min=round(age, 1) if age is not None else None, holders=int(holders),
         holders_per_min=round(holders / max(age, 1), 2) if age else None,

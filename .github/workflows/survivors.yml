@@ -1,0 +1,53 @@
+name: Survivor desk
+
+on:
+  schedule:
+    - cron: "37 */6 * * *"     # every 6 hours, offset from the main desk
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "How long to paper trade (max 340)"
+        default: "340"
+
+concurrency:
+  group: survivor-desk
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  survivors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Set up git for live saves
+        run: |
+          git config user.name "survivor-desk"
+          git config user.email "paper-desk@users.noreply.github.com"
+      - name: Get the latest saved results
+        run: git pull --ff-only origin main
+      - name: Paper trade survivors
+        timeout-minutes: 345
+        env:
+          JUP_API_KEY: ${{ secrets.JUP_API_KEY }}
+          HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
+        run: python survivor_trader.py --minutes ${{ github.event.inputs.minutes || '340' }}
+      - name: Save results
+        if: always()
+        run: |
+          git add data-survivors SURVIVORS.md || true
+          git commit -m "Survivor desk results $(date -u +'%Y-%m-%d %H:%M')" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase -X theirs && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          exit 1
