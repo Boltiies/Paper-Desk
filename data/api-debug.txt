@@ -296,3 +296,8 @@
 2026-11-02 17:50:25 [api] 200 https://api.rugcheck.xyz/v1/tokens/g8GxpGKBvQS5ZM8vpewFFA31MSvUT8g6k6wktg2pump/report :: '{"mint":"g8GxpGKBvQS5ZM8vpewFFA31MSvUT8g6k6wktg2pump","tokenProgram":"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb","creator":"EdAgm2fukpNvdkBM3hSkBYRcRs61w1p4YStELhdor7BR","creatorBalance":0,"token":{"mintAuthority":null'
 2026-11-02 17:51:24 [api] 400 https://api.rugcheck.xyz/v1/tokens/AiyhhKSYhXNLpNqgZTbej3jHriC6AjEgtumjzqjTpump/report :: '{"error":"unable to generate report"}'
 2026-11-02 17:52:22 [api] 400 https://api.rugcheck.xyz/v1/tokens/EmTZD3soy1M5aJ2BfZTRZhwwzuo5aCfyDLeFY7AQpump/report :: '{"error":"unable to generate report"}'
+2026-11-02 17:58:21 [api] 200 https://api.rugcheck.xyz/v1/tokens/8cbyp372MxSoWPto5PpiA3CMT84qs7uCG28AjFfepump/report :: '{"mint":"8cbyp372MxSoWPto5PpiA3CMT84qs7uCG28AjFfepump","tokenProgram":"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb","creator":"DXH6NKgNyMNSNBDQ65caxUqLGVHv8SfLDVhSRg2oxNCo","creatorBalance":0,"token":{"mintAuthority":nul'
+2026-11-02 17:58:36 [api] 400 https://api.rugcheck.xyz/v1/tokens/8tBp18M3KVrKzqH3a9iQChJ4jtKvUeQmALGjq3Mcpump/report :: '{"error":"unable to generate report"}'
+2026-11-02 17:59:55 [api] 400 https://api.rugcheck.xyz/v1/tokens/9rj8gESodSHTT6hS65RsBNqrKcCyL8m1ehSNxY2spump/report :: '{"error":"unable to generate report"}'
+2026-11-02 18:01:01 [api] 400 https://api.rugcheck.xyz/v1/tokens/tBgXmzUXFXfMCpR5DUAirfveN7XfibLgEooaA9mpump/report :: '{"error":"unable to generate report"}'
+2026-11-02 18:03:32 [api] 400 https://api.rugcheck.xyz/v1/tokens/7x3LFH71sGvQeKU4ZwPev44tNu3me1fp4g2VqAiysEKq/report :: '{"error":"unable to generate report"}'
