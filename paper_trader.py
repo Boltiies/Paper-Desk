@@ -33,11 +33,11 @@ CFG = dict(
     daily_loss_pct=40.0,      # stop buying for the UTC day after losing this much
     # security (fail closed: unknown = killed)
     max_dev_pct=10.0, max_insider_pct=25.0, max_top10_pct=35.0,
-    min_liq_usd=5_000, min_vol_usd=40_000, max_h1_change=200.0,
+    min_liq_usd=5_000, min_vol_usd=40_000, max_h1_change=1e9,   # "already pumped" filter off: its coins doubled as often as our picks
     max_roundtrip_loss=15.0,  # % lost buying then instantly selling (tax + fees + impact)
     max_avg_trade_usd=2_000,  # few huge trades = likely fake volume
     # council
-    min_score=70, min_tx_m5=15,
+    min_score=70, min_tx_m5=0,
     # exits
     stop_pct=40.0, target_pct=150.0, sell_part=0.25, trail_pct=50.0,
     dead_minutes=10, dev_watch_sec=60, min_tx_h1=5,   # fewer trades than this in the last hour = dead coin
@@ -230,7 +230,7 @@ class API:
 
 
 # ------------------------------------------------------------------ the workers
-def security(rep, pair, cfg):
+def security(rep, pair, cfg, min_vol=None):
     """Plain-code rules. Returns (ok, reason, facts). Unknown = killed."""
     if not rep: return False, "No security report", {}
     f = {}
@@ -270,7 +270,7 @@ def security(rep, pair, cfg):
     vol_h1 = fnum((pair.get("volume") or {}).get("h1"), 0) or 0
     f.update(liq=round(liq), vol=round(vol), h1=round(h1), tx_h1=n_tx)
     if not on_curve and liq < cfg["min_liq_usd"]: return False, "Liquidity too low", f
-    if vol < cfg["min_vol_usd"]: return False, "Volume too low", f
+    if vol < (cfg["min_vol_usd"] if min_vol is None else min_vol): return False, "Volume too low", f
     if h1 >= cfg["max_h1_change"]: return False, "Already pumped this hour", f
     if n_tx and vol_h1 / n_tx > cfg["max_avg_trade_usd"] and n_tx < 50: return False, "Few huge trades (fake volume?)", f
     return True, "", f
@@ -306,6 +306,14 @@ def features(pair, rep, meta=None):
         dex=pair.get("dexId"), socials=len(info.get("socials") or []) + len(info.get("websites") or []) + sum(1 for k in ("twitter", "telegram", "website") if m.get(k)),
         boosts=(pair.get("boosts") or {}).get("active") or 0,
         avg_trade=round((fnum(vol.get("h1"), 0) or 0) / (b1 + s1), 1) if b1 + s1 else None)
+
+
+def v3_rule(f):
+    """Council v3: the one pattern that held up across 62,024 lab coins, judged on first-sight numbers.
+    Buys are 75%+ of the last 5 minutes of trades, price is up over the last hour,
+    market cap $10k-$300k, and the coin is under an hour old. 28% of matching coins doubled vs 1.5% overall."""
+    g = lambda k, d: f.get(k) if f.get(k) is not None else d
+    return (g("ratio_m5", 0) >= 0.75 and g("ch_h1", -1) > 0 and 1e4 <= g("mcap", 0) < 3e5 and g("age_min", 999) < 60)
 
 
 def council(pair, rep, src):
@@ -486,17 +494,21 @@ class Desk:
         if not pair:
             self.last_reason = "No market yet"; return "RETRY"
         self.lab_add(mint, sym, pair, None, meta, {})
+        v3 = v3_rule(features(pair, None, meta))
+        if v3: self.stats["v3_seen"] = self.stats.get("v3_seen", 0) + 1
         vol = fnum((pair.get("volume") or {}).get("h24"), 0) or 0
-        if vol < self.cfg["min_vol_usd"] * 0.25:    # cheap pre-filter before the slow security calls
+        if v3:
+            pass   # the signal is strongest right now: skip the volume wait and check it immediately
+        elif vol < self.cfg["min_vol_usd"] * 0.25:    # cheap pre-filter before the slow security calls
             self.last_reason = "Volume too low"; return "RETRY"
-        if vol < self.cfg["min_vol_usd"] and getattr(self, "attempt", 0) < len(RETRY_MIN):
+        elif vol < self.cfg["min_vol_usd"] and getattr(self, "attempt", 0) < len(RETRY_MIN):
             self.last_reason = "Volume too low"; return "RETRY"   # young coin: look again before running security
         rep = self.api.rugcheck(mint)
         if not rep and self.report_tries.get(mint, 0) < len(REPORT_RETRY_MIN):
             # brand-new coins often aren't in RugCheck yet: look again shortly instead of dropping them
             self.lab_add(mint, sym, pair, None, meta, {})
             self.last_reason = "No security report"; return "RETRY"
-        ok, why, facts = security(rep, pair, self.cfg)
+        ok, why, facts = security(rep, pair, self.cfg, min_vol=0 if v3 else None)
         self.lab_add(mint, sym, pair, rep, meta, facts)
         if not ok:
             self.lab_mark(mint, why)
@@ -534,15 +546,16 @@ class Desk:
         ctrl = random.random() < self.cfg["control_prob"]
         creator = (rep or {}).get("creator")
         facts["creator"] = creator
-        if (score >= self.cfg["min_score"] or ctrl) and self.helius and creator:
+        facts["v3"] = v3_rule(parts)   # recheck on fresh numbers at decision time
+        if (facts["v3"] or ctrl) and self.helius and creator:
             sold, last = self.helius.dev_sold_since(creator, mint)
             facts["dev_checked"] = last
             if sold:
                 return self.kill(mint, sym, "Dev wallet already selling", price, **facts)
-        if score >= self.cfg["min_score"]:
+        if facts["v3"]:
             took = self.buy("council", mint, sym, pair, facts, sol)
         else:
-            self.kill(mint, sym, "Council score too low", price, **facts)
+            self.kill(mint, sym, "Doesn't match the v3 pattern", price, **facts)
         if ctrl:
             self.buy("control", mint, sym, pair, facts, sol)
         return took
@@ -691,7 +704,7 @@ def write_report(desk, net):
     L += ["", f"Lab: {st.get('lab_done', 0):,} coins fully tracked for 4 hours, {len(desk.lab):,} still being followed. "
           "Run `python analyze.py` to see what predicted the winners (writes LEARN.md)."]
     L += ["", "## Funnel", "", f"Coins found: {st['found']:,} · young coins waiting for a second look: {len(desk.retry):,} · "
-          f"RugCheck rechecks: {st.get('report_retries', 0):,}", "", "| Stopped because | Count | Checked 1h later | Pumped 2x+ |", "|---|---|---|---|"]
+          f"RugCheck rechecks: {st.get('report_retries', 0):,} · coins matching the v3 pattern on sight: {st.get('v3_seen', 0):,}", "", "| Stopped because | Count | Checked 1h later | Pumped 2x+ |", "|---|---|---|---|"]
     for r, n in sorted(st["kills"].items(), key=lambda x: -x[1]):
         ch = st["kills_checked"].get(r, 0); pm = st["kills_pumped"].get(r, 0)
         L.append(f"| {r} | {n:,} | {ch:,} | {pm} ({100*pm/ch:.0f}%) |" if ch else f"| {r} | {n:,} | 0 | — |")
@@ -725,8 +738,8 @@ class MockAPI:
             if self.r.random() < 0.002: c["alive"] = False
             out[m] = {"baseToken": {"address": m, "symbol": m[:8]}, "dexId": "pumpfun", "priceUsd": str(c["price"]),
                       "liquidity": {"usd": 30000},
-                      "priceChange": {"h1": self.r.uniform(-30, 150)}, "txns": {"m5": {"buys": self.r.randint(0, 80), "sells": self.r.randint(0, 60)}, "h1": {"buys": self.r.randint(50, 900), "sells": self.r.randint(50, 600)}},
-                      "pairCreatedAt": (self.t0 - 600) * 1000, "volume": {"h24": c["vol"], "h1": c["vol"] / 4, "m5": c["vol"] / 40},
+                      "txns": {"m5": {"buys": self.r.randint(0, 80), "sells": self.r.randint(0, 60)}, "h1": {"buys": self.r.randint(50, 900), "sells": self.r.randint(50, 600)}},
+                      "pairCreatedAt": (self.t0 - 600) * 1000, "marketCap": self.r.choice([5e3, 2e4, 8e4, 2e6]), "priceChange": {"h1": self.r.uniform(-30, 150), "m5": self.r.uniform(-20, 40)}, "volume": {"h24": c["vol"], "h1": c["vol"] / 4, "m5": c["vol"] / 40},
                       "info": {"socials": [{"type": "twitter"}] * self.r.randint(0, 2)}}
         return out
     def rugcheck(self, m):
@@ -793,10 +806,15 @@ def main():
     end = now() + a.minutes * 60; last_save = 0; passes = 0; last_push = now()
     on_gh = os.environ.get("GITHUB_ACTIONS") == "true" and not a.mock
     print(f"{iso()} paper desk starting, council ${desk.w['council'].equity():.2f}, control ${desk.w['control'].equity():.2f}", flush=True)
-    while now() < end:
+    import signal
+    stopping = []
+    signal.signal(signal.SIGTERM, lambda *_: stopping.append(1))   # a cancelled run still saves its results
+    while now() < end and not stopping:
         t0 = now()
         try:
             desk.scout(); desk.manage(); desk.followups(); desk.lab_update()
+        except KeyboardInterrupt:
+            break
         except Exception as e:
             print("pass error:", repr(e), flush=True)
         passes += 1
@@ -807,7 +825,8 @@ def main():
             print(f"{iso()} pass {passes} found {desk.stats['found']} kills {json.dumps(desk.stats['kills'])} errors {json.dumps(net.errors if net else {})}", flush=True)
             print(f"{iso()} pass {passes} found {desk.stats['found']} council ${desk.w['council'].equity():.2f} "
                   f"({len(desk.w['council'].open)} open) control ${desk.w['control'].equity():.2f}", flush=True)
-        time.sleep(max(0, a.poll - (now() - t0)))
+        try: time.sleep(max(0, a.poll - (now() - t0)))
+        except KeyboardInterrupt: break
     json.dump(desk.state(), open(sp, "w")); write_report(desk, net)
     json.dump(desk.lab, open(os.path.join(DATA, "lab-pending.json"), "w"), separators=(",", ":"))
     print(f"{iso()} done after {passes} passes, lab following {len(desk.lab)} coins", flush=True)

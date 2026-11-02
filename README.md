@@ -69,3 +69,19 @@ and records its price 5, 15, 30, 60, 120 and 240 minutes later in `data/lab.json
 That gives hundreds of labeled coins a day instead of a few dozen trades.
 `python analyze.py` writes `LEARN.md`, showing which features went with coins
 that hit 2x and which went with coins that died.
+
+## Council v3 (from 2 Nov 2026)
+
+Council v2 did no better than random picks (archived in `data/archive-v2.json`).
+Across 62,024 lab coins, judged only on the numbers available when each coin
+was first seen, one pattern held up in both halves of the data: buys making up
+75%+ of the last 5 minutes of trades, price up over the last hour, market cap
+$10k-$300k, and the coin under an hour old. 28% of matching coins doubled within
+4 hours, against 1.5% of all coins. About 116 coins a day match.
+
+v3 buys only that pattern, and checks matching coins the moment they're seen
+instead of waiting for $40k volume. The "already pumped this hour" filter and
+the social score are gone. The random control wallet still buys a random sample
+of coins that pass security, so the two wallets show whether the pattern beats
+chance after fees. Rough estimates from the lab still came out at about -11% per
+trade, so this is a test, not a sure thing.
