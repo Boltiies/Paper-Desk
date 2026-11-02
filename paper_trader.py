@@ -562,7 +562,7 @@ class Desk:
 
     def buy(self, wname, mint, sym, pair, facts, sol):
         w = self.w[wname]
-        if mint in w.open: return False
+        if mint in w.open or any(t["mint"] == mint for t in w.closed[-500:]): return False   # one entry per coin, ever
         b = w.blocked()
         if b:
             if wname == "council": self.kill(mint, sym, b, fnum(pair.get("priceUsd")), **facts)
