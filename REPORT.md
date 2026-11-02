@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 03:19:20 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-02 03:30:20 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 898 calls this run
+Dev wallet watch (Helius): **on**, 1,028 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $50.31 | $52.49 |
+| Value now | $50.45 | $52.59 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 4 | 4 |
 | Closed trades | 62 | 55 |
@@ -23,21 +23,21 @@ Dev wallet watch (Helius): **on**, 898 calls this run
 Council picks return -42.9% per dollar bet, random picks -37.6%. Gap: **-5.4 points**.
 A clear, lasting positive gap means the signal is real. Near zero or negative means the council is guessing.
 
-Lab: 61,447 coins fully tracked for 4 hours, 5,963 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 61,724 coins fully tracked for 4 hours, 5,896 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 80,834 · young coins waiting for a second look: 2,819 · RugCheck rechecks: 50
+Coins found: 81,107 · young coins waiting for a second look: 2,779 · RugCheck rechecks: 51
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 78,357 | 19,564 | 12 (0%) |
+| Volume too low | 78,663 | 19,585 | 12 (0%) |
 | No security report | 1,050 | 331 | 3 (1%) |
-| Liquidity too low | 399 | 123 | 0 (0%) |
-| Fading: few trades in last 5 min | 314 | 113 | 0 (0%) |
+| Liquidity too low | 400 | 123 | 0 (0%) |
+| Fading: few trades in last 5 min | 318 | 113 | 0 (0%) |
 | Already pumped this hour | 263 | 74 | 7 (9%) |
-| Council score too low | 192 | 60 | 2 (3%) |
-| Danger flag: Creator history of rugged tokens | 127 | 49 | 0 (0%) |
+| Council score too low | 193 | 60 | 2 (3%) |
+| Danger flag: Creator history of rugged tokens | 128 | 49 | 0 (0%) |
 | Top 10 holders own too much | 121 | 41 | 1 (2%) |
 | No market yet | 42 | 0 | — |
 | Dev holds too much | 29 | 8 | 0 (0%) |
@@ -70,3 +70,4 @@ Coins found: 80,834 · young coins waiting for a second look: 2,819 · RugCheck 
 
 - lite-api.jup.ag (rate limited): 1
 - lite-api.jup.ag (400): 1
+- api.rugcheck.xyz (ConnectionError): 1
