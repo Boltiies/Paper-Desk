@@ -1,0 +1,41 @@
+name: Coinbase data
+
+on:
+  schedule:
+    - cron: "17 3 * * *"       # once a day: add the newest candles
+  workflow_dispatch: {}
+
+concurrency:
+  group: coinbase-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r cex/requirements.txt
+      - name: Download Coinbase candles
+        run: python cex/fetch_coinbase.py
+      - name: Save data
+        if: always()
+        run: |
+          git config user.name "coinbase-data"
+          git config user.email "paper-desk@users.noreply.github.com"
+          git add data-cex || true
+          git commit -m "Coinbase candles $(date -u +'%Y-%m-%d')" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase -X theirs && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          exit 1
