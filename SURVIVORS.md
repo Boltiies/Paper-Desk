@@ -1,16 +1,16 @@
 # Survivor desk · paper trading
 
-Updated 2026-11-03 03:29:55 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 03:41:55 UTC. Paper only: no wallet, no real trades.
 
 Dev wallet watch (Helius): **on**, 0 calls this run
 
-Watching 1,099 survivor coins · 48 have passed the universe checks. Signal: down 20-60% over 24h, up over the last hour, buys 55%+ of the last 5 minutes.
+Watching 1,098 survivor coins · 48 have passed the universe checks. Signal: down 20-60% over 24h, up over the last hour, buys 55%+ of the last 5 minutes.
 
 ## Wallets
 
 | | Survivor signal | Random control |
 |---|---|---|
-| Value now | $76.14 | $77.03 |
+| Value now | $76.31 | $77.01 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 4 |
 | Closed trades | 1 | 0 |
@@ -32,9 +32,9 @@ Coins found: 0 · young coins waiting for a second look: 0 · RugCheck rechecks:
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| No holder data | 20 | 7 | 0 (0%) |
-| Too many open trades | 13 | 5 | 0 (0%) |
-| Sell test failed (honeypot or no route) | 11 | 9 | 0 (0%) |
+| No holder data | 20 | 11 | 0 (0%) |
+| Too many open trades | 15 | 6 | 0 (0%) |
+| Sell test failed (honeypot or no route) | 12 | 9 | 0 (0%) |
 | Top 10 holders own too much | 7 | 4 | 0 (0%) |
 
 ## Recent council trades
@@ -45,4 +45,4 @@ Coins found: 0 · young coins waiting for a second look: 0 · RugCheck rechecks:
 
 ## Data source errors this run
 
-- lite-api.jup.ag (rate limited): 15
+- lite-api.jup.ag (rate limited): 16
