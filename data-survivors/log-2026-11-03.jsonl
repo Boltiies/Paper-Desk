@@ -44,3 +44,10 @@
 {"mint":"HAsTKXYvv65zM7J6Cu5o5PcZsiKMQYo5oz4WPjgqwP6k","sym":"jeff","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":39.6,"t":"2026-11-03 03:04:06","kind":"kill"}
 {"mint":"GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA","sym":"STEALTH","reason":"No holder data","dev":0,"insiders":0,"top10":0,"t":"2026-11-03 03:04:06","kind":"kill"}
 {"mint":"GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA","sym":"STEALTH","reason":"No holder data","dev":0,"insiders":0,"top10":0,"t":"2026-11-03 03:05:55","kind":"kill"}
+{"mint":"GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA","sym":"STEALTH","reason":"No holder data","dev":0,"insiders":0,"top10":0,"t":"2026-11-03 03:07:56","kind":"kill"}
+{"mint":"GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA","sym":"STEALTH","reason":"No holder data","dev":0,"insiders":0,"top10":0,"t":"2026-11-03 03:09:55","kind":"kill"}
+{"mint":"GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA","sym":"STEALTH","reason":"No holder data","dev":0,"insiders":0,"top10":0,"t":"2026-11-03 03:11:55","kind":"kill"}
+{"mint":"GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA","sym":"STEALTH","reason":"No holder data","dev":0,"insiders":0,"top10":0,"t":"2026-11-03 03:14:06","kind":"kill"}
+{"mint":"8s11PkgQt4ZzdZ7oo84hK5t9HG1EvdgAjcg4W7Lpump","sym":"BLOB","reason":"Too many open trades","dev":0,"insiders":0,"top10":3.1,"lp_locked":100,"liq":93011,"vol":512343,"h1":12,"tx_h1":299,"roundtrip_loss":1.9,"fills":"jupiter","signal":true,"tx_m5":5,"ratio_m5":0.6,"ratio_h1":0.298,"tx_h6":1692,"accel":0.2,"vol_m5":715,"vol_h1":23001,"vol_h24":512343,"ch_m5":2.74,"ch_h1":12.43,"ch_h6":-9.59,"ch_h24":-35.58,"mcap":1225851,"age_min":3579.7,"holders":0,"holders_per_min":0.0,"dex":"pumpswap","socials":1,"boosts":0,"avg_trade":76.9,"t":"2026-11-03 03:15:56","kind":"kill"}
+{"mint":"HAsTKXYvv65zM7J6Cu5o5PcZsiKMQYo5oz4WPjgqwP6k","sym":"jeff","reason":"Top 10 holders own too much","dev":0,"insiders":0,"top10":39.6,"t":"2026-11-03 03:15:56","kind":"kill"}
+{"mint":"GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA","sym":"STEALTH","reason":"No holder data","dev":0,"insiders":0,"top10":0,"t":"2026-11-03 03:15:56","kind":"kill"}
