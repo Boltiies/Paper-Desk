@@ -1,8 +1,8 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-03 05:08:12 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 05:19:07 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 817 calls this run
+Dev wallet watch (Helius): **on**, 867 calls this run
 
 ## Wallets
 
@@ -22,19 +22,19 @@ Dev wallet watch (Helius): **on**, 817 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 22 and 49).
 
-Lab: 37,657 coins fully tracked for 4 hours, 5,281 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 37,914 coins fully tracked for 4 hours, 5,251 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 43,412 · young coins waiting for a second look: 2,763 · RugCheck rechecks: 138 · coins matching the v3 pattern on sight: 165
+Coins found: 43,674 · young coins waiting for a second look: 2,725 · RugCheck rechecks: 140 · coins matching the v3 pattern on sight: 165
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 42,119 | 9,266 | 3 (0%) |
-| Doesn't match the v3 pattern | 515 | 156 | 2 (1%) |
-| Liquidity too low | 242 | 77 | 0 (0%) |
-| Top 10 holders own too much | 166 | 44 | 3 (7%) |
-| Danger flag: Creator history of rugged tokens | 78 | 19 | 0 (0%) |
+| Volume too low | 42,414 | 9,348 | 3 (0%) |
+| Doesn't match the v3 pattern | 517 | 159 | 2 (1%) |
+| Liquidity too low | 242 | 78 | 0 (0%) |
+| Top 10 holders own too much | 168 | 47 | 4 (9%) |
+| Danger flag: Creator history of rugged tokens | 79 | 20 | 0 (0%) |
 | Dev wallet already selling | 68 | 27 | 2 (7%) |
 | Dev holds too much | 38 | 5 | 0 (0%) |
 | No holder data | 29 | 14 | 1 (7%) |
@@ -67,4 +67,4 @@ Coins found: 43,412 · young coins waiting for a second look: 2,763 · RugCheck 
 ## Data source errors this run
 
 - api.rugcheck.xyz (400): 3
-- api.rugcheck.xyz (ConnectionError): 10
+- api.rugcheck.xyz (ConnectionError): 12
