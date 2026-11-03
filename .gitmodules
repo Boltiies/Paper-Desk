@@ -1,0 +1,15 @@
+[submodule "libs/cryptofeed"]
+	path = libs/cryptofeed
+	url = https://github.com/bmoscon/cryptofeed
+	branch = master
+	shallow = true
+[submodule "libs/ccxt"]
+	path = libs/ccxt
+	url = https://github.com/ccxt/ccxt
+	branch = master
+	shallow = true
+[submodule "libs/freqtrade"]
+	path = libs/freqtrade
+	url = https://github.com/freqtrade/freqtrade
+	branch = develop
+	shallow = true

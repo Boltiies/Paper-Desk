@@ -99,3 +99,23 @@ Its signal was fixed before the test: down 20-60% over 24 hours, up over the las
 hour, buys 55%+ of the last 5 minutes. A random control wallet buys a random
 sample of the same coins. Exits: -25% stop, half sold at +50%, 25% trailing stop
 on the rest, sold after 24 hours. Runs every 6 hours on its own schedule.
+
+## Libraries (libs/)
+
+Three open-source trading projects are linked here as git submodules, pinned to
+their latest commit on 2 Nov 2026. They aren't downloaded by default and the
+paper desks don't use them yet. To fetch them:
+
+    git submodule update --init --depth 1
+
+- **libs/cryptofeed** ([bmoscon/cryptofeed](https://github.com/bmoscon/cryptofeed)):
+  real-time market data (trades, order books, tickers) over websockets from
+  dozens of exchanges.
+- **libs/ccxt** ([ccxt/ccxt](https://github.com/ccxt/ccxt)): one API for
+  trading and market data on 100+ exchanges.
+- **libs/freqtrade** ([freqtrade/freqtrade](https://github.com/freqtrade/freqtrade)):
+  a full trading bot with backtesting, strategy optimization and paper
+  ("dry-run") mode.
+
+All three are built mainly for centralized exchanges like Binance or Coinbase,
+not for brand-new Solana memecoins on pump.fun.
