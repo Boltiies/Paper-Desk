@@ -1,6 +1,6 @@
 # Survivor desk · paper trading
 
-Updated 2026-11-03 04:41:59 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 04:54:06 UTC. Paper only: no wallet, no real trades.
 
 Dev wallet watch (Helius): **on**, 0 calls this run
 
@@ -10,7 +10,7 @@ Watching 1,110 survivor coins · 48 have passed the universe checks. Signal: dow
 
 | | Survivor signal | Random control |
 |---|---|---|
-| Value now | $76.27 | $77.11 |
+| Value now | $76.46 | $77.11 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 4 |
 | Closed trades | 1 | 0 |
@@ -32,8 +32,8 @@ Coins found: 0 · young coins waiting for a second look: 0 · RugCheck rechecks:
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Too many open trades | 26 | 15 | 0 (0%) |
-| No holder data | 20 | 20 | 0 (0%) |
+| Too many open trades | 26 | 18 | 0 (0%) |
+| No holder data | 22 | 20 | 0 (0%) |
 | Sell test failed (honeypot or no route) | 13 | 12 | 0 (0%) |
 | Top 10 holders own too much | 7 | 7 | 0 (0%) |
 
