@@ -1,16 +1,16 @@
 # Survivor desk · paper trading
 
-Updated 2026-11-03 05:17:58 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 05:29:56 UTC. Paper only: no wallet, no real trades.
 
 Dev wallet watch (Helius): **on**, 0 calls this run
 
-Watching 1,111 survivor coins · 48 have passed the universe checks. Signal: down 20-60% over 24h, up over the last hour, buys 55%+ of the last 5 minutes.
+Watching 1,116 survivor coins · 48 have passed the universe checks. Signal: down 20-60% over 24h, up over the last hour, buys 55%+ of the last 5 minutes.
 
 ## Wallets
 
 | | Survivor signal | Random control |
 |---|---|---|
-| Value now | $76.64 | $77.17 |
+| Value now | $76.23 | $76.98 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 4 |
 | Closed trades | 1 | 0 |
