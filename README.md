@@ -135,3 +135,16 @@ Analysis, research and charting:
   large; install it with `pip install duckdb` instead of building from source.
 - **libs/lightweight-charts** ([tradingview/lightweight-charts](https://github.com/tradingview/lightweight-charts)):
   TradingView's open-source charting library, for interactive price charts.
+
+## Coinbase strategy lab (from 3 Nov 2026)
+
+A shift from new-memecoin gambling to testing standard strategies on established
+coins. `cex/fetch_coinbase.py` downloads hourly and daily Coinbase candles for 18
+major coins from 2021 into `data-cex/coinbase/` (the **Coinbase data** workflow
+tops it up daily). `cex/backtest.py` tests six well-known strategies against just
+holding each coin and writes **BACKTEST.md**:
+
+- every buy and sell pays 0.95% (Coinbase US taker fee of 0.90% plus slippage)
+- signals use only data up to the previous close, and trades fill at the next open
+- each strategy's settings are picked on earlier years, then judged on later
+  years it never saw
