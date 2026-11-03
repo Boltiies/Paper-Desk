@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-03 01:57:30 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 02:08:00 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,736 calls this run
+Dev wallet watch (Helius): **on**, 1,799 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $58.17 | $56.71 |
+| Value now | $58.17 | $56.68 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 5 |
 | Closed trades | 22 | 45 |
@@ -22,18 +22,18 @@ Dev wallet watch (Helius): **on**, 1,736 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 22 and 45).
 
-Lab: 32,673 coins fully tracked for 4 hours, 6,075 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 33,018 coins fully tracked for 4 hours, 5,966 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 38,340 · young coins waiting for a second look: 2,946 · RugCheck rechecks: 90 · coins matching the v3 pattern on sight: 141
+Coins found: 38,625 · young coins waiting for a second look: 2,987 · RugCheck rechecks: 99 · coins matching the v3 pattern on sight: 143
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 37,085 | 8,117 | 3 (0%) |
-| Doesn't match the v3 pattern | 440 | 136 | 2 (1%) |
-| Liquidity too low | 198 | 63 | 0 (0%) |
-| Top 10 holders own too much | 123 | 37 | 2 (5%) |
+| Volume too low | 37,323 | 8,129 | 3 (0%) |
+| Doesn't match the v3 pattern | 444 | 136 | 2 (1%) |
+| Liquidity too low | 199 | 64 | 0 (0%) |
+| Top 10 holders own too much | 124 | 37 | 2 (5%) |
 | Dev wallet already selling | 61 | 23 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 61 | 14 | 0 (0%) |
 | Dev holds too much | 34 | 4 | 0 (0%) |
@@ -66,6 +66,7 @@ Coins found: 38,340 · young coins waiting for a second look: 2,946 · RugCheck 
 
 ## Data source errors this run
 
-- api.rugcheck.xyz (ConnectionError): 12
+- api.rugcheck.xyz (ConnectionError): 14
 - mainnet.helius-rpc.com (ConnectionError): 1
 - lite-api.jup.ag (rate limited): 2
+- api.rugcheck.xyz (400): 7
