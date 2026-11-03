@@ -1,16 +1,16 @@
 # Survivor desk · paper trading
 
-Updated 2026-11-03 02:17:56 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 02:29:56 UTC. Paper only: no wallet, no real trades.
 
 Dev wallet watch (Helius): **on**, 0 calls this run
 
-Watching 1,084 survivor coins · 45 have passed the universe checks. Signal: down 20-60% over 24h, up over the last hour, buys 55%+ of the last 5 minutes.
+Watching 1,084 survivor coins · 46 have passed the universe checks. Signal: down 20-60% over 24h, up over the last hour, buys 55%+ of the last 5 minutes.
 
 ## Wallets
 
 | | Survivor signal | Random control |
 |---|---|---|
-| Value now | $76.35 | $76.82 |
+| Value now | $76.60 | $76.75 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 5 | 4 |
 | Closed trades | 1 | 0 |
@@ -24,7 +24,7 @@ Watching 1,084 survivor coins · 45 have passed the universe checks. Signal: dow
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 1 and 0).
 
-Lab: 0 coins fully tracked for 4 hours, 45 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 0 coins fully tracked for 4 hours, 46 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
@@ -33,9 +33,9 @@ Coins found: 0 · young coins waiting for a second look: 0 · RugCheck rechecks:
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
 | Sell test failed (honeypot or no route) | 9 | 5 | 0 (0%) |
-| Too many open trades | 5 | 0 | — |
+| No holder data | 7 | 0 | — |
+| Too many open trades | 5 | 2 | 0 (0%) |
 | Top 10 holders own too much | 4 | 2 | 0 (0%) |
-| No holder data | 3 | 0 | — |
 
 ## Recent council trades
 
