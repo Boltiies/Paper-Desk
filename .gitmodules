@@ -13,3 +13,33 @@
 	url = https://github.com/freqtrade/freqtrade
 	branch = develop
 	shallow = true
+[submodule "libs/vectorbt"]
+	path = libs/vectorbt
+	url = https://github.com/polakowo/vectorbt
+	branch = master
+	shallow = true
+[submodule "libs/ta-lib-python"]
+	path = libs/ta-lib-python
+	url = https://github.com/TA-Lib/ta-lib-python
+	branch = master
+	shallow = true
+[submodule "libs/skfolio"]
+	path = libs/skfolio
+	url = https://github.com/skfolio/skfolio
+	branch = main
+	shallow = true
+[submodule "libs/quantstats"]
+	path = libs/quantstats
+	url = https://github.com/ranaroussi/quantstats
+	branch = main
+	shallow = true
+[submodule "libs/duckdb"]
+	path = libs/duckdb
+	url = https://github.com/duckdb/duckdb
+	branch = main
+	shallow = true
+[submodule "libs/lightweight-charts"]
+	path = libs/lightweight-charts
+	url = https://github.com/tradingview/lightweight-charts
+	branch = master
+	shallow = true

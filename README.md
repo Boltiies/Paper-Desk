@@ -102,7 +102,7 @@ on the rest, sold after 24 hours. Runs every 6 hours on its own schedule.
 
 ## Libraries (libs/)
 
-Three open-source trading projects are linked here as git submodules, pinned to
+Open-source trading and analysis projects are linked here as git submodules, pinned to
 their latest commit on 2 Nov 2026. They aren't downloaded by default and the
 paper desks don't use them yet. To fetch them:
 
@@ -119,3 +119,19 @@ paper desks don't use them yet. To fetch them:
 
 All three are built mainly for centralized exchanges like Binance or Coinbase,
 not for brand-new Solana memecoins on pump.fun.
+
+Analysis, research and charting:
+
+- **libs/vectorbt** ([polakowo/vectorbt](https://github.com/polakowo/vectorbt)):
+  very fast backtesting, so thousands of strategy settings can be tested at once.
+- **libs/ta-lib-python** ([TA-Lib/ta-lib-python](https://github.com/TA-Lib/ta-lib-python)):
+  150+ standard technical indicators (moving averages, RSI, MACD, Bollinger Bands).
+- **libs/skfolio** ([skfolio/skfolio](https://github.com/skfolio/skfolio)):
+  portfolio building, for deciding how much of each coin to hold.
+- **libs/quantstats** ([ranaroussi/quantstats](https://github.com/ranaroussi/quantstats)):
+  performance reports: returns, drawdowns, Sharpe ratio, comparison to a benchmark.
+- **libs/duckdb** ([duckdb/duckdb](https://github.com/duckdb/duckdb)):
+  a fast database for storing and querying years of price data. The source is
+  large; install it with `pip install duckdb` instead of building from source.
+- **libs/lightweight-charts** ([tradingview/lightweight-charts](https://github.com/tradingview/lightweight-charts)):
+  TradingView's open-source charting library, for interactive price charts.
