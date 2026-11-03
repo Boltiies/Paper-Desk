@@ -1,14 +1,14 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-02 23:59:34 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 00:10:02 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 1,143 calls this run
+Dev wallet watch (Helius): **on**, 1,208 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $59.48 | $56.72 |
+| Value now | $59.48 | $56.73 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 5 |
 | Closed trades | 21 | 45 |
@@ -22,22 +22,22 @@ Dev wallet watch (Helius): **on**, 1,143 calls this run
 
 Not enough trades yet. Need at least 30 closed trades in each wallet (now 21 and 45).
 
-Lab: 29,072 coins fully tracked for 4 hours, 6,772 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 29,362 coins fully tracked for 4 hours, 6,760 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 35,020 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 81 · coins matching the v3 pattern on sight: 131
+Coins found: 35,363 · young coins waiting for a second look: 3,000 · RugCheck rechecks: 82 · coins matching the v3 pattern on sight: 132
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 33,797 | 7,338 | 3 (0%) |
-| Doesn't match the v3 pattern | 412 | 126 | 2 (2%) |
-| Liquidity too low | 179 | 57 | 0 (0%) |
-| Top 10 holders own too much | 110 | 36 | 2 (6%) |
+| Volume too low | 34,134 | 7,373 | 3 (0%) |
+| Doesn't match the v3 pattern | 415 | 127 | 2 (2%) |
+| Liquidity too low | 180 | 57 | 0 (0%) |
+| Top 10 holders own too much | 111 | 36 | 2 (6%) |
 | Dev wallet already selling | 56 | 23 | 0 (0%) |
 | Danger flag: Creator history of rugged tokens | 46 | 10 | 0 (0%) |
 | Dev holds too much | 33 | 4 | 0 (0%) |
-| No market yet | 16 | 0 | — |
+| No market yet | 17 | 0 | — |
 | Sell test failed (honeypot or no route) | 7 | 3 | 0 (0%) |
 | Few huge trades (fake volume?) | 2 | 1 | 0 (0%) |
 | No holder data | 2 | 1 | 0 (0%) |
@@ -66,6 +66,6 @@ Coins found: 35,020 · young coins waiting for a second look: 3,000 · RugCheck 
 
 ## Data source errors this run
 
-- api.rugcheck.xyz (ConnectionError): 3
+- api.rugcheck.xyz (ConnectionError): 4
 - mainnet.helius-rpc.com (ConnectionError): 1
 - lite-api.jup.ag (rate limited): 2
