@@ -1,43 +1,43 @@
 # Kill-First Desk · paper trading
 
-Updated 2026-11-03 03:27:36 UTC. Paper only: no wallet, no real trades.
+Updated 2026-11-03 03:38:07 UTC. Paper only: no wallet, no real trades.
 
-Dev wallet watch (Helius): **on**, 316 calls this run
+Dev wallet watch (Helius): **on**, 376 calls this run
 
 ## Wallets
 
 | | Council picks | Random control |
 |---|---|---|
-| Value now | $58.17 | $55.11 |
+| Value now | $58.17 | $54.90 |
 | Started with | $77.00 | $77.00 |
 | Open trades | 0 | 4 |
-| Closed trades | 22 | 47 |
-| Win rate | 5% | 9% |
+| Closed trades | 22 | 48 |
+| Win rate | 5% | 8% |
 | Avg win | $0.86 | $1.47 |
-| Avg loss | $-0.94 | $-0.63 |
-| Expectancy per trade | $-0.856 | $-0.455 |
-| Return per $ bet | -63.8% | -32.9% |
+| Avg loss | $-0.94 | $-0.62 |
+| Expectancy per trade | $-0.856 | $-0.449 |
+| Return per $ bet | -63.8% | -32.6% |
 
 ## Does the council have an edge?
 
-Not enough trades yet. Need at least 30 closed trades in each wallet (now 22 and 47).
+Not enough trades yet. Need at least 30 closed trades in each wallet (now 22 and 48).
 
-Lab: 35,081 coins fully tracked for 4 hours, 5,673 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
+Lab: 35,348 coins fully tracked for 4 hours, 5,642 still being followed. Run `python analyze.py` to see what predicted the winners (writes LEARN.md).
 
 ## Funnel
 
-Coins found: 40,809 · young coins waiting for a second look: 2,916 · RugCheck rechecks: 134 · coins matching the v3 pattern on sight: 153
+Coins found: 41,087 · young coins waiting for a second look: 2,925 · RugCheck rechecks: 134 · coins matching the v3 pattern on sight: 154
 
 | Stopped because | Count | Checked 1h later | Pumped 2x+ |
 |---|---|---|---|
-| Volume too low | 39,476 | 8,708 | 3 (0%) |
-| Doesn't match the v3 pattern | 476 | 142 | 2 (1%) |
-| Liquidity too low | 210 | 66 | 0 (0%) |
-| Top 10 holders own too much | 143 | 39 | 2 (5%) |
-| Danger flag: Creator history of rugged tokens | 68 | 16 | 0 (0%) |
-| Dev wallet already selling | 62 | 26 | 2 (8%) |
+| Volume too low | 39,728 | 8,866 | 3 (0%) |
+| Doesn't match the v3 pattern | 482 | 142 | 2 (1%) |
+| Liquidity too low | 218 | 66 | 0 (0%) |
+| Top 10 holders own too much | 144 | 39 | 2 (5%) |
+| Danger flag: Creator history of rugged tokens | 69 | 16 | 0 (0%) |
+| Dev wallet already selling | 63 | 26 | 2 (8%) |
 | Dev holds too much | 35 | 4 | 0 (0%) |
-| No holder data | 29 | 8 | 0 (0%) |
+| No holder data | 29 | 14 | 1 (7%) |
 | No market yet | 23 | 0 | — |
 | Sell test failed (honeypot or no route) | 7 | 3 | 0 (0%) |
 | Few huge trades (fake volume?) | 3 | 1 | 0 (0%) |
