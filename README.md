@@ -148,3 +148,15 @@ holding each coin and writes **BACKTEST.md**:
 - signals use only data up to the previous close, and trades fill at the next open
 - each strategy's settings are picked on earlier years, then judged on later
   years it never saw
+
+**RSI dip-buying** came out best, so it gets two more checks:
+
+- **Coinbase research** workflow (weekly, or run it from Actions): re-runs the
+  backtest, then `cex/deep_check.py` recomputes RSI dip-buying with vectorbt and
+  TA-Lib (independent code) as one portfolio across all coins, against an
+  equal-weight buy-and-hold basket. Writes **DEEPCHECK.md** and a QuantStats report
+  in `reports/rsi-vs-hold.html`.
+- **Paper trader** (`cex/paper_rsi.py`, runs daily right after the data download):
+  $1,000 in RSI dip-buying (daily RSI 14, buy below 25, sell above 65, equal slot per
+  coin) against $1,000 in a buy-and-hold basket, on live Coinbase prices with 0.95%
+  per trade. Results in **PAPER-COINBASE.md**. Paper only: no Coinbase account or keys.
