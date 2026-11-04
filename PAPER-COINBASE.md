@@ -1,13 +1,13 @@
 # Coinbase paper trader · RSI dip-buying
 
-Updated 2026-11-03 23:31 UTC, prices as of 2026-11-03 22:00 UTC. Paper only: no account, no real orders.
+Updated 2026-11-04 01:23 UTC, prices as of 2026-11-04 00:00 UTC. Paper only: no account, no real orders.
 
 Rule: buy a coin when its daily RSI(14) closes below 25, sell when it closes above 65. Each coin gets an equal slot. Every trade pays 0.95%. Started 2026-11-03 23:31 UTC.
 
 | | RSI dip-buying | Buy-and-hold basket |
 |---|---|---|
-| Value now | $1,000.00 | $990.50 |
-| Change | +0.0% | -0.9% |
+| Value now | $1,000.00 | $979.17 |
+| Change | +0.0% | -2.1% |
 | Cash | $1,000.00 | $0.00 |
 | Coins held | 0 of 18 | 18 |
 | Closed trades | 0 | — |
@@ -24,24 +24,24 @@ Closest to a buy signal first.
 
 | Coin | RSI | Price |
 |---|---|---|
-| SOL | 26 | $93.42 |
-| ADA | 31 | $0.19097 |
-| ATOM | 32 | $1.4158 |
-| ETH | 33 | $2,290.41 |
-| DOGE | 33 | $0.07553 |
-| SHIB | 34 | $4.64e-06 |
-| LTC | 34 | $54.69 |
-| AVAX | 35 | $8.535 |
-| BTC | 35 | $77,779.3 |
-| XLM | 36 | $0.162909 |
-| DOT | 36 | $0.9436 |
-| XRP | 37 | $1.2796 |
-| SUI | 37 | $0.8995 |
-| AAVE | 37 | $126.96 |
-| NEAR | 39 | $3.847 |
-| LINK | 40 | $11.094 |
-| BCH | 46 | $275.35 |
-| UNI | 47 | $7.2104 |
+| SOL | 29 | $92.39 |
+| ATOM | 30 | $1.4077 |
+| ADA | 32 | $0.18831 |
+| XLM | 35 | $0.16055 |
+| DOT | 36 | $0.9313 |
+| ETH | 37 | $2,271.28 |
+| SHIB | 37 | $4.57e-06 |
+| DOGE | 37 | $0.07455 |
+| LTC | 37 | $53.685 |
+| AVAX | 38 | $8.432 |
+| AAVE | 38 | $125.92 |
+| BTC | 38 | $77,122.6 |
+| NEAR | 39 | $3.824 |
+| LINK | 40 | $10.917 |
+| SUI | 41 | $0.8861 |
+| XRP | 43 | $1.2596 |
+| BCH | 46 | $273.25 |
+| UNI | 49 | $7.1808 |
 
 ## Recent trades
 
