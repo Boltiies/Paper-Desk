@@ -156,7 +156,12 @@ holding each coin and writes **BACKTEST.md**:
   TA-Lib (independent code) as one portfolio across all coins, against an
   equal-weight buy-and-hold basket. Writes **DEEPCHECK.md** and a QuantStats report
   in `reports/rsi-vs-hold.html`.
-- **Paper trader** (`cex/paper_rsi.py`, runs daily right after the data download):
+- **Paper traders** (`cex/paper.py`, run daily right after the data download):
   $1,000 in RSI dip-buying (daily RSI 14, buy below 25, sell above 65, equal slot per
   coin) against $1,000 in a buy-and-hold basket, on live Coinbase prices with 0.95%
-  per trade. Results in **PAPER-COINBASE.md**. Paper only: no Coinbase account or keys.
+  per trade. Results in **PAPER-COINBASE.md**.
+  A second $1,000 runs the moving-average cross (hold a coin while its 10-day average is
+  above its 50-day average), with its own basket started the same day. It trades about
+  10 times a year per coin, so it gives faster feedback, but its backtest was weaker
+  (median coin-year about flat). Results in **PAPER-COINBASE-MA.md**.
+  Paper only: no Coinbase account or keys.
