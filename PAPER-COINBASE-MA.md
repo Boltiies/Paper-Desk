@@ -1,13 +1,13 @@
 # Coinbase paper trader · Moving-average cross
 
-Updated 2026-11-21 01:30 UTC, prices as of 2026-11-21 00:00 UTC. Paper only: no account, no real orders.
+Updated 2026-11-22 01:27 UTC, prices as of 2026-11-22 00:00 UTC. Paper only: no account, no real orders.
 
 Rule: hold a coin while its 10-day moving average is above its 50-day moving average; sell when it drops below. Each coin gets an equal slot. Every trade pays 0.95%. Started 2026-11-08 00:25 UTC.
 
 | | Moving-average cross | Buy-and-hold basket |
 |---|---|---|
-| Value now | $1,000.00 | $763.27 |
-| Change | +0.0% | -23.7% |
+| Value now | $1,000.00 | $770.26 |
+| Change | +0.0% | -23.0% |
 | Cash | $1,000.00 | $0.00 |
 | Coins held | 0 of 18 | 18 |
 | Closed trades | 0 | — |
@@ -24,24 +24,24 @@ Positive means uptrend (held), negative means downtrend (not held). Closest to f
 
 | Coin | Gap | Price |
 |---|---|---|
-| BTC | -15.4% | $58,900 |
-| ATOM | -16.3% | $1.2168 |
-| SHIB | -17.6% | $3.57e-06 |
-| AVAX | -18.1% | $6.512 |
-| XLM | -18.4% | $0.12742 |
-| LINK | -18.9% | $8.543 |
-| LTC | -19.3% | $40.629 |
-| ETH | -19.5% | $1,619.78 |
-| BCH | -20.5% | $193.62 |
-| DOGE | -20.6% | $0.05433 |
-| SUI | -21.1% | $0.6483 |
-| XRP | -21.7% | $0.9081 |
-| AAVE | -22.5% | $97.8 |
-| ADA | -23.0% | $0.14275 |
-| SOL | -23.0% | $68.83 |
-| UNI | -23.8% | $4.4798 |
-| NEAR | -24.8% | $2.812 |
-| DOT | -25.1% | $0.661 |
+| BTC | -16.7% | $60,075.3 |
+| ATOM | -17.2% | $1.1653 |
+| SHIB | -18.4% | $3.63e-06 |
+| XLM | -18.6% | $0.12902 |
+| AVAX | -19.4% | $6.565 |
+| LINK | -19.6% | $8.589 |
+| LTC | -20.3% | $39.691 |
+| ETH | -20.4% | $1,680.8 |
+| BCH | -20.9% | $198.93 |
+| DOGE | -21.5% | $0.0551 |
+| XRP | -22.0% | $0.9285 |
+| SUI | -22.1% | $0.6459 |
+| AAVE | -23.3% | $97.3 |
+| SOL | -23.6% | $70.19 |
+| ADA | -23.7% | $0.14411 |
+| UNI | -25.0% | $4.6927 |
+| NEAR | -25.8% | $2.8895 |
+| DOT | -26.2% | $0.6511 |
 
 ## Recent trades
 
