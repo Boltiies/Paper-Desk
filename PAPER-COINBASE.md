@@ -1,13 +1,13 @@
 # Coinbase paper trader · RSI dip-buying
 
-Updated 2026-11-22 01:27 UTC, prices as of 2026-11-22 00:00 UTC. Paper only: no account, no real orders.
+Updated 2026-11-23 01:32 UTC, prices as of 2026-11-23 00:00 UTC. Paper only: no account, no real orders.
 
 Rule: buy a coin when its daily RSI(14) closes below 25, sell when it closes above 65. Each coin gets an equal slot. Every trade pays 0.95%. Started 2026-11-03 23:31 UTC.
 
 | | RSI dip-buying | Buy-and-hold basket |
 |---|---|---|
-| Value now | $957.03 | $739.17 |
-| Change | -4.3% | -26.1% |
+| Value now | $958.76 | $743.41 |
+| Change | -4.1% | -25.7% |
 | Cash | $455.46 | $0.00 |
 | Coins held | 10 of 18 | 18 |
 | Closed trades | 0 | — |
@@ -16,16 +16,16 @@ Rule: buy a coin when its daily RSI(14) closes below 25, sell when it closes abo
 
 | Coin | Bought at | Now | Change | RSI now |
 |---|---|---|---|---|
-| ADA | $0.14626 | $0.14411 | -1.5% | RSI 26 |
-| BCH | $199.33 | $198.93 | -0.2% | RSI 30 |
-| BTC | $68,262.7 | $60,075.3 | -12.0% | RSI 23 |
-| DOGE | $0.0568 | $0.0551 | -3.0% | RSI 26 |
-| DOT | $0.694 | $0.6511 | -6.2% | RSI 21 |
-| ETH | $1,930.18 | $1,680.8 | -12.9% | RSI 26 |
-| LTC | $40.629 | $39.691 | -2.3% | RSI 23 |
-| SHIB | $3.79e-06 | $3.63e-06 | -4.2% | RSI 25 |
-| SOL | $83.04 | $70.19 | -15.5% | RSI 27 |
-| XRP | $1.0506 | $0.9285 | -11.6% | RSI 29 |
+| ADA | $0.14626 | $0.14369 | -1.8% | RSI 27 |
+| BCH | $199.33 | $198.3 | -0.5% | RSI 30 |
+| BTC | $68,262.7 | $61,249.1 | -10.3% | RSI 27 |
+| DOGE | $0.0568 | $0.05504 | -3.1% | RSI 26 |
+| DOT | $0.694 | $0.6571 | -5.3% | RSI 23 |
+| ETH | $1,930.18 | $1,718.72 | -11.0% | RSI 30 |
+| LTC | $40.629 | $40.009 | -1.5% | RSI 25 |
+| SHIB | $3.79e-06 | $3.57e-06 | -5.8% | RSI 25 |
+| SOL | $83.04 | $70.7 | -14.9% | RSI 28 |
+| XRP | $1.0506 | $0.9235 | -12.1% | RSI 29 |
 
 ## Watch list (RSI now)
 
@@ -33,24 +33,24 @@ Closest to a buy signal first.
 
 | Coin | RSI | Price |
 |---|---|---|
-| DOT | 21 · buy zone | $0.6511 |
-| BTC | 23 · buy zone | $60,075.3 |
-| LTC | 23 · buy zone | $39.691 |
-| SHIB | 25 | $3.63e-06 |
-| DOGE | 26 | $0.0551 |
-| ETH | 26 | $1,680.8 |
-| ADA | 26 | $0.14411 |
-| SOL | 27 | $70.19 |
-| SUI | 28 | $0.6459 |
-| XRP | 29 | $0.9285 |
-| BCH | 30 | $198.93 |
-| LINK | 30 | $8.589 |
-| AVAX | 30 | $6.565 |
-| XLM | 30 | $0.12902 |
-| ATOM | 30 | $1.1653 |
-| AAVE | 31 | $97.3 |
-| UNI | 33 | $4.6927 |
-| NEAR | 33 | $2.8895 |
+| DOT | 23 · buy zone | $0.6571 |
+| LTC | 25 · buy zone | $40.009 |
+| SHIB | 25 · buy zone | $3.57e-06 |
+| DOGE | 26 | $0.05504 |
+| BTC | 27 | $61,249.1 |
+| ADA | 27 | $0.14369 |
+| SOL | 28 | $70.7 |
+| XRP | 29 | $0.9235 |
+| XLM | 29 | $0.127038 |
+| SUI | 29 | $0.6517 |
+| BCH | 30 | $198.3 |
+| ETH | 30 | $1,718.72 |
+| ATOM | 31 | $1.1653 |
+| AAVE | 32 | $96.94 |
+| AVAX | 32 | $6.652 |
+| UNI | 32 | $4.6894 |
+| LINK | 33 | $8.837 |
+| NEAR | 36 | $2.9907 |
 
 ## Recent trades
 
